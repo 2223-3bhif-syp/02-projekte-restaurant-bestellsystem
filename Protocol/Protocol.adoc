@@ -1,6 +1,6 @@
 = Protocol - Pick-your-Menu
 
-== Contacts
+== Contacts:
 
 [cols="3,3,3"]
 |===
