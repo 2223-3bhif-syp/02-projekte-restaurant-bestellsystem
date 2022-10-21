@@ -1,4 +1,56 @@
-= Projektauftrag
+= Project Assignment
 
-== Pick-your-menu
+////
+Team:   Armin Salkovic
+        Abdullah AL Desoky
+        Balint Balazs
+        Sukhbat Munkh
+
+Class: 3BHIF
+////
+
+== Project Name
+Pick-Your-Menu
+
+== Project Client
+Herr Prof. Thomas Stütz
+
+== Project Background
+
+
+== Final Result
+
+
+== Project Goal
+* better overview of the menu
+* faster/easier decision-making
+* the customer gets his food earlier
+* easier for the staff
+* no misunderstandings between the customer and the staff
+
+== Project Description
+
+
+== Milestones
+
+== Project Start
+07.11.2022
+
+== Project End
+26.06.2022
+
+== Project Resources
+
+== Project Risks
+
+== Project Organisation
+* Project Leader
+** Armin Salkovic
+* Project Team
+** Abdullah AL Desoky
+** Balint Balazs
+** Sukhbat Munkh
+
+== Completion of the Project
+
 
