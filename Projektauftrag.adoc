@@ -1,4 +1,5 @@
 = Project Assignment
+v1.0, 2022.10.24 | Systemplanung und Projektentwicklung
 
 ////
 Team:   Armin Salkovic
@@ -13,7 +14,7 @@ Class: 3BHIF
 Pick-Your-Menu
 
 == Project Client
-Herr Prof. Thomas Stütz
+Herr Prof. Thomas W. Stütz
 
 == Project Background
 As we all know there are sometimes
@@ -23,27 +24,27 @@ the same language or just normal understanding
 problems. To solve this problem but also to
 make everything faster and easier we wanted to
 develop an app which solves all these problems
-in a restaurant.
+in a restaurant where you can order directly and easly through it.
 
 == Final Result
 The result is an application which allows us to
-order what ever we want represented on the menu.
+order what ever we want represented on the menu. +
 It is only an application for the restaurants. That
 means that only restaurants have access to the app.
 It is not a mobile app for customers.
 
 == Project Goal
-* better overview of the menu
-* faster/easier decision-making
-* the customer gets his food earlier
-* easier for the staff
-* no misunderstandings between the customer and the staff
+* Better overview of the menu
+* Faster/Easier decision-making
+* The customer gets his food earlier
+* Easier for the staff
+* No misunderstandings between the customer and the staff
 
 == Project Description
-* navbar for different categories (drinks, main dish, dessert, ...)
-* every dish/drink has a picture of it
-* ingredients and prices of specific dishes/drinks are also shown
-* at the end of the order the bill is displayed
+* Navbar for different categories (drinks, main dish, dessert, ...)
+* Every dish/drink has a picture of it
+* Ingredients and prices of specific dishes/drinks are also shown
+* At the end of the order the bill is displayed
 
 == Milestones
 [cols="1,1,1,1"]
@@ -57,7 +58,7 @@ It is not a mobile app for customers.
 
 | Project End
 | -
-| 26.06.2023
+| (26.06.2023)
 | -
 |===
 
@@ -65,7 +66,7 @@ It is not a mobile app for customers.
 07.11.2022
 
 == Project End
-26.06.2023
+(26.06.2023)
 
 == Project Resources
 [cols="1,1,1,1"]
@@ -109,8 +110,8 @@ It is not a mobile app for customers.
 |===
 
 == Project Risks
-* not enough time
-* misunderstandings in the team
+* Not enough time
+* Misunderstandings in the team
 
 == Project Organisation
 * Project Leader
