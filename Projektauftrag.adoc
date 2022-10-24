@@ -16,10 +16,21 @@ Pick-Your-Menu
 Herr Prof. Thomas Stütz
 
 == Project Background
-
+As we all know there are sometimes
+some misunderstandings between the waiter
+and the customer in terms of not speaking
+the same language or just normal understanding
+problems. To solve this problem but also to
+make everything faster and easier we wanted to
+develop an app which solves all these problems
+in a restaurant.
 
 == Final Result
-
+The result is an application which allows us to
+order what ever we want represented on the menu.
+It is only an application for the restaurants. That
+means that only restaurants have access to the app.
+It is not a mobile app for customers.
 
 == Project Goal
 * better overview of the menu
@@ -29,19 +40,77 @@ Herr Prof. Thomas Stütz
 * no misunderstandings between the customer and the staff
 
 == Project Description
-
+* navbar for different categories (drinks, main dish, dessert, ...)
+* every dish/drink has a picture of it
+* ingredients and prices of specific dishes/drinks are also shown
+* at the end of the order the bill is displayed
 
 == Milestones
+[cols="1,1,1,1"]
+|===
+^| Phase ^| Milestone (Result) ^| Date ^| Release
+
+| Project Start
+| -
+| 07.11.2022
+| -
+
+| Project End
+| -
+| 26.06.2023
+| -
+|===
 
 == Project Start
 07.11.2022
 
 == Project End
-26.06.2022
+26.06.2023
 
 == Project Resources
+[cols="1,1,1,1"]
+|===
+^| Infrastructure ^| Amount ^| Euro ^| Amount
+
+| -
+| -
+| -
+| -
+|===
+
+[cols="1,1,1,1"]
+|===
+^| Staff ^| Amount ^| Euro ^| Amount
+
+| -
+| -
+| -
+| -
+|===
+
+[cols="1,1,1,1"]
+|===
+^| Material ^| Amount ^| Euro ^| Amount
+
+| -
+| -
+| -
+| -
+|===
+
+[cols="1,1,1,1"]
+|===
+^| other Expenditures ^| Amount ^| Euro ^| Amount
+
+| -
+| -
+| -
+| -
+|===
 
 == Project Risks
+* not enough time
+* misunderstandings in the team
 
 == Project Organisation
 * Project Leader
@@ -52,5 +121,6 @@ Herr Prof. Thomas Stütz
 ** Sukhbat Munkh
 
 == Completion of the Project
+-
 
 
