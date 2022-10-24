@@ -4,9 +4,7 @@
 
 [cols="3,3,3"]
 |===
-|*_Name_*
-|*_E-mail_*
-|*_number_*
+^| Name ^| E-mail ^| Number
 
 |_Armin Salkovic_
 |a.salkovic@sudents.htl-leonding.ac.at
@@ -29,12 +27,14 @@
 
 [cols="1,8,2"]
 |===
-|*_Date_*
-|*_Description_*
-|*_name_*
+^| Date ^| Description ^| Name
 
 |19.10.2022
 |Created a Discord Server and a protocol to fill the informations
 |Abdullah AL Desoky
+
+|24.10.2022
+|Finished Project Assignment
+|Armin Salkovic
 
 |===
