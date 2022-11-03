@@ -36,7 +36,7 @@ It is not a mobile app for customers.
 == Project Goal
 * Better overview of the menu
 * Faster/Easier decision-making
-* The customer gets his food earlier
+* Faster process when ordering
 * Easier for the staff
 * No misunderstandings between the customer and the staff
 
