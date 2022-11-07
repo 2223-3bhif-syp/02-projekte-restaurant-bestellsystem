@@ -41,4 +41,8 @@
 |Checked and updated the Project Assignment
 |Abdullah Aldesoky
 
+|07.11.2022
+|Created a class diagram
+|Armin, Abdullah, Sukhbat, Balint
+
 |===
