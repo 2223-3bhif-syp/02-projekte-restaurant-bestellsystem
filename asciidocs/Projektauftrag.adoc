@@ -1,6 +1,6 @@
 = Project Assignment
 
-== image:../images/logo.jpg[width=300, height=100]
+== image:../images/logo.jpg[width=40%, height=40%]
 
 ////
 Team:   Armin Salkovic
