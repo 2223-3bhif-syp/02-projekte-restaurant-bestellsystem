@@ -1,5 +1,6 @@
 = Project Assignment
-v1.0, 2022.10.24 | Systemplanung und Projektentwicklung
+
+== image:../images/logo.jpg[width=300, height=100]
 
 ////
 Team:   Armin Salkovic
@@ -10,25 +11,28 @@ Team:   Armin Salkovic
 Class: 3BHIF
 ////
 
+== Contacts
+* Leader: <a.salkovic@students.htl-leonding.ac.at>
+* Member: <a.al_desoky@students.htl-leonding.ac.at>
+* Member: <b.balazs@students.htl-leonding.ac.at>
+* Member: <s.munkh@students.htl-leonding.ac.at>
+
 == Project Name
 Pick-Your-Menu
 
 == Project Client
-Herr Prof. Thomas W. Stütz
+Herr Prof. Thomas Stütz
 
 == Project Background
 As we all know there are sometimes
 some misunderstandings between the waiter
 and the customer in terms of not speaking
 the same language or just normal understanding
-problems. To solve this problem but also to
-make everything faster and easier we wanted to
-develop an app which solves all these problems
-in a restaurant where you can order directly and easly through it.
+problems.
 
 == Final Result
 The result is an application which allows us to
-order what ever we want represented on the menu. +
+order what ever we want represented on the menu.
 It is only an application for the restaurants. That
 means that only restaurants have access to the app.
 It is not a mobile app for customers.
