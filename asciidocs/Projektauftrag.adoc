@@ -1,6 +1,6 @@
-= Project Assignment
+= Projektauftrag
 
-== image:../images/logo.jpg[width=40%, height=40%]
+== image:../images/logo.jpg[width=20%, height=20%]
 
 ////
 Team:   Armin Salkovic
@@ -8,84 +8,74 @@ Team:   Armin Salkovic
         Balint Balazs
         Sukhbat Munkh
 
-Class: 3BHIF
+Klasse: 3BHIF
 ////
 
-== Contacts
-* Leader: <a.salkovic@students.htl-leonding.ac.at>
-* Member: <a.al_desoky@students.htl-leonding.ac.at>
-* Member: <b.balazs@students.htl-leonding.ac.at>
-* Member: <s.munkh@students.htl-leonding.ac.at>
+== Kontakte
+* Leiter: <a.salkovic@students.htl-leonding.ac.at>
+* Mitglied: <a.al_desoky@students.htl-leonding.ac.at>
+* Mitglied: <b.balazs@students.htl-leonding.ac.at>
+* Mitglied: <s.munkh@students.htl-leonding.ac.at>
 
-== Project Name
+== Projektname
 Pick-Your-Menu
 
-== Project Client
+== Auftraggeber
 Herr Prof. Thomas Stütz
 
-== Project Background
-As we all know there are sometimes
-some misunderstandings between the waiter
-and the customer in terms of not speaking
-the same language or just normal understanding
-problems.
+== Projekthintergrund
+Wie wir alle wissen, gibt es manchmal
+einige Missverständnisse zwischen dem Kellner
+und der Kunde in Bezug auf das Nichtsprechen
+die gleiche Sprache oder nur normales Verständnis
+Probleme.
 
-== Final Result
-The result is an application which allows us to
-order what ever we want represented on the menu.
-It is only an application for the restaurants. That
-means that only restaurants have access to the app.
-It is not a mobile app for customers.
+== Endergebis
+Das Ergebnis ist eine Anwendung, die es uns ermöglicht
+bestellen, was auch immer wir auf der Speisekarte vertreten wollen.
+Es ist nur eine Anwendung für die Restaurants. Dass
+bedeutet, dass nur Restaurants Zugriff auf die App haben.
+Es ist keine mobile App für Kunden.
 
-== Project Goal
-* Better overview of the menu
-* Faster/Easier decision-making
-* Faster process when ordering
-* Easier for the staff
-* No misunderstandings between the customer and the staff
+== Projektziel
+* Bessere Übersicht über das Menü
+* Schnellere/einfachere Entscheidungsfindung
+* Schnellerer Ablauf bei der Bestellung
+* Einfacher für das Personal
+* Keine Missverständnisse zwischen dem Kunden und dem Personal
 
-== Project Description
-* Navbar for different categories (drinks, main dish, dessert, ...)
-* Every dish/drink has a picture of it
-* Ingredients and prices of specific dishes/drinks are also shown
-* At the end of the order the bill is displayed
+== Projektbeschreibung
+* Navbar für verschiedene Kategorien (Getränke, Hauptgericht, Dessert, ...)
+* Jedes Gericht/Getränk hat ein Bild davon
+* Zutaten und Preise bestimmter Speisen/Getränke werden ebenfalls angezeigt
+* Am Ende der Bestellung wird die Rechnung angezeigt
 
-== Milestones
+== Meilensteine
 [cols="1,1,1,1"]
 |===
-^| Phase ^| Milestone (Result) ^| Date ^| Release
+^| Phase ^| Meilenstein (Ergebnis) ^| Datum ^| Veröffentlichung
 
-| Project Start
+| Projektstart
 | -
 | 07.11.2022
 | -
 
-| Project End
+| Projektende
 | -
 | (26.06.2023)
 | -
 |===
 
-== Project Start
+== Projektstart
 07.11.2022
 
-== Project End
+== Projektende
 (26.06.2023)
 
-== Project Resources
+== Projektressourcen
 [cols="1,1,1,1"]
 |===
-^| Infrastructure ^| Amount ^| Euro ^| Amount
-
-| -
-| -
-| -
-| -
-|===
-
-[cols="1,1,1,1"]
-|===
-^| Staff ^| Amount ^| Euro ^| Amount
+^| Infrastruktur ^| Menge ^| Euro ^| Menge
 
 | -
 | -
@@ -95,7 +85,7 @@ It is not a mobile app for customers.
 
 [cols="1,1,1,1"]
 |===
-^| Material ^| Amount ^| Euro ^| Amount
+^| Personal ^| Menge ^| Euro ^| Menge
 
 | -
 | -
@@ -105,7 +95,7 @@ It is not a mobile app for customers.
 
 [cols="1,1,1,1"]
 |===
-^| other Expenditures ^| Amount ^| Euro ^| Amount
+^| Material ^| Menge ^| Euro ^| Menge
 
 | -
 | -
@@ -113,19 +103,29 @@ It is not a mobile app for customers.
 | -
 |===
 
-== Project Risks
-* Not enough time
-* Misunderstandings in the team
+[cols="1,1,1,1"]
+|===
+^| andere Ausgaben ^| Menge ^| Euro ^| Menge
 
-== Project Organisation
-* Project Leader
+| -
+| -
+| -
+| -
+|===
+
+== Projektrisiken
+* Nicht genug Zeit
+* Missverständnisse im Team
+
+== Projektorganisation
+* Projektleiter
 ** Armin Salkovic
-* Project Team
+* Projektteam
 ** Abdullah AL Desoky
 ** Balint Balazs
 ** Sukhbat Munkh
 
-== Completion of the Project
+== Fertigstellung des Projektes
 -
 
 
