@@ -15,9 +15,11 @@ Es ist keine mobile App für Kunden.
 
 == Dokumente
 - https://github.com/2223-3bhif-syp/02-projekte-restaurant-bestellsystem/blob/main/asciidocs/Projektauftrag.adoc[Projektauftrag]
+<<<<<<< HEAD
 
 [%collapsible]
 .Programmablaufplan
 ====
 image::images/classdiagramm.png[classdiagramm,250,50]
 ====
+=======
