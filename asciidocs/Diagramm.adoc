@@ -1,0 +1,42 @@
+= Class Diagram
+
+== Team
+* Salkovic Armin
+* Aldesoky Abdullah
+* Munkh Sukhbat
+* Balazs Balint
+
+[plantuml, target=diagram-classes, format=png]
+....
+class Restaurant{
+* name: String
+* address: Address
+* phoneNumber: Number
+}
+
+class customer{
+* orderNumber: Number
+}
+
+class menu{
+* name: Name
+* menu: List<food>
+}
+
+class food{
+* foodName: String
+* itemNumber: Number
+* price: Number
+* ingredients: List<String>
+}
+
+class shoppingCart{
+* orderedFood: List<food>
+* totalPrice: Number
+}
+
+Restaurant --|> customer
+customer --|> menu
+customer --|> shoppingCart
+menu --|> food
+....
