@@ -20,6 +20,6 @@ Es ist keine mobile App für Kunden.
 [%collapsible]
 .Programmablaufplan
 ====
-image::images/classdiagramm.png[classdiagramm,200,200]
+image::images/classdiagramm.png[classdiagramm,300,300]
 ====
 =======
