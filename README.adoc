@@ -14,4 +14,4 @@ bedeutet, dass nur Restaurants Zugriff auf die App haben.
 Es ist keine mobile App für Kunden.
 
 == Dokumente
-- https://github.com/2223-3bhif-syp/02-projekte-restaurant-bestellsystem/blob/main/asciidocs/Projektauftrag.adoc[Projektauftrag]
+- https://2223-3bhif-syp.github.io/02-projekte-restaurant-bestellsystem/blob/main/asciidocs/Projektauftrag.adoc[Projektauftrag]
