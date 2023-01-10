@@ -22,4 +22,12 @@ Es ist keine mobile App für Kunden.
 ====
 image::images/classdiagramm.png[classdiagramm,300,300]
 ====
-=======
+
+
+== Prototyp
+
+[%collapsible]
+.Skizze
+====
+image::images/prototyp.jpg[]
+====
