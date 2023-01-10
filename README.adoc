@@ -1,0 +1,25 @@
+= Pick-Your-Menu
+
+== Beschreibung
+Da es wie wir alle wissen manchmal einige Missverständnisse zwischen dem Kellner und den Kunden in Bezug auf das Nichtsprechen der selben Sprache oder normale Verständnis Probleme
+gibt, wollen wir eine Applikation entwickeln, welche den Kunden eine simple und einfache Bestellung ermöglicht.
+
+
+== Dokumente
+- https://github.com/2223-3bhif-syp/02-projekte-restaurant-bestellsystem/blob/main/asciidocs/Projektauftrag.adoc[Projektauftrag]
+
+
+[%collapsible]
+.Programmablaufplan
+====
+image::images/classdiagramm.png[classdiagramm,300,300]
+====
+
+
+== Prototyp
+
+[%collapsible]
+.Skizze
+====
+image::images/prototyp.jpg[]
+====
