@@ -1,0 +1,37 @@
+= Pflichtenheft
+Abdullah Aldesoky, Armin Salkovic, Balint Balazs, Sukhbat Munkh
+
+== Ausgangssituation
+Wir sind ein Team aus 4 Schülern. Wir arbeiten in der HTBLA Leonding im Fach SYP an einem Projekt.
+
+== Ist-Zustand
+Die aktuelle Methode der Bestellaufnahme ist zeitaufwendig und fehleranfällig.
+Momentan werden wie üblich Kellner in Restaurants eingesetzt, um Kunden zu bedienen.
+
+== Problemstellung
+Jedoch gibt es zurzeit immer mehr Missverständnisse zwischen Kellnern und Kunden in Bezug auf das Nichtsprechen
+der selben Sprache oder normale Verständnisprobleme.
+Der Bedarf an einer schnelleren und effizienteren Methode zur Aufnahme von Bestellungen.
+
+== Aufgabenstellung
+Entwickeln einer Anwendung, die es Restaurants ermöglicht, Bestellungen von Kunden aufzunehmen, indem eine intuitive
+Benutzeroberfläche bereitgestellt wird.
+
+== Sollzustand
+Eine Anwendung ist zu programmieren, in der Kunden im Restaurant eine Bestellung ohne Probleme absolvieren können.
+
+== Ziele
+* Bessere Übersicht über das Menü
+* Reduzierung der Zeit für Aufnahme von Bestellungen
+* Steigerung der Genauigkeit bei der Erfassung von Bestellungen
+* Schnellere/einfachere Entscheidungsfindung
+* Schnellerer Ablauf bei der Bestellung
+* Keine Missverständnisse zwischen dem Kunden und dem Personal
+
+== Mengengerüst
+* Die Anwendung wird auf einer webbasierten Plattform entwickelt
+* Die Anwendung ist nur für Restaurants zugänglich
+
+== Rahmenbedingungen
+* Das Projekt muss innerhalb eines definierten Zeitrahmens und Budgets umgesetzt werden
+* Die Anwendung muss den geltenden Datenschutzgesetzen entsprechen
