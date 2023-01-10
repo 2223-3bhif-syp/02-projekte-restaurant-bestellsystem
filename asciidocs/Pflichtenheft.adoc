@@ -1,0 +1,16 @@
+= Pflichtenheft
+Abdullah Aldesoky, Armin Salkovic, Balint Balazs, Sukhbat Munkh
+
+== Ausgangssituation
+
+== Ist-Zustand
+
+== Zielsetzung
+
+== Anforderung (Soll)
+
+== Mengengerüst
+
+== Aufbau und Inhalte der Offerte
+
+== Administratives
