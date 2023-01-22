@@ -29,60 +29,16 @@ Eine Anwendung ist zu programmieren, in der Kunden im Restaurant eine Bestellung
 == Datenmodell
 
 [plantuml]
--------------
-@startuml
-class Restaurant{
-String name
-int restaurant_id
-}
-
-class Menu {
-int restaurant_id
-int menu_id
-}
-
-class Food {
-int menu_id
-int item_number
-String name
-}
-
-class Order {
-int oder_number
-int item_number
-}
-
-class Customer {
-int customer_id
-int restaurant_id
-int order_number
-}
-
-Restaurant "1" -- "1" Menu : > has
-Menu "1" -- "*" Food : > contains
-Customer "*" -- "*" Restaurant : > eats at
-Customer "1" -- "1" Order : > orders
-Order "*" -- "*" Food : > contains
-@enduml
--------------
+----
+include::../pumls/dom.puml[]
+----
 
 == Anwendungsfalldiagramm
 
 [plantuml]
--------------
-@startuml
-left to right direction
-actor "Customer" as fc
-rectangle Restaurant {
-usecase "order food" as UC1
-usecase "eat food" as UC2
-usecase "pay for order" as UC3
-}
-fc --> UC1
-fc --> UC2
-fc --> UC3
-@enduml
--------------
+----
+include::../pumls/ucd.puml[]
+----
 
 == Ziele
 * Bessere Übersicht über das Menü
