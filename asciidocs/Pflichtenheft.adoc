@@ -1,24 +1,88 @@
-= Pflichtenheft
-Abdullah Aldesoky, Armin Salkovic, Balint Balazs, Sukhbat Munkh
+= Pflichtenheft Restaurant-Bestellsystem
+
+ Version: 1.0
+ Version Date: 22.01.2023
+ Autoren:
+ -	Armin Salkovic
+ -	Abdullah Al Desoky
+ -	Balint Balazs
+ -   Sukhbat Munkh
 
 == Ausgangssituation
 Wir sind ein Team aus 4 Schülern. Wir arbeiten in der HTBLA Leonding im Fach SYP an einem Projekt.
 
 == Ist-Zustand
-Die aktuelle Methode der Bestellaufnahme ist zeitaufwendig und fehleranfällig.
-Momentan werden wie üblich Kellner in Restaurants eingesetzt, um Kunden zu bedienen.
+Momentan werden wie üblich Kellner in Restaurants eingesetzt, um Kunden zu bedienen
+und um die gewünschte Bestellung aufzunehmen.
 
 == Problemstellung
-Jedoch gibt es zurzeit immer mehr Missverständnisse zwischen Kellnern und Kunden in Bezug auf das Nichtsprechen
+Zurzeit gibt es immer mehr Missverständnisse zwischen Kellnern und Kunden in Bezug auf das Nichtsprechen
 der selben Sprache oder normale Verständnisprobleme.
-Der Bedarf an einer schnelleren und effizienteren Methode zur Aufnahme von Bestellungen.
 
 == Aufgabenstellung
-Entwickeln einer Anwendung, die es Restaurants ermöglicht, Bestellungen von Kunden aufzunehmen, indem eine intuitive
+Das Entwickeln einer Anwendung, die es Restaurants ermöglicht, Bestellungen von Kunden aufzunehmen, indem eine intuitive
 Benutzeroberfläche bereitgestellt wird.
 
 == Sollzustand
 Eine Anwendung ist zu programmieren, in der Kunden im Restaurant eine Bestellung ohne Probleme absolvieren können.
+
+== Datenmodell
+
+[plantuml]
+-------------
+@startuml
+class Restaurant{
+String name
+int restaurant_id
+}
+
+class Menu {
+int restaurant_id
+int menu_id
+}
+
+class Food {
+int menu_id
+int item_number
+String name
+}
+
+class Order {
+int oder_number
+int item_number
+}
+
+class Customer {
+int customer_id
+int restaurant_id
+int order_number
+}
+
+Restaurant "1" -- "1" Menu : > has
+Menu "1" -- "*" Food : > contains
+Customer "*" -- "*" Restaurant : > eats at
+Customer "1" -- "1" Order : > orders
+Order "*" -- "*" Food : > contains
+@enduml
+-------------
+
+== Anwendungsfalldiagramm
+
+[plantuml]
+-------------
+@startuml
+left to right direction
+actor "Customer" as fc
+rectangle Restaurant {
+usecase "order food" as UC1
+usecase "eat food" as UC2
+usecase "pay for order" as UC3
+}
+fc --> UC1
+fc --> UC2
+fc --> UC3
+@enduml
+-------------
 
 == Ziele
 * Bessere Übersicht über das Menü
