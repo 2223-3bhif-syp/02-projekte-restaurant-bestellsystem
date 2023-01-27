@@ -447,13 +447,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_ausgangssituation">1. Ausgangssituation</a></li>
 <li><a href="#_ist_zustand">2. Ist-Zustand</a></li>
 <li><a href="#_problemstellung">3. Problemstellung</a></li>
-<li><a href="#_aufgabenstellung">4. Aufgabenstellung</a></li>
-<li><a href="#_sollzustand">5. Sollzustand</a></li>
-<li><a href="#_datenmodell">6. Datenmodell</a></li>
-<li><a href="#_anwendungsfalldiagramm">7. Anwendungsfalldiagramm</a></li>
-<li><a href="#_ziele">8. Ziele</a></li>
-<li><a href="#_mengengerüst">9. Mengengerüst</a></li>
-<li><a href="#_rahmenbedingungen">10. Rahmenbedingungen</a></li>
+<li><a href="#_aufgabenstellung">4. Aufgabenstellung</a>
+<ul class="sectlevel2">
+<li><a href="#_funktionale_anforderungen">4.1. Funktionale Anforderungen</a></li>
+<li><a href="#_nicht_funktionale_anforderungen">4.2. Nicht-funktionale Anforderungen</a></li>
+</ul>
+</li>
+<li><a href="#_ziele">5. Ziele</a></li>
+<li><a href="#_mengengerüst">6. Mengengerüst</a></li>
+<li><a href="#_rahmenbedingungen">7. Rahmenbedingungen</a></li>
+<li><a href="#_datenmodell">8. Datenmodell</a></li>
+<li><a href="#_lieferumfang">9. Lieferumfang</a></li>
+<li><a href="#_abnahmekriterien">10. Abnahmekriterien</a></li>
 </ul>
 </div>
 </div>
@@ -502,42 +507,86 @@ der selben Sprache oder normale Verständnisprobleme.</p>
 <div class="sect1">
 <h2 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>4. Aufgabenstellung</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>4.1. Funktionale Anforderungen</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Produktkatalog</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Die Anwendung muss einen Produktkatalog bereitstellen, in dem Kunden das Angebot des Restaurants einsehen und auswählen können.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Bestellung aufgeben</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Die Anwendung muss es Kunden ermöglichen, Bestellungen aufzugeben und die ausgewählten Produkte zu bestellen.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_use_case_diagram"><a class="anchor" href="#_use_case_diagram"></a>4.1.1. Use-Case-Diagram</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/diag-875b650fbe079898f1c24076b54085c2.png" alt="Diagram" width="291" height="225">
+</div>
+</div>
 <div class="paragraph">
 <p>Das Entwickeln einer Anwendung, die es Restaurants ermöglicht, Bestellungen von Kunden aufzunehmen, indem eine intuitive
 Benutzeroberfläche bereitgestellt wird.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_nicht_funktionale_anforderungen"><a class="anchor" href="#_nicht_funktionale_anforderungen"></a>4.2. Nicht-funktionale Anforderungen</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Performance</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Die Anwendung muss in der Lage sein, schnell auf Kundenanfragen zu reagieren und Bestellungen in Echtzeit aufzunehmen.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Verfügbarkeit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Die Anwendung muss so lange der Restaurant offen hat verfügbar sein, um Kundenbestellungen entgegenzunehmen.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Benutzerfreundlichkeit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Die Anwendung muss eine intuitive Benutzeroberfläche bereitstellen, die es Kunden ermöglicht, einfach und schnell Bestellungen aufzugeben.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
-<h2 id="_sollzustand"><a class="anchor" href="#_sollzustand"></a>5. Sollzustand</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Eine Anwendung ist zu programmieren, in der Kunden im Restaurant eine Bestellung ohne Probleme absolvieren können.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_datenmodell"><a class="anchor" href="#_datenmodell"></a>6. Datenmodell</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="images/diag-2aa9417228f9ee383ef5a1fc9e7202a2.png" alt="Diagram" width="272" height="663">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_anwendungsfalldiagramm"><a class="anchor" href="#_anwendungsfalldiagramm"></a>7. Anwendungsfalldiagramm</h2>
-<div class="sectionbody">
-<div class="imageblock">
-<div class="content">
-<img src="images/diag-875b650fbe079898f1c24076b54085c2.png" alt="Diagram" width="291" height="225">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ziele"><a class="anchor" href="#_ziele"></a>8. Ziele</h2>
+<h2 id="_ziele"><a class="anchor" href="#_ziele"></a>5. Ziele</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -564,7 +613,7 @@ Benutzeroberfläche bereitgestellt wird.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_mengengerüst"><a class="anchor" href="#_mengengerüst"></a>9. Mengengerüst</h2>
+<h2 id="_mengengerüst"><a class="anchor" href="#_mengengerüst"></a>6. Mengengerüst</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -579,7 +628,7 @@ Benutzeroberfläche bereitgestellt wird.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_rahmenbedingungen"><a class="anchor" href="#_rahmenbedingungen"></a>10. Rahmenbedingungen</h2>
+<h2 id="_rahmenbedingungen"><a class="anchor" href="#_rahmenbedingungen"></a>7. Rahmenbedingungen</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -589,6 +638,56 @@ Benutzeroberfläche bereitgestellt wird.</p>
 <li>
 <p>Die Anwendung muss den geltenden Datenschutzgesetzen entsprechen</p>
 </li>
+<li>
+<p>Programmiersprache: Java</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_datenmodell"><a class="anchor" href="#_datenmodell"></a>8. Datenmodell</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/diag-2aa9417228f9ee383ef5a1fc9e7202a2.png" alt="Diagram" width="272" height="663">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lieferumfang"><a class="anchor" href="#_lieferumfang"></a>9. Lieferumfang</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Der Kunde erhält eine benutzerfreundliche Anwendung, über die er Bestellungen aufgeben kann.<br>
+Die Anwendung ermöglicht es ihm, die Speisekarten und Menüs des Restaurants einzusehen und seine Bestellungen einfach und schnell aufzugeben.<br>
+Er erhält auch eine Bestätigung über erfolgreich aufgegebene Bestellungen.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_abnahmekriterien"><a class="anchor" href="#_abnahmekriterien"></a>10. Abnahmekriterien</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Die Anwendung erfüllt alle festgelegten funktionellen Anforderungen</p>
+</li>
+<li>
+<p>Die Dokumentation der Anwendung ist vollständig und verständlich</p>
+</li>
+<li>
+<p>Die Anwendung ist stabil und fehlerfrei</p>
+</li>
+<li>
+<p>Die Anwendung ist benutzerfreundlich und intuitiv zu bedienen</p>
+</li>
+<li>
+<p>Die Anwendung hat erfolgreich die vereinbarten Tests bestanden</p>
+</li>
+<li>
+<p>Der Kunde bestätigt, dass die Anwendung seinen Erwartungen entspricht</p>
+</li>
 </ul>
 </div>
 </div>
@@ -596,7 +695,7 @@ Benutzeroberfläche bereitgestellt wird.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-27 22:34:06 UTC
+Last updated 2023-01-27 23:17:48 UTC
 </div>
 </div>
 </body>
