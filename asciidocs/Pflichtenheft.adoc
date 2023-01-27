@@ -1,4 +1,5 @@
 = Pflichtenheft Restaurant-Bestellsystem
+:sectnums:
 
  Version: 1.0
  Version Date: 22.01.2023
@@ -20,25 +21,34 @@ Zurzeit gibt es immer mehr Missverständnisse zwischen Kellnern und Kunden in Be
 der selben Sprache oder normale Verständnisprobleme.
 
 == Aufgabenstellung
-Das Entwickeln einer Anwendung, die es Restaurants ermöglicht, Bestellungen von Kunden aufzunehmen, indem eine intuitive
-Benutzeroberfläche bereitgestellt wird.
+=== Funktionale Anforderungen
 
-== Sollzustand
-Eine Anwendung ist zu programmieren, in der Kunden im Restaurant eine Bestellung ohne Probleme absolvieren können.
+* Produktkatalog
+** Die Anwendung muss einen Produktkatalog bereitstellen, in dem Kunden das Angebot des Restaurants einsehen und auswählen können.
 
-== Datenmodell
+* Bestellung aufgeben
+** Die Anwendung muss es Kunden ermöglichen, Bestellungen aufzugeben und die ausgewählten Produkte zu bestellen.
 
-[plantuml]
-----
-include::../pumls/dom.puml[]
-----
-
-== Anwendungsfalldiagramm
+==== Use-Case-Diagram
 
 [plantuml]
 ----
 include::../pumls/ucd.puml[]
 ----
+
+Das Entwickeln einer Anwendung, die es Restaurants ermöglicht, Bestellungen von Kunden aufzunehmen, indem eine intuitive
+Benutzeroberfläche bereitgestellt wird.
+
+=== Nicht-funktionale Anforderungen
+
+* Performance
+** Die Anwendung muss in der Lage sein, schnell auf Kundenanfragen zu reagieren und Bestellungen in Echtzeit aufzunehmen.
+
+* Verfügbarkeit
+** Die Anwendung muss so lange der Restaurant offen hat verfügbar sein, um Kundenbestellungen entgegenzunehmen.
+
+* Benutzerfreundlichkeit
+** Die Anwendung muss eine intuitive Benutzeroberfläche bereitstellen, die es Kunden ermöglicht, einfach und schnell Bestellungen aufzugeben.
 
 == Ziele
 * Bessere Übersicht über das Menü
@@ -55,3 +65,24 @@ include::../pumls/ucd.puml[]
 == Rahmenbedingungen
 * Das Projekt muss innerhalb eines definierten Zeitrahmens und Budgets umgesetzt werden
 * Die Anwendung muss den geltenden Datenschutzgesetzen entsprechen
+* Programmiersprache: Java
+
+== Datenmodell
+
+[plantuml]
+----
+include::../pumls/dom.puml[]
+----
+
+== Lieferumfang
+Der Kunde erhält eine benutzerfreundliche Anwendung, über die er Bestellungen aufgeben kann. +
+Die Anwendung ermöglicht es ihm, die Speisekarten und Menüs des Restaurants einzusehen und seine Bestellungen einfach und schnell aufzugeben. +
+Er erhält auch eine Bestätigung über erfolgreich aufgegebene Bestellungen.
+
+== Abnahmekriterien
+* Die Anwendung erfüllt alle festgelegten funktionellen Anforderungen
+* Die Dokumentation der Anwendung ist vollständig und verständlich
+* Die Anwendung ist stabil und fehlerfrei
+* Die Anwendung ist benutzerfreundlich und intuitiv zu bedienen
+* Die Anwendung hat erfolgreich die vereinbarten Tests bestanden
+* Der Kunde bestätigt, dass die Anwendung seinen Erwartungen entspricht
