@@ -33,7 +33,7 @@ der selben Sprache oder normale Verständnisprobleme.
 
 [plantuml]
 ----
-include::../pumls/ucd.puml[]
+include::./plantuml/ucd.puml[]
 ----
 
 Das Entwickeln einer Anwendung, die es Restaurants ermöglicht, Bestellungen von Kunden aufzunehmen, indem eine intuitive
@@ -71,8 +71,12 @@ Benutzeroberfläche bereitgestellt wird.
 
 [plantuml]
 ----
-include::../pumls/dom.puml[]
+include::./plantuml/dom.puml[]
 ----
+
+== GUI
+
+Skizzen einfügen!
 
 == Lieferumfang
 Der Kunde erhält eine benutzerfreundliche Anwendung, über die er Bestellungen aufgeben kann. +

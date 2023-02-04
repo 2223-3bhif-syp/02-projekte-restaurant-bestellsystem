@@ -1,0 +1,43 @@
+@startuml
+class Menu {
+menuNr: int
+menuName: String
+}
+
+class Food {
+menuNr: int
+itemNumber: int
+name: String
+price: double
+}
+
+class Bill {
+workingNr: int
+tableNr: int
+}
+
+class Servie {
+workingNr: int
+name: String
+}
+
+class Table {
+workingNr: int
+tableNr: int
+}
+
+class Order {
+itemNumber: int
+amountOfItem: int
+price: double
+workingNr: int
+}
+
+
+Servie "1" -- "*" Bill : > collects
+Bill "*" -- "1" Table : < consumes
+Servie "1" -- "*" Table : > serves
+Menu "1" -- "*" Food : > contains
+Bill "*" -- "*" Food : > contains
+(Bill, Food) . Order
+@enduml

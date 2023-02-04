@@ -10,8 +10,5 @@ gibt, wollen wir eine Applikation entwickeln, welche den Kunden eine simple und 
 
 == Prototyp
 
-[%collapsible]
-.Skizze
-====
-image::images/prototyp.jpg[]
-====
+Hier auch die neue Skizze einfügen!
+
