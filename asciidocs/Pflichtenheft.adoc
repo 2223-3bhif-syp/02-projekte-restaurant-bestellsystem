@@ -33,11 +33,7 @@ der selben Sprache oder normale Verständnisprobleme.
 
 [plantuml]
 ----
-<<<<<<< HEAD
 include::./plantuml/ucd.puml[]
-=======
-include::../plantuml/ucd.puml[]
->>>>>>> f54f87f2595c11f0f7bc19926739ab4bf721f203
 ----
 
 Das Entwickeln einer Anwendung, die es Restaurants ermöglicht, Bestellungen von Kunden aufzunehmen, indem eine intuitive
@@ -75,11 +71,7 @@ Benutzeroberfläche bereitgestellt wird.
 
 [plantuml]
 ----
-<<<<<<< HEAD
 include::./plantuml/dom.puml[]
-=======
-include::../plantuml/dom.puml[]
->>>>>>> f54f87f2595c11f0f7bc19926739ab4bf721f203
 ----
 
 == GUI
