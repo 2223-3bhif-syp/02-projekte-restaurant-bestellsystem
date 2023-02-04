@@ -10,15 +10,18 @@
  -   Sukhbat Munkh
 
 == Ausgangssituation
-Wir sind ein Team aus 4 Schülern. Wir arbeiten in der HTBLA Leonding im Fach SYP an einem Projekt.
+Die Pizzeria `Solo Pizza` bietet verschiedene Pizzen, Vorspeisen, Desserts und Getränke an.
 
 == Ist-Zustand
-Momentan werden wie üblich Kellner in Restaurants eingesetzt, um Kunden zu bedienen
+Kellner werden in dem Restaurant eingesetzt, um Kunden zu bedienen
 und um die gewünschte Bestellung aufzunehmen.
 
 == Problemstellung
-Zurzeit gibt es immer mehr Missverständnisse zwischen Kellnern und Kunden in Bezug auf das Nichtsprechen
-der selben Sprache oder normale Verständnisprobleme.
+
+* *Verständnisprobleme:* Normale Verständnisprobleme zwischen Kellnern und Kunden beim bestellen
+* *Fehlerhafte Bestellung:* Kunden können unzufrieden sein, wenn ihre Bestellung nicht korrekt aufgenommen wurde.
+* *Probleme mit der Rechnung:* Kunden können verärgert sein, wenn es Probleme mit der Berechnung ihrer Rechnung gibt,
+einschließlich fehlerhafter Berechnungen oder unangemessen hoher Preise.
 
 == Aufgabenstellung
 === Funktionale Anforderungen
@@ -36,7 +39,7 @@ der selben Sprache oder normale Verständnisprobleme.
 include::./plantuml/ucd.puml[]
 ----
 
-Das Entwickeln einer Anwendung, die es Restaurants ermöglicht, Bestellungen von Kunden aufzunehmen, indem eine intuitive
+Das Entwickeln einer Anwendung, die es dem Restaurant ermöglicht, Bestellungen von Kunden aufzunehmen, indem eine intuitive
 Benutzeroberfläche bereitgestellt wird.
 
 === Nicht-funktionale Anforderungen
@@ -76,12 +79,26 @@ include::./plantuml/dom.puml[]
 
 == GUI
 
-Skizzen einfügen!
+* GUI für den Kunden
+
+.Bestellseite
+[%collapsible]
+====
+image:../images/orderPage.jpg[640,480]
+====
+
+* GUI für den Koch bzw. die Küche
+
+.Bestellliste
+[%collapsible]
+====
+image:../images/ordersList.jpg[1500, 700]
+====
 
 == Lieferumfang
-Der Kunde erhält eine benutzerfreundliche Anwendung, über die er Bestellungen aufgeben kann. +
-Die Anwendung ermöglicht es ihm, die Speisekarten und Menüs des Restaurants einzusehen und seine Bestellungen einfach und schnell aufzugeben. +
-Er erhält auch eine Bestätigung über erfolgreich aufgegebene Bestellungen.
+* Der Kunde erhält eine benutzerfreundliche Anwendung, über die er Bestellungen aufgeben kann. +
+* Die Anwendung ermöglicht es ihm, die Speisekarten und Menüs des Restaurants einzusehen und seine Bestellungen einfach und schnell aufzugeben. +
+* Er erhält auch eine Bestätigung über erfolgreich aufgegebene Bestellungen.
 
 == Abnahmekriterien
 * Die Anwendung erfüllt alle festgelegten funktionellen Anforderungen
