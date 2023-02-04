@@ -10,5 +10,19 @@ gibt, wollen wir eine Applikation entwickeln, welche den Kunden eine simple und 
 
 == Prototyp
 
-Hier auch die neue Skizze einfügen!
+* GUI für den Kunden
+
+.Bestellseite
+[%collapsible]
+====
+image:images/orderPage.jpg[640,480]
+====
+
+* GUI für den Koch bzw. die Küche
+
+.Bestellliste
+[%collapsible]
+====
+image:images/ordersList.jpg[1500, 700]
+====
 
