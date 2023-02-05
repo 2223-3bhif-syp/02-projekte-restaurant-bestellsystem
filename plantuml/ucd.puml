@@ -6,11 +6,13 @@ actor "Service" as s
 
 rectangle PickYourOrder {
 usecase "order food" as o
+usecase "view on menu" as m
 usecase "receive order" as r
 usecase "view on order" as v
 usecase "pay" as p
 }
 
+c -- m
 c -- p
 c -- o
 s -- r
