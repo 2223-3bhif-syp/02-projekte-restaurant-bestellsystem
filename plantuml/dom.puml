@@ -6,12 +6,13 @@ name: String
 
 class Product {
 dishNr: int
-itemNumber: int
+itemNr: int
 name: String
 price: double
 }
 
 class Bill {
+billNr: int
 workingNr: int
 tableNr: int
 }
@@ -27,10 +28,11 @@ tableNr: int
 }
 
 class Order {
-itemNumber: int
+orderNr: int
+billNr: int
+itemNr: int
 amountOfItem: int
 price: double
-workingNr: int
 }
 
 
