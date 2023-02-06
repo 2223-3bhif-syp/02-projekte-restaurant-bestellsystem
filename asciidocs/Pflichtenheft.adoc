@@ -17,7 +17,7 @@ Kellner werden in der Pizzeria eingesetzt, um die gewünschten Bestellungen
 der Kunden aufzunehmen und um die Kunden zu bedienen.
 
 * aktueller Vorgang
-** Bestellung der Speise/Getränke
+** Bestellung der Speisen/Getränke
 ** Servieren der Bestellung
 ** Konsumation
 ** Zahlen
