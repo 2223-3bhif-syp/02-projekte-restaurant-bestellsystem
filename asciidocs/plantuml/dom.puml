@@ -1,11 +1,11 @@
 @startuml
-class Menu {
-menuNr: int
-menuName: String
+class Dish {
+dishNr: int
+name: String
 }
 
-class Food {
-menuNr: int
+class Product {
+dishNr: int
 itemNumber: int
 name: String
 price: double
@@ -16,7 +16,7 @@ workingNr: int
 tableNr: int
 }
 
-class Servie {
+class Service {
 workingNr: int
 name: String
 }
@@ -34,10 +34,10 @@ workingNr: int
 }
 
 
-Servie "1" -- "*" Bill : > collects
+Service "1" -- "*" Bill : > collects
 Bill "*" -- "1" Table : < consumes
-Servie "1" -- "*" Table : > serves
-Menu "1" -- "*" Food : > contains
-Bill "*" -- "*" Food : > contains
-(Bill, Food) . Order
+Service "1" -- "*" Table : > serves
+Dish "1" -- "*" Product : > contains
+Bill "*" -- "*" Product : > contains
+(Bill, Product) . Order
 @enduml
