@@ -14,7 +14,7 @@ price: double
 class Bill {
 billNr: int
 workingNr: int
-tableNr: int
+deskNr: int
 }
 
 class Service {
@@ -22,13 +22,13 @@ workingNr: int
 name: String
 }
 
-class Table {
+class Desk {
 workingNr: int
-tableNr: int
+deskNr: int
 }
 
-class Order {
-orderNr: int
+class Invoice {
+invoiceNr: int
 billNr: int
 itemNr: int
 amountOfItem: int
@@ -37,9 +37,9 @@ price: double
 
 
 Service "1" -- "*" Bill : > collects
-Bill "*" -- "1" Table : < consumes
-Service "1" -- "*" Table : > serves
+Bill "*" -- "1" Desk : < consumes
+Service "1" -- "*" Desk : > serves
 Dish "1" -- "*" Product : > contains
 Bill "*" -- "*" Product : > contains
-(Bill, Product) . Order
+(Bill, Product) . Invoice
 @enduml
