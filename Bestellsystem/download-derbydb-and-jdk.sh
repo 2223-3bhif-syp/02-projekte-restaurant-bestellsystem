@@ -1,4 +1,4 @@
-set -e
+ set -e
 echo download scripts for quarkus project ...
 echo "for jdk 17 run 'download-derbydb-and-jdk.sh java'"
 URL=http://edufs.edu.htl-leonding.ac.at/~t.stuetz/download/nvs/scripts/
