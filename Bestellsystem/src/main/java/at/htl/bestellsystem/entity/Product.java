@@ -10,6 +10,10 @@ public class Product {
     private double price;
 
     //region Constructors
+
+    public Product() {
+    }
+
     public Product(Long id) {
         this.id = id;
     }

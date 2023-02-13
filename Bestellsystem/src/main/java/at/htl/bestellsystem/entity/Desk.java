@@ -9,6 +9,10 @@ public class Desk {
     private Long workingNr;
 
     //region Constructors
+
+    public Desk() {
+    }
+
     public Desk(Long id) {
         this.id = id;
     }

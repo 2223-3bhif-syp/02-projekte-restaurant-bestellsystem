@@ -7,6 +7,10 @@ public class Service {
     private String lastName;
 
     //region constructors
+
+    public Service() {
+    }
+
     public Service(Long id) {
         this.id = id;
     }
