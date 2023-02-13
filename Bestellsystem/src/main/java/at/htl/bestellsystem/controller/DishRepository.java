@@ -1,6 +1,3 @@
-/*
-    Erstellt von: Balint Balazs
-*/
 
 package at.htl.bestellsystem.controller;
 
