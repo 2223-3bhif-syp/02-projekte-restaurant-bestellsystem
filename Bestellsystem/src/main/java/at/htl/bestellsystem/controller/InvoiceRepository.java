@@ -5,9 +5,15 @@ package at.htl.bestellsystem.controller;
 
 import at.htl.bestellsystem.entity.Invoice;
 
+import javax.sql.DataSource;
+
 public class InvoiceRepository {
 
-    public Invoice save(Invoice dish) {
-        return null;
+    private DataSource dataSource = Database.getDataSource();
+
+    public Invoice save(Invoice invoice) {
+
+      return null;
     }
+
 }

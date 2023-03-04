@@ -12,6 +12,11 @@ public class Dish {
         this.id = id;
     }
 
+    public Dish(String name, Long id) {
+        this.name = name;
+        this.id = id;
+    }
+
     public Dish(String name) {
         this.name = name;
     }

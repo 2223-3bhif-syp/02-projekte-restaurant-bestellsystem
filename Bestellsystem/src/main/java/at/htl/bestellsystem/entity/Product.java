@@ -4,14 +4,21 @@
 package at.htl.bestellsystem.entity;
 
 public class Product {
-    private Long id;
+    private Long pId;
     private Long dishNr;
     private String name;
     private double price;
 
     //region Constructors
-    public Product(Long id) {
-        this.id = id;
+    public Product(Long pId) {
+        this.pId = pId;
+    }
+
+    public Product( Long pId,Long dishNr ,  String name, double price) {
+        this.pId = pId;
+        this.dishNr = dishNr;
+        this.name = name;
+        this.price = price;
     }
 
     public Product(String name) {
@@ -26,11 +33,11 @@ public class Product {
 
     //region Getters and setters
     public Long getId() {
-        return id;
+        return pId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.pId = id;
     }
 
     public Long getDishNr() {
@@ -62,7 +69,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "id=" + id +
+                "pId=" + pId +
                 ", dishNr=" + dishNr +
                 ", name='" + name + '\'' +
                 ", price=" + price +
