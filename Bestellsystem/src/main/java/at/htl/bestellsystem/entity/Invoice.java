@@ -12,6 +12,10 @@ public class Invoice {
     private Long amoutOfItem;
 
     //region Constructions
+
+    public Invoice() {
+    }
+
     public Invoice(Long id) {
         this.id = id;
     }

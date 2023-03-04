@@ -8,6 +8,10 @@ public class Dish {
     private Long id;
 
     //region Constructors
+
+    public Dish() {
+    }
+
     public Dish(Long id) {
         this.id = id;
     }
