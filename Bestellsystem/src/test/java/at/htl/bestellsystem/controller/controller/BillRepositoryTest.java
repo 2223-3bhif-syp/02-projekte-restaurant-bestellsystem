@@ -1,6 +1,7 @@
 
-package at.htl.bestellsystem.controller;
+package at.htl.bestellsystem.controller.controller;
 
+import at.htl.bestellsystem.controller.Database;
 import org.assertj.db.type.Table;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

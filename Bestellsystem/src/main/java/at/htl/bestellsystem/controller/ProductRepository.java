@@ -1,6 +1,7 @@
 
 package at.htl.bestellsystem.controller;
 
+import at.htl.bestellsystem.entity.Dish;
 import at.htl.bestellsystem.entity.Product;
 
 import javax.sql.DataSource;
@@ -26,13 +27,12 @@ public class ProductRepository implements Persistent<Product> {
     @Override
     public void insert(Product product) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO question (item_nr,dish_nr,name,price) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO Product (dish_nr,name,price) VALUES (?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setLong(1, product.getId());
-            statement.setLong(2, product.getDishNr());
-            statement.setString(3, product.getName());
-            statement.setDouble(4, product.getPrice());
+            statement.setLong(1, product.getDish().getId());
+            statement.setString(2, product.getName());
+            statement.setDouble(3, product.getPrice());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Update of Product failed, no rows affected");
@@ -87,10 +87,12 @@ public class ProductRepository implements Persistent<Product> {
                 Long dish_nr = result.getLong("dish_nr");
                 Double price = result.getDouble("price");
 
+                Dish dish = dishRepository.findById(new Dish(dish_nr));
+
                 ProductRepository productRepository = new ProductRepository();
 
 
-                productList.add(new Product(item_nr, dish_nr, name, price));
+               // productList.add(new Product(item_nr, dish_nr, name, price,dish));
             }
 
         } catch (SQLException e) {
@@ -109,17 +111,17 @@ public class ProductRepository implements Persistent<Product> {
             ResultSet result = statement.executeQuery();
 
 
-            while (result.next()) {
-                // long item_nr = result.getLong("item_nr");
-                //Product product = productRepository.findById(item_nr);
+         /*   while (result.next()) {
+                Dish dish = dishRepository.findById(product.getDish());
                 return new Product(
                         result.getLong("item_nr"),
                         result.getLong("dish_nr"),
                         result.getString("name"),
-                        result.getDouble("price")
+                        result.getDouble("price"),
+                        dish
 
                 );
-            }
+            }*/
 
         } catch (SQLException e) {
             e.printStackTrace();

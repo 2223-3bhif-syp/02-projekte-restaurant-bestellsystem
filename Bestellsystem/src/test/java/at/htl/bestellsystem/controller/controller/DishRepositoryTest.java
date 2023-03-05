@@ -1,6 +1,8 @@
 
-package at.htl.bestellsystem.controller;
+package at.htl.bestellsystem.controller.controller;
 
+import at.htl.bestellsystem.controller.Database;
+import at.htl.bestellsystem.controller.DishRepository;
 import at.htl.bestellsystem.database.SqlRunner;
 import at.htl.bestellsystem.entity.Dish;
 import at.htl.bestellsystem.entity.Product;

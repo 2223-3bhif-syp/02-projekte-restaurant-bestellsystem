@@ -4,6 +4,7 @@
 package at.htl.bestellsystem.entity;
 
 public class Product {
+    private Dish dish;
     private Long pId;
     private Long dishNr;
     private String name;
@@ -15,18 +16,18 @@ public class Product {
         this.pId = pId;
     }
 
-    public Product( Long pId,Long dishNr ,  String name, double price) {
-        this.pId = pId;
-        this.dishNr = dishNr;
-        this.name = name;
-        this.price = price;
-    }
-
     public Product(String name) {
         this.name = name;
     }
 
     public Product(double price) {
+        this.price = price;
+    }
+
+    public Product(Long pId, String name, double price,Dish dish) {
+        this.dish = dish;
+        this.pId = pId;
+        this.name = name;
         this.price = price;
     }
     //endregion
@@ -51,6 +52,14 @@ public class Product {
 
     public String getName() {
         return name;
+    }
+
+    public Dish getDish() {
+        return dish;
+    }
+
+    public void setDish(Dish dish) {
+        this.dish = dish;
     }
 
     public void setName(String name) {

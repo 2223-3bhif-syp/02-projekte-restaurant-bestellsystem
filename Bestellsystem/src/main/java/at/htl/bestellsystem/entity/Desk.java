@@ -8,6 +8,7 @@ public class Desk {
     private Long id;
     private Long workingNr;
 
+    private Service service;
     //region Constructors
 
     public Desk() {
@@ -17,7 +18,12 @@ public class Desk {
         this.id = id;
     }
 
-    //endregion
+    public Desk(Long id, Service service) {
+        this.id = id;
+        this.service = service;
+    }
+
+//endregion
 
 
     //region Getters and setters
@@ -35,6 +41,14 @@ public class Desk {
 
     public void setWorkingNr(Long workingNr) {
         this.workingNr = workingNr;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
     }
     //endregion
 
