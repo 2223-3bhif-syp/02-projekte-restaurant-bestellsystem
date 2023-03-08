@@ -26,12 +26,22 @@ class ProductRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        table = new Table(Database.getDataSource(), "Product");
-        SqlRunner.dropTablesAndCreateEmptyTables();
+        table = new Table(Database.getDataSource(), "PRODUCT");
+
+        // SqlRunner.dropTablesAndCreateEmptyTables();
+
+
 
     }
 
-  //  @Test
+    @Test
+    void test() {
+        Table table = new Table(Database.getDataSource(), "PRODUCT");
+        output(table).toConsole();
+
+    }
+
+//  @Test
   /*  void shouldInsertProduct() {
         Product product = new Product(2L,1L,"Cola",2.2,dishRepository.findById(new Dish("Getränk",2L)));
         productRepository.insert(product);

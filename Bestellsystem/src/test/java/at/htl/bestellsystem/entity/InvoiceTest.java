@@ -11,7 +11,7 @@ class InvoiceTest {
         Service service = new Service(5L,"John","King");
         Desk desk = new Desk(5L,service);
         Bill bill = new Bill(2L,desk,service);
-        Product product = new Product(5L,"Cola",2.2,new Dish("Getränke",4L));
+        Product product = new Product(5L,"Cola",2.2,new Dish(4L,"Getränke"));
         Invoice invoice = new Invoice(2L,10.2,6L,bill,product);
         assertThat(invoice.getId()).isEqualTo(2L);
         assertThat(invoice.getAmoutOfItem()).isEqualTo(6L);

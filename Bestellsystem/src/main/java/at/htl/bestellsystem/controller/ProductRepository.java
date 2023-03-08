@@ -139,7 +139,6 @@ public class ProductRepository implements Persistent<Product> {
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setLong(1, product.getId());
-            statement.setLong(2, product.getDishNr());
             statement.setString(3, product.getName());
             statement.setDouble(4, product.getPrice());
 

@@ -16,7 +16,7 @@ public class Dish {
         this.id = id;
     }
 
-    public Dish(String name, Long id) {
+    public Dish(Long id,String name) {
         this.name = name;
         this.id = id;
     }

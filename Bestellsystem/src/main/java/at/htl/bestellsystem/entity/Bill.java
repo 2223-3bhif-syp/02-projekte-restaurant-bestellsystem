@@ -5,8 +5,7 @@ package at.htl.bestellsystem.entity;
 
 public class Bill {
     private Long id;
-    private Long workingNr;
-    private Long deskNr;
+
     private Desk desk;
     private  Service service;
     //region Constructor
@@ -33,28 +32,13 @@ public class Bill {
         this.id = id;
     }
 
-    public Long getWorkingNr() {
-        return workingNr;
-    }
 
-    public void setWorkingNr(Long workingNr) {
-        this.workingNr = workingNr;
-    }
 
-    public Long getDeskNr() {
-        return deskNr;
-    }
 
-    public void setDeskNr(Long deskNr) {
-        this.deskNr = deskNr;
-    }
+
 
     public Desk getDesk() {
         return desk;
-    }
-
-    public void setDesk(Desk desk) {
-        this.desk = desk;
     }
 
     public Service getService() {
