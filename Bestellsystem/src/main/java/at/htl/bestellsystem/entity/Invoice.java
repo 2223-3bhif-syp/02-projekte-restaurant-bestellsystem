@@ -5,7 +5,6 @@ package at.htl.bestellsystem.entity;
 
 public class Invoice {
     private Long id;
-    private Long billNr;
 
     private double price;
     private Long itemNr;
@@ -27,7 +26,7 @@ public class Invoice {
         this.price = price;
     }
 
-    public Invoice(Long id,double price, Long amoutOfItem, Bill bill, Product product) {
+    public Invoice(Long id, double price, Long amoutOfItem, Bill bill, Product product) {
         this.id = id;
         this.price = price;
         this.amoutOfItem = amoutOfItem;
@@ -63,17 +62,6 @@ public class Invoice {
         this.product = product;
     }
 
-    public Long getBillNr() {
-        return billNr;
-    }
-
-    public void setBillNr(Long billNr) {
-        this.billNr = billNr;
-    }
-
-    public Long getItemNr() {
-        return itemNr;
-    }
 
     public void setItemNr(Long itemNr) {
         this.itemNr = itemNr;
@@ -83,9 +71,6 @@ public class Invoice {
         return amoutOfItem;
     }
 
-    public void setAmoutOfItem(Long amoutOfItem) {
-        this.amoutOfItem = amoutOfItem;
-    }
 
     public double getPrice() {
         return price;
@@ -101,10 +86,11 @@ public class Invoice {
     public String toString() {
         return "Invoice{" +
                 "id=" + id +
-                ", billNr=" + billNr +
                 ", price=" + price +
                 ", itemNr=" + itemNr +
                 ", amoutOfItem=" + amoutOfItem +
+                ", bill=" + bill +
+                ", product=" + product +
                 '}';
     }
 }

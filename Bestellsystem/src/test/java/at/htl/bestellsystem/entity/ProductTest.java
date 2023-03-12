@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductTest {
     @Test
     void createProduct() {
-        Dish dish = new Dish("Vorspeise",2L);
+        Dish dish = new Dish(2L,"Vorspeise");
         Product product = new Product(2L,"Zwiebelsuppe",5.60,dish);
         assertThat(product.getId()).isEqualTo(2L);
         assertThat(product.getPrice()).isEqualTo(5.60);

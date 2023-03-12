@@ -6,8 +6,6 @@ package at.htl.bestellsystem.entity;
 public class Desk {
 
     private Long id;
-    private Long workingNr;
-
     private Service service;
     //region Constructors
 
@@ -35,13 +33,6 @@ public class Desk {
         this.id = id;
     }
 
-    public Long getWorkingNr() {
-        return workingNr;
-    }
-
-    public void setWorkingNr(Long workingNr) {
-        this.workingNr = workingNr;
-    }
 
     public Service getService() {
         return service;
@@ -57,7 +48,7 @@ public class Desk {
     public String toString() {
         return "Desk{" +
                 "id=" + id +
-                ", workingNr=" + workingNr +
+                ", service=" + service +
                 '}';
     }
 }

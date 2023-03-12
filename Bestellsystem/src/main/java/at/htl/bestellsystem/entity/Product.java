@@ -6,7 +6,7 @@ package at.htl.bestellsystem.entity;
 public class Product {
     private Dish dish;
     private Long pId;
-    private Long dishNr;
+
     private String name;
     private double price;
 
@@ -42,13 +42,8 @@ public class Product {
         this.pId = id;
     }
 
-    public Long getDishNr() {
-        return dishNr;
-    }
 
-    public void setDishNr(Long dishNr) {
-        this.dishNr = dishNr;
-    }
+
 
     public String getName() {
         return name;
@@ -79,8 +74,8 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "pId=" + pId +
-                ", dishNr=" + dishNr +
+                "dish=" + dish +
+                ", pId=" + pId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
