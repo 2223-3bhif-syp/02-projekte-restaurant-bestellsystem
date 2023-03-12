@@ -27,7 +27,7 @@ public class ProductRepository implements Persistent<Product> {
     @Override
     public void insert(Product product) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "INSERT INTO Product (dish_nr,name,price) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO Product (dish_nr,name,price) VALUES (?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setLong(1, product.getDish().getId());
@@ -87,12 +87,9 @@ public class ProductRepository implements Persistent<Product> {
                 Long dish_nr = result.getLong("dish_nr");
                 Double price = result.getDouble("price");
 
-                Dish dish = dishRepository.findById(new Dish(dish_nr));
+                Dish dish = dishRepository.findById(dish_nr);
 
-                ProductRepository productRepository = new ProductRepository();
-
-
-               // productList.add(new Product(item_nr, dish_nr, name, price,dish));
+               productList.add(new Product(item_nr, name, price,dish));
             }
 
         } catch (SQLException e) {
@@ -103,25 +100,23 @@ public class ProductRepository implements Persistent<Product> {
     }
 
     @Override
-    public Product findById(Product product) {
+    public Product findById(Long id) {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM product WHERE item_nr=?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setLong(1, product.getId());
+            statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
 
-         /*   while (result.next()) {
-                Dish dish = dishRepository.findById(product.getDish());
+            while (result.next()) {
+                Dish dish = dishRepository.findById(id);
                 return new Product(
                         result.getLong("item_nr"),
-                        result.getLong("dish_nr"),
                         result.getString("name"),
                         result.getDouble("price"),
                         dish
-
                 );
-            }*/
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();

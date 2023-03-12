@@ -2,6 +2,7 @@
 package at.htl.bestellsystem.controller;
 
 import at.htl.bestellsystem.entity.Dish;
+import at.htl.bestellsystem.entity.Invoice;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -94,18 +95,17 @@ public class DishRepository implements Persistent<Dish> {
     }
 
     @Override
-    public Dish findById(Dish dish) {
-
+    public Dish findById(Long id) {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM DISH WHERE DISH_NR=?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setLong(1, dish.getId());
+            statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                if(dish.getId() == result.getInt("dish_nr")) {
-                    return new Dish(result.getString("name"),
-                            result.getLong("dish_nr"));
+                if(id == result.getInt("DISH_NR")) {
+                    return new Dish(result.getString("NAME"),
+                            id);
                 }
 
             }

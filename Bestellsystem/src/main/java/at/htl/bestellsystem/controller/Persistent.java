@@ -7,7 +7,7 @@ public interface Persistent<T>{
     public void insert(T entity);
     public void delete(T id);
     public List<T> findAll();
-    public T findById(T entity);
+    public T findById(Long id);
     public void update(T entity);
 
 }

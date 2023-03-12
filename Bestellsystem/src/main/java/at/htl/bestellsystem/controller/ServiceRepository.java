@@ -98,15 +98,15 @@ public class ServiceRepository implements Persistent<Service> {
     }
 
     @Override
-    public Service findById(Service service) {
+    public Service findById(Long id) {
         try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT * FROM SERVICE WHERE WORKING_NR=?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setLong(1, service.getId());
+            statement.setLong(1, id);
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                if(service.getId() == result.getInt("WORKING_NR")) {
+                if(id == result.getInt("WORKING_NR")) {
                     return new Service(result.getLong("WORKING_NR"),
                             result.getString("FIRST_NAME"),
                             result.getString("LAST_NAME"));
