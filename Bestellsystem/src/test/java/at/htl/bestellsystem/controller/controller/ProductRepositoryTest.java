@@ -27,22 +27,16 @@ class ProductRepositoryTest {
     @BeforeEach
     void setUp() {
         table = new Table(Database.getDataSource(), "PRODUCT");
-<<<<<<< HEAD
         SqlRunner.dropTablesAndCreateEmptyTables();
     }
-=======
 
         // SqlRunner.dropTablesAndCreateEmptyTables();
-
-
-
-    }
 
     @Test
     void test() {
         Table table = new Table(Database.getDataSource(), "PRODUCT");
         output(table).toConsole();
->>>>>>> 3e0f90ba2e19ae10decffa80d8b88eb955d922d4
+    }
 
     @Test
     void testProduct() {
@@ -50,15 +44,11 @@ class ProductRepositoryTest {
         output(table).toConsole();
     }
 
-<<<<<<< HEAD
     @Test
     void shouldInsertProduct() {
-        Product product = new Product(1L, "Cola", 2.2, new Dish("Getränke", 1L));
-=======
-//  @Test
-  /*  void shouldInsertProduct() {
-        Product product = new Product(2L,1L,"Cola",2.2,dishRepository.findById(new Dish("Getränk",2L)));
->>>>>>> 3e0f90ba2e19ae10decffa80d8b88eb955d922d4
+        Dish dish = new Dish(2L, "Getränk");
+        Product product = new Product(1L,"Cola",2.2, dish);
+
         productRepository.insert(product);
         int rowsBefore = table.getRowsList().size();
         productRepository.insert(product);

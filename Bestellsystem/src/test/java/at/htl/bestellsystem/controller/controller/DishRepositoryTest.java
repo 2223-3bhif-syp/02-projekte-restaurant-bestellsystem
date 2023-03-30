@@ -92,8 +92,8 @@ class DishRepositoryTest {
         Dish newDish = new Dish("Vorspeise");
         dishRepository.insert(newDish);
 
-        assertEquals(newDish.getId(), dishRepository.findById(newDish).getId());
-        assertEquals(dish1.getId(), dishRepository.findById(dish1).getId());
+        assertEquals(newDish.getId(), dishRepository.findById(newDish.getId()));
+        assertEquals(dish1.getId(), dishRepository.findById(dish1.getId()));
 
     }
 

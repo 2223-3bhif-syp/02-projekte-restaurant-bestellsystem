@@ -94,8 +94,8 @@ class ServiceRepositoryTest {
 
         serviceRepositiory.insert(service);
 
-        assertEquals(service.getId(), serviceRepositiory.findById(service).getId());
-        assertEquals(service1.getId(), serviceRepositiory.findById(service1).getId());
+        assertEquals(service.getId(), serviceRepositiory.findById(service.getId()));
+        assertEquals(service1.getId(), serviceRepositiory.findById(service1.getId()));
 
     }
 
