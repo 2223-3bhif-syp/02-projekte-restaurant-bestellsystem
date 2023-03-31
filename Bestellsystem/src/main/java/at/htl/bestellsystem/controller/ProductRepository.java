@@ -12,7 +12,7 @@ import java.util.List;
 public class ProductRepository implements Persistent<Product> {
 
     private final DataSource dataSource = Database.getDataSource();
-    private final ProductRepository productRepository = new ProductRepository();
+    //private final ProductRepository productRepository = new ProductRepository();
     private final DishRepository dishRepository = new DishRepository();
 
     @Override
