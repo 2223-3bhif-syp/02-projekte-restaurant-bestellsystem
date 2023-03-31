@@ -11,12 +11,13 @@ import java.util.List;
 
 public class ProductRepository implements Persistent<Product> {
 
-    private DataSource dataSource = Database.getDataSource();
-    private ProductRepository productRepository = new ProductRepository();
-    private  DishRepository dishRepository = new DishRepository();
+    private final DataSource dataSource = Database.getDataSource();
+    private final ProductRepository productRepository = new ProductRepository();
+    private final DishRepository dishRepository = new DishRepository();
+
     @Override
     public void save(Product product) {
-        if (product == null) {
+        if (product.getId() == null) {
             insert(product);
         } else {
             update(product);
