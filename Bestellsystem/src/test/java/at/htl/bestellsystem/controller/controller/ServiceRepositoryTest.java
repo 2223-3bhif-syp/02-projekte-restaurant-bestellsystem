@@ -84,7 +84,7 @@ class ServiceRepositoryTest {
     }
 
     @Test
-    void shouldFindByIdOfDessert() {
+    void shouldFindServiceById() {
 
         Service service = new Service("John","King");
         Service service1 = new Service("Hai","Dello");
@@ -94,8 +94,8 @@ class ServiceRepositoryTest {
 
         serviceRepositiory.insert(service);
 
-        assertEquals(service.getId(), serviceRepositiory.findById(service.getId()));
-        assertEquals(service1.getId(), serviceRepositiory.findById(service1.getId()));
+        assertEquals(service.getId(), serviceRepositiory.findById(service.getId()).getId());
+        assertEquals(service1.getId(), serviceRepositiory.findById(service1.getId()).getId());
 
     }
 

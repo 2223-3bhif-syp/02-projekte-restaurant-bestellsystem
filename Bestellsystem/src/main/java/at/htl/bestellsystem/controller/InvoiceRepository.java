@@ -30,8 +30,8 @@ public class InvoiceRepository implements Persistent<Invoice>{
             String sql = "INSERT INTO INVOICE(BILL_NR,ITEM_NR, AMOUNT_OF_ITEM, PRICE) VALUES (?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setLong(1, invoice.getBillNr());
-            statement.setLong(2, invoice.getItemNr());
+            statement.setLong(1, invoice.getBill().getDeskNr());
+            statement.setLong(2, invoice.getProduct().getId());
             statement.setLong(3, invoice.getAmoutOfItem());
             statement.setDouble(4, invoice.getPrice());
 
@@ -137,8 +137,8 @@ public class InvoiceRepository implements Persistent<Invoice>{
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setLong(1, invoice.getBillNr());
-            statement.setLong(2, invoice.getItemNr());
+            statement.setLong(1, invoice.getBill().getId());
+            statement.setLong(2, invoice.getProduct().getId());
             statement.setLong(3, invoice.getAmoutOfItem());
             statement.setDouble(4, invoice.getPrice());
             statement.setLong(5, invoice.getId());

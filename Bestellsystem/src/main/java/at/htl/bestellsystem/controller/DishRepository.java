@@ -58,7 +58,7 @@ public class DishRepository implements Persistent<Dish> {
             String sql = "DELETE FROM DISH WHERE dish_nr=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setLong(1,dish.getId() );
+            statement.setLong(1, dish.getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Delete from answer_option failed, no rows affected");
@@ -83,7 +83,7 @@ public class DishRepository implements Persistent<Dish> {
             while (result.next()) {
                 Long id = result.getLong("DISH_NR");
                 String name = result.getString("NAME");
-                dishList.add(new Dish(id,name));
+                dishList.add(new Dish(id, name));
             }
 
         } catch (SQLException e) {
@@ -103,15 +103,8 @@ public class DishRepository implements Persistent<Dish> {
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-<<<<<<< HEAD
-                if(id == result.getInt("DISH_NR")) {
-                    return new Dish(result.getString("NAME"),
-                            id);
-=======
-                if(dish.getId() == result.getInt("dish_nr")) {
-                    return new Dish(result.getLong("dish_nr"),
-                            result.getString("name"));
->>>>>>> 3e0f90ba2e19ae10decffa80d8b88eb955d922d4
+                if (id == result.getInt("dish_nr")) {
+                    return new Dish(result.getLong("dish_nr"), result.getString("name"));
                 }
 
             }
@@ -119,27 +112,27 @@ public class DishRepository implements Persistent<Dish> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
-    @Override
-    public void update(Dish dish) {
-        try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE DISH SET name=?  WHERE dish_nr=?";
+        @Override
+        public void update (Dish dish){
+            try (Connection connection = dataSource.getConnection()) {
+                String sql = "UPDATE DISH SET name=?  WHERE dish_nr=?";
 
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, dish.getName());
-            statement.setLong(2, dish.getId());
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, dish.getName());
+                statement.setLong(2, dish.getId());
 
-            if (statement.executeUpdate() == 0) {
-                throw new SQLException("Update of DISH failed, no rows affected");
+                if (statement.executeUpdate() == 0) {
+                    throw new SQLException("Update of DISH failed, no rows affected");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
 
-
-    }
 }
+
+

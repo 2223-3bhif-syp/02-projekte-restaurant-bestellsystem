@@ -25,7 +25,7 @@ public class DeskRepository implements Persistent<Desk>{
             String sql = "INSERT INTO DESK(WORKING_NR) VALUES (?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setLong(1, desk.getWorkingNr());
+            statement.setLong(1, desk.getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Insert of Desk failed, no rows affected");
@@ -121,7 +121,8 @@ public class DeskRepository implements Persistent<Desk>{
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setLong(1, desk.getWorkingNr());
+
+            statement.setLong(1, desk.getService().getId());
             statement.setLong(2, desk.getId());
 
 
