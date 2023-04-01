@@ -12,21 +12,8 @@ public class Product {
 
     //region Constructors
 
-    public Product(Long pId) {
-        this.pId = pId;
-    }
-
-    public Product(String name) {
-        this.name = name;
-    }
-
-    public Product(double price) {
-        this.price = price;
-    }
-
-    public Product(Long pId, String name, double price,Dish dish) {
+    public Product(String name, double price,Dish dish) {
         this.dish = dish;
-        this.pId = pId;
         this.name = name;
         this.price = price;
     }
@@ -74,8 +61,8 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "dish=" + dish +
-                ", pId=" + pId +
+                "item_nr=" + pId +
+                ", dish_nr=" + dish.getId() +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';

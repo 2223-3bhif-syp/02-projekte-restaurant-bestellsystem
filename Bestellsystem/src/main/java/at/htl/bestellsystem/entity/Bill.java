@@ -5,20 +5,14 @@ package at.htl.bestellsystem.entity;
 
 public class Bill {
     private Long id;
-    private Long workingNr;
-    private Long deskNr;
     private Desk desk;
     private  Service service;
-    //region Constructor
-    public Bill(Long id) {
-        this.id = id;
-    }
 
+    //region Constructor
     public Bill() {
     }
 
-    public Bill(Long id,  Desk desk, Service service) {
-        this.id = id;
+    public Bill(Desk desk, Service service) {
         this.desk = desk;
         this.service = service;
     }
@@ -31,23 +25,6 @@ public class Bill {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-
-    public Long getWorkingNr() {
-        return workingNr;
-    }
-
-    public void setWorkingNr(Long workingNr) {
-        this.workingNr = workingNr;
-    }
-
-    public Long getDeskNr() {
-        return deskNr;
-    }
-
-    public void setDeskNr(Long deskNr) {
-        this.deskNr = deskNr;
     }
 
     public void setDesk(Desk desk) {
@@ -67,4 +44,13 @@ public class Bill {
     }
 
     //endregion
+
+    @Override
+    public String toString() {
+        return "Bill{" +
+                "bill_nr=" + id +
+                ", workingNr='" + getService().getId() + '\'' +
+                ", deskNr='" + getDesk().getId() + '\'' +
+                '}';
+    }
 }

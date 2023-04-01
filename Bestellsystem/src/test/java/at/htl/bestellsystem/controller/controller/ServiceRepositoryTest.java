@@ -1,11 +1,15 @@
 package at.htl.bestellsystem.controller.controller;
 
 import at.htl.bestellsystem.controller.Database;
+import at.htl.bestellsystem.controller.DeskRepository;
 import at.htl.bestellsystem.controller.ServiceRepository;
 import at.htl.bestellsystem.database.SqlRunner;
+import at.htl.bestellsystem.entity.Desk;
 import at.htl.bestellsystem.entity.Dish;
 import at.htl.bestellsystem.entity.Service;
+import org.assertj.db.api.Assertions;
 import org.assertj.db.type.Table;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,106 +18,142 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ServiceRepositoryTest {
-    ServiceRepository serviceRepositiory = new ServiceRepository();
+    private static String tableName = "SERVICE";
     Table table;
 
     @BeforeEach
-    void setUp() {
-        table = new Table(Database.getDataSource(), "SERVICE");
+    public void setUp() {
+        // to make sure every Table is empty and set up right
+        table = new Table(Database.getDataSource(), tableName);
         SqlRunner.dropTablesAndCreateEmptyTables();
+    }
 
+    @AfterEach
+    public void tearDown() {
+        // to clear the tables again of all the test values
+        SqlRunner.dropTablesAndCreateEmptyTables();
     }
 
     @Test
-    void testService() {
-        Table table = new Table(Database.getDataSource(), "SERVICE");
-        output(table).toConsole();
+    void save() {
+        // arrange
+        ServiceRepository serviceRepository = new ServiceRepository();
+        Service service = new Service("firstName", "lastName");
+
+        // modify
+        serviceRepository.save(service);
+
+        // test
+        assertEquals(service.getId(), 1);
+
+        Assertions.assertThat(table).column("WORKING_NR")
+                .value().isEqualTo(service.getId());
+        Assertions.assertThat(table).column("FIRST_NAME")
+                .value().isEqualTo(service.getFirstName());
+        Assertions.assertThat(table).column("LAST_NAME")
+                .value().isEqualTo(service.getLastName());
     }
 
     @Test
-    void shouldSaveService() {
-        Service service = new Service("John","King");
-        Service service2 = new Service("John","King");
-        serviceRepositiory.save(service);
+    void update() {
+        // arrange
+        ServiceRepository serviceRepository = new ServiceRepository();
+        Service service = new Service("firstName", "lastName");
 
-        org.assertj.db.api.Assertions.assertThat(table).row(0).value("FIRST_NAME").isEqualTo("John");
+        // modify
+        serviceRepository.save(service);
 
+        service.setLastName("lastName2");
+        serviceRepository.update(service);
 
-    }
+        // test
+        assertEquals(service.getId(), 1);
 
-@Test
-  void shouldUpdateWhenSavingExistingDish() {
-    Service service = new Service("John","King");
-        serviceRepositiory.insert(service);
-        service.setFirstName("David");
-        serviceRepositiory.save(service);
-
-        assertThat(table.getRowsList().size()).isEqualTo(1);
-    }
-
-
-    @Test
-    void shouldNotInsertDishTwice() {
-        Service service = new Service("John","King");
-
-        serviceRepositiory.insert(service);
-
-        int rowsBefore = table.getRowsList().size();
-        serviceRepositiory.insert(service);
-        int rowsAfter = table.getRowsList().size();
-
-        assertThat(rowsBefore).isEqualTo(1);
-        assertThat(rowsBefore).isEqualTo(rowsAfter);
+        Assertions.assertThat(table).column("WORKING_NR")
+                .value().isEqualTo(service.getId());
+        Assertions.assertThat(table).column("FIRST_NAME")
+                .value().isEqualTo(service.getFirstName());
+        Assertions.assertThat(table).column("LAST_NAME")
+                .value().isEqualTo(service.getLastName());
     }
 
     @Test
-    void shouldDeleteDish() {
-        Service service = new Service("John","King");
+    void insert() {
+        // arrange
+        ServiceRepository serviceRepository = new ServiceRepository();
+        Service service = new Service("firstName", "lastName");
 
+        // modify
+        serviceRepository.insert(service);
 
-        serviceRepositiory.insert(service);
-        int rowBeforeDelete = table.getRowsList().size();
+        // test
+        assertEquals(service.getId(), 1);
 
-        assertThat(rowBeforeDelete).isEqualTo(1);
-
-        serviceRepositiory.delete(service);
-        int rowAfterDelete = table.getRowsList().size();
-        org.assertj.core.api.Assertions.assertThat(rowAfterDelete).isEqualTo(rowAfterDelete);
+        Assertions.assertThat(table).column("WORKING_NR")
+                .value().isEqualTo(service.getId());
+        Assertions.assertThat(table).column("FIRST_NAME")
+                .value().isEqualTo(service.getFirstName());
+        Assertions.assertThat(table).column("LAST_NAME")
+                .value().isEqualTo(service.getLastName());
     }
 
     @Test
-    void shouldFindServiceById() {
+    void delete() {
+        // arrange
+        ServiceRepository serviceRepository = new ServiceRepository();
+        Service service = new Service("firstName", "lastName");
 
-        Service service = new Service("John","King");
-        Service service1 = new Service("Hai","Dello");
+        // modify
+        serviceRepository.insert(service);
 
+        serviceRepository.delete(service);
 
-        serviceRepositiory.insert(service1);
-
-        serviceRepositiory.insert(service);
-
-        assertEquals(service.getId(), serviceRepositiory.findById(service.getId()).getId());
-        assertEquals(service1.getId(), serviceRepositiory.findById(service1.getId()).getId());
-
+        // test
+        Assertions.assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
-    void shouldGiveAllDishes() {
-        Service service = new Service("John","King");
-        Service service2 = new Service("Mai","Chang");
-        Service service3 = new Service("David","Joe");
+    void findAll() {
+        // arrange
+        ServiceRepository serviceRepository = new ServiceRepository();
+        Service service1 = new Service("firstName", "lastName");
+        Service service2 = new Service("firstName", "lastName");
+        Service service3 = new Service("firstName", "lastName");
 
+        // modify
+        serviceRepository.save(service1);
+        serviceRepository.save(service2);
+        serviceRepository.save(service3);
 
-        serviceRepositiory.insert(service);
-        serviceRepositiory.insert(service2);
-        serviceRepositiory.insert(service3);
-        List<Service> dishes =  serviceRepositiory.findAll();
-        assertEquals(3,dishes.size());
+        List<Service> serviceList = serviceRepository.findAll();
 
+        // test
+        assertEquals(3, serviceList.size());
+
+        assertTrue(serviceList.stream().anyMatch(service -> service1.toString().equals(service.toString())));
+        assertTrue(serviceList.stream().anyMatch(service -> service2.toString().equals(service.toString())));
+        assertTrue(serviceList.stream().anyMatch(service -> service3.toString().equals(service.toString())));
     }
 
+    @Test
+    void findById() {
+        // arrange
+        ServiceRepository serviceRepository = new ServiceRepository();
+        Service service1 = new Service("firstName", "lastName");
+        Service service2 = new Service("firstName", "lastName");
+        Service service3 = new Service("firstName", "lastName");
 
+        // modify
+        serviceRepository.save(service1);
+        serviceRepository.save(service2);
+        serviceRepository.save(service3);
 
+        // test
+        assertEquals(service1.toString(), serviceRepository.findById(service1.getId()).toString());
+        assertEquals(service2.toString(), serviceRepository.findById(service2.getId()).toString());
+        assertEquals(service3.toString(), serviceRepository.findById(service3.getId()).toString());
+    }
 }

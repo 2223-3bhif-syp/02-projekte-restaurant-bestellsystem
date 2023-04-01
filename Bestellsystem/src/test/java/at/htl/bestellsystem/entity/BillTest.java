@@ -13,17 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class BillTest {
     @Test
     void createBill() {
-        Bill bill = new Bill(2L,
-                new Desk(3L,new Service(5L,"John","King"))
-                ,new Service(5L,"John","King"));
-        assertThat(bill.getId()).isEqualTo(2L);
-        assertThat(bill.getDesk().getId()).isEqualTo(3L);
-        assertThat(bill.getDesk().getService().getId()).isEqualTo(5L);
-        assertThat(bill.getService().getId()).isEqualTo(5L);
+        Service service = new Service("John","King");
+        Desk desk = new Desk(service);
+        Bill bill = new Bill(desk, service);
 
-
-
-
+        assertThat(bill.getId()).isEqualTo(null);
+        assertThat(bill.getDesk()).isEqualTo(desk);
+        assertThat(bill.getDesk().getService()).isEqualTo(service);
     }
 
 }

@@ -30,7 +30,7 @@ public class InvoiceRepository implements Persistent<Invoice>{
             String sql = "INSERT INTO INVOICE(BILL_NR,ITEM_NR, AMOUNT_OF_ITEM, PRICE) VALUES (?,?,?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setLong(1, invoice.getBill().getDeskNr());
+            statement.setLong(1, invoice.getBill().getId());
             statement.setLong(2, invoice.getProduct().getId());
             statement.setLong(3, invoice.getAmoutOfItem());
             statement.setDouble(4, invoice.getPrice());
@@ -88,10 +88,12 @@ public class InvoiceRepository implements Persistent<Invoice>{
                 Long id = result.getLong("INVOICE_NR");
                 Bill bill = billRepository.findById(result.getLong("BILL_NR"));
                 Product product = productRepository.findById(result.getLong("ITEM_NR"));
-                Long amountOfItems = result.getLong("AMOUNT_OF_ITEM");
+                int amountOfItems = result.getInt("AMOUNT_OF_ITEM");
                 Double price = result.getDouble("PRICE");
+                Invoice invoice = new Invoice(price, amountOfItems, bill, product);
+                invoice.setId(id);
 
-                invoiceList.add(new Invoice(id, price, amountOfItems, bill, product));
+                invoiceList.add(invoice);
             }
 
         } catch (SQLException e) {
@@ -113,12 +115,13 @@ public class InvoiceRepository implements Persistent<Invoice>{
                 if(id == result.getInt("INVOICE_NR")) {
                     BillRepository billRepository = new BillRepository();
                     ProductRepository productRepository = new ProductRepository();
-
-                    return new Invoice(id,
-                            result.getDouble("PRICE"),
-                            result.getLong("AMOUNT_OF_ITEM"),
+                    Invoice invoice = new Invoice(result.getDouble("PRICE"),
+                            result.getInt("AMOUNT_OF_ITEM"),
                             billRepository.findById(result.getLong("BILL_NR")),
                             productRepository.findById(result.getLong("ITEM_NR")));
+                    invoice.setId(id);
+
+                    return invoice;
                 }
 
             }
@@ -133,7 +136,7 @@ public class InvoiceRepository implements Persistent<Invoice>{
     @Override
     public void update(Invoice invoice) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE SERVICE SET BILL_NR=?,ITEM_NR=?, AMOUNT_OF_ITEM=?, PRICE=?  WHERE INVOICE_NR=?";
+            String sql = "UPDATE INVOICE SET BILL_NR=?,ITEM_NR=?, AMOUNT_OF_ITEM=?, PRICE=?  WHERE INVOICE_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 

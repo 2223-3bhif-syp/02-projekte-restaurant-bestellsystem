@@ -83,7 +83,10 @@ public class DishRepository implements Persistent<Dish> {
             while (result.next()) {
                 Long id = result.getLong("DISH_NR");
                 String name = result.getString("NAME");
-                dishList.add(new Dish(id, name));
+                Dish dish = new Dish(name);
+                dish.setId(id);
+
+                dishList.add(dish);
             }
 
         } catch (SQLException e) {
@@ -104,7 +107,10 @@ public class DishRepository implements Persistent<Dish> {
 
             while (result.next()) {
                 if (id == result.getInt("dish_nr")) {
-                    return new Dish(result.getLong("dish_nr"), result.getString("name"));
+                    Dish dish = new Dish(result.getString("name"));
+                    dish.setId(id);
+
+                    return dish;
                 }
 
             }

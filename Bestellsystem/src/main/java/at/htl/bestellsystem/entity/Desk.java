@@ -12,12 +12,7 @@ public class Desk {
     public Desk() {
     }
 
-    public Desk(Long id) {
-        this.id = id;
-    }
-
-    public Desk(Long id, Service service) {
-        this.id = id;
+    public Desk(Service service) {
         this.service = service;
     }
 
@@ -47,8 +42,8 @@ public class Desk {
     @Override
     public String toString() {
         return "Desk{" +
-                "id=" + id +
-                ", service=" + service +
+                "desk_nr=" + id +
+                ", working_nr=" + service.getId() +
                 '}';
     }
 }

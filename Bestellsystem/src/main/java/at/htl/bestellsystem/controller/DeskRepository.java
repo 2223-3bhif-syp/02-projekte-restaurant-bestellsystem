@@ -25,7 +25,7 @@ public class DeskRepository implements Persistent<Desk>{
             String sql = "INSERT INTO DESK(WORKING_NR) VALUES (?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setLong(1, desk.getId());
+            statement.setLong(1, desk.getService().getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Insert of Desk failed, no rows affected");
@@ -78,8 +78,10 @@ public class DeskRepository implements Persistent<Desk>{
 
                 Long id = result.getLong("DESK_NR");
                 Service service = serviceRepository.findById(result.getLong("WORKING_NR"));
+                Desk desk = new Desk(service);
+                desk.setId(id);
 
-                deskList.add(new Desk(id, service));
+                deskList.add(desk);
             }
 
         } catch (SQLException e) {
@@ -100,9 +102,10 @@ public class DeskRepository implements Persistent<Desk>{
             while (result.next()) {
                 if(id == result.getInt("DESK_NR")) {
                     ServiceRepository serviceRepository = new ServiceRepository();
+                    Desk desk = new Desk(serviceRepository.findById(result.getLong("WORKING_NR")));
+                    desk.setId(id);
 
-                    return new Desk(id,
-                            serviceRepository.findById(result.getLong("WORKING_NR")));
+                    return desk;
                 }
 
             }
@@ -117,7 +120,7 @@ public class DeskRepository implements Persistent<Desk>{
     @Override
     public void update(Desk desk) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE SERVICE SET WOKRING_NR=?  WHERE DESK_NR=?";
+            String sql = "UPDATE DESK SET WORKING_NR=?  WHERE DESK_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 

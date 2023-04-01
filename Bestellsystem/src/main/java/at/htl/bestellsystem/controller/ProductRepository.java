@@ -12,7 +12,6 @@ import java.util.List;
 public class ProductRepository implements Persistent<Product> {
 
     private final DataSource dataSource = Database.getDataSource();
-    //private final ProductRepository productRepository = new ProductRepository();
     private final DishRepository dishRepository = new DishRepository();
 
     @Override
@@ -73,8 +72,6 @@ public class ProductRepository implements Persistent<Product> {
 
     @Override
     public List<Product> findAll() {
-
-
         List<Product> productList = new ArrayList<>();
 
         try (Connection connection = dataSource.getConnection()) {
@@ -83,14 +80,15 @@ public class ProductRepository implements Persistent<Product> {
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
-                Long item_nr = Long.valueOf(result.getInt("item_nr"));
+                Long item_nr = result.getLong("item_nr");
                 String name = result.getString("name");
                 Long dish_nr = result.getLong("dish_nr");
                 Double price = result.getDouble("price");
-
                 Dish dish = dishRepository.findById(dish_nr);
+                Product product = new Product(name, price, dish);
+                product.setId(item_nr);
 
-               productList.add(new Product(item_nr, name, price,dish));
+               productList.add(product);
             }
 
         } catch (SQLException e) {
@@ -110,13 +108,13 @@ public class ProductRepository implements Persistent<Product> {
 
 
             while (result.next()) {
-                Dish dish = dishRepository.findById(id);
-                return new Product(
-                        result.getLong("item_nr"),
-                        result.getString("name"),
+                Dish dish = dishRepository.findById(result.getLong("DISH_NR"));
+                Product product = new Product(result.getString("name"),
                         result.getDouble("price"),
-                        dish
-                );
+                        dish);
+                product.setId(id);
+
+                return product;
             }
 
         } catch (SQLException e) {
@@ -131,12 +129,12 @@ public class ProductRepository implements Persistent<Product> {
     public void update(Product product) {
 
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE product  SET item_nr=?, dish_nr=?, name=? , price=? WHERE s_id=  " + product.getId();
+            String sql = "UPDATE PRODUCT  SET dish_nr=?, name=? , price=? WHERE ITEM_NR=  " + product.getId();
 
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setLong(1, product.getId());
-            statement.setString(3, product.getName());
-            statement.setDouble(4, product.getPrice());
+            statement.setLong(1, product.getDish().getId());
+            statement.setString(2, product.getName());
+            statement.setDouble(3, product.getPrice());
 
 
             if (statement.executeUpdate() == 0) {

@@ -84,9 +84,10 @@ public class ServiceRepository implements Persistent<Service> {
                 Long id = result.getLong("WORKING_NR");
                 String firstName = result.getString("FIRST_NAME");
                 String lastName = result.getString("LAST_NAME");
+                Service service = new Service(firstName, lastName);
+                service.setId(id);
 
-
-                serviceList.add(new Service(id,firstName,lastName));
+                serviceList.add(service);
             }
 
         } catch (SQLException e) {
@@ -107,9 +108,11 @@ public class ServiceRepository implements Persistent<Service> {
 
             while (result.next()) {
                 if(id == result.getInt("WORKING_NR")) {
-                    return new Service(result.getLong("WORKING_NR"),
-                            result.getString("FIRST_NAME"),
+                    Service service = new Service(result.getString("FIRST_NAME"),
                             result.getString("LAST_NAME"));
+                    service.setId(id);
+
+                    return service;
                 }
 
             }

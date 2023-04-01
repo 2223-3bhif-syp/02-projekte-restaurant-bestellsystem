@@ -3,11 +3,14 @@ package at.htl.bestellsystem.controller.controller;
 
 import at.htl.bestellsystem.controller.Database;
 import at.htl.bestellsystem.controller.DishRepository;
+import at.htl.bestellsystem.controller.ServiceRepository;
 import at.htl.bestellsystem.database.SqlRunner;
 import at.htl.bestellsystem.entity.Dish;
 import at.htl.bestellsystem.entity.Product;
+import at.htl.bestellsystem.entity.Service;
 import org.assertj.core.api.Assertions;
 import org.assertj.db.type.Table;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,103 +19,137 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DishRepositoryTest {
-    DishRepository dishRepository = new DishRepository();
+    private static String tableName = "DISH";
     Table table;
 
     @BeforeEach
-    void setUp() {
-        table = new Table(Database.getDataSource(), "DISH");
+    public void setUp() {
+        // to make sure every Table is empty and set up right
+        table = new Table(Database.getDataSource(), tableName);
         SqlRunner.dropTablesAndCreateEmptyTables();
+    }
 
+    @AfterEach
+    public void tearDown() {
+        // to clear the tables again of all the test values
+        SqlRunner.dropTablesAndCreateEmptyTables();
     }
 
     @Test
-    void testDish() {
-        output(table).toConsole();
-    }
+    void save() {
+        // arrange
+        DishRepository dishRepository = new DishRepository();
+        Dish dish = new Dish("name");
 
-    @Test
-    void shouldSaveDish() {
-        dishRepository.save(createDish());
-
-        org.assertj.db.api.Assertions.assertThat(table).row(0).value("NAME").isEqualTo("Dessert");
-
-
-    }
-
-    @Test
-    void shouldUpdateWhenSavingExistingDish() {
-        Dish dish = createDish();
-        dishRepository.insert(dish);
-        dish.setName("Vorspeise");
+        // modify
         dishRepository.save(dish);
 
-        assertThat(table.getRowsList().size()).isEqualTo(1);
-        org.assertj.db.api.Assertions.assertThat(table).row(0).value("NAME").isEqualTo("Vorspeise");
+        // test
+        assertEquals(dish.getId(), 1);
 
+        org.assertj.db.api.Assertions.assertThat(table).column("DISH_NR")
+                .value().isEqualTo(dish.getId());
+        org.assertj.db.api.Assertions.assertThat(table).column("NAME")
+                .value().isEqualTo(dish.getName());
 
     }
 
     @Test
-    void shouldNotInsertDishTwice() {
-        Dish dish = createDish();
-        dishRepository.insert(dish);
+    void update() {
+        // arrange
+        DishRepository dishRepository = new DishRepository();
+        Dish dish = new Dish("name");
 
-        int rowsBefore = table.getRowsList().size();
-        dishRepository.insert(dish);
-        int rowsAfter = table.getRowsList().size();
+        // modify
+        dishRepository.save(dish);
 
-        assertThat(rowsBefore).isEqualTo(1);
-        assertThat(rowsBefore).isEqualTo(rowsAfter);
+        dish.setName("name2");
+        dishRepository.update(dish);
+
+        // test
+        assertEquals(dish.getId(), 1);
+
+        org.assertj.db.api.Assertions.assertThat(table).column("DISH_NR")
+                .value().isEqualTo(dish.getId());
+        org.assertj.db.api.Assertions.assertThat(table).column("NAME")
+                .value().isEqualTo(dish.getName());
     }
 
     @Test
-    void shouldDeleteDish() {
+    void insert() {
+        // arrange
+        DishRepository dishRepository = new DishRepository();
+        Dish dish = new Dish("name");
 
-        Dish dish = createDish();
+        // modify
         dishRepository.insert(dish);
-        int rowBeforeDelete = table.getRowsList().size();
 
-        assertThat(rowBeforeDelete).isEqualTo(1);
+        // test
+        assertEquals(dish.getId(), 1);
+
+        org.assertj.db.api.Assertions.assertThat(table).column("DISH_NR")
+                .value().isEqualTo(dish.getId());
+        org.assertj.db.api.Assertions.assertThat(table).column("NAME")
+                .value().isEqualTo(dish.getName());
+    }
+
+    @Test
+    void delete() {
+        // arrange
+        DishRepository dishRepository = new DishRepository();
+        Dish dish = new Dish("name");
+
+        // modify
+        dishRepository.insert(dish);
 
         dishRepository.delete(dish);
-        int rowAfterDelete = table.getRowsList().size();
-        org.assertj.core.api.Assertions.assertThat(rowAfterDelete).isEqualTo(rowAfterDelete);
+
+        // test
+        org.assertj.db.api.Assertions.assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
-    void shouldFindByIdOfDessert() {
+    void findAll() {
+        // arrange
+        DishRepository dishRepository = new DishRepository();
+        Dish dish1 = new Dish("name");
+        Dish dish2 = new Dish("name");
+        Dish dish3 = new Dish("name");
 
+        // modify
+        dishRepository.save(dish1);
+        dishRepository.save(dish2);
+        dishRepository.save(dish3);
 
-        Dish dish1 = createDish();
-        dishRepository.insert(dish1);
+        List<Dish> dishList = dishRepository.findAll();
 
-        Dish newDish = new Dish("Vorspeise");
-        dishRepository.insert(newDish);
+        // test
+        assertEquals(3, dishList.size());
 
-        assertEquals(newDish.getId(), dishRepository.findById(newDish.getId()).getId());
-        assertEquals(dish1.getId(), dishRepository.findById(dish1.getId()).getId());
-
+        assertTrue(dishList.stream().anyMatch(dish -> dish1.toString().equals(dish.toString())));
+        assertTrue(dishList.stream().anyMatch(dish -> dish2.toString().equals(dish.toString())));
+        assertTrue(dishList.stream().anyMatch(dish -> dish3.toString().equals(dish.toString())));
     }
 
     @Test
-    void shouldGiveAllDishes() {
-        Dish dish = new Dish("Dessert");
-        Dish dish1 = new Dish("Vorspeise");
-        Dish dish2 = new Dish("Suppe");
+    void findById() {
+        // arrange
+        DishRepository dishRepository = new DishRepository();
+        Dish dish1 = new Dish("name");
+        Dish dish2 = new Dish("name");
+        Dish dish3 = new Dish("name");
 
-        dishRepository.insert(dish);
-        dishRepository.insert(dish1);
-        dishRepository.insert(dish2);
-        List<Dish> dishes =  dishRepository.findAll();
-        assertEquals(3,dishes.size());
+        // modify
+        dishRepository.save(dish1);
+        dishRepository.save(dish2);
+        dishRepository.save(dish3);
 
-    }
-
-    private static Dish createDish() {
-        Dish dish = new Dish("Dessert");
-        return dish;
+        // test
+        assertEquals(dish1.toString(), dishRepository.findById(dish1.getId()).toString());
+        assertEquals(dish2.toString(), dishRepository.findById(dish2.getId()).toString());
+        assertEquals(dish3.toString(), dishRepository.findById(dish3.getId()).toString());
     }
 }

@@ -8,10 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class DeskTest {
     @Test
     void createDesk() {
-        Desk desk = new Desk(2L,new Service(4L,"John","King"));
-        assertThat(desk.getId()).isEqualTo(2L);
-        assertThat(desk.getService().getLastName()).isEqualTo("King");
-        assertThat(desk.getService().getFirstName()).isEqualTo("John");
+        Service service = new Service("John","King");
+        Desk desk = new Desk(service);
+
+        assertThat(desk.getId()).isEqualTo(null);
+        assertThat(desk.getService()).isEqualTo(service);
     }
 
 }

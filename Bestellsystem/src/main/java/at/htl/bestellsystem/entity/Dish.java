@@ -12,15 +12,6 @@ public class Dish {
     public Dish() {
     }
 
-    public Dish(Long id) {
-        this.id = id;
-    }
-
-    public Dish(Long id,String name) {
-        this.name = name;
-        this.id = id;
-    }
-
     public Dish(String name) {
         this.name = name;
     }
@@ -48,8 +39,8 @@ public class Dish {
     @Override
     public String toString() {
         return "Dish{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
+                "dish_nr='" + id + '\'' +
+                ", name=" + name +
                 '}';
     }
 }

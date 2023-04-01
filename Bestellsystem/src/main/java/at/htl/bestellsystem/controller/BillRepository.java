@@ -28,8 +28,8 @@ public class BillRepository implements Persistent<Bill>{
             String sql = "INSERT INTO BILL(WORKING_NR,DESK_NR) VALUES (?,?)";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            statement.setLong(1, bill.getWorkingNr());
-            statement.setLong(2, bill.getDeskNr());
+            statement.setLong(1, bill.getService().getId());
+            statement.setLong(2, bill.getDesk().getId());
 
             if (statement.executeUpdate() == 0) {
                 throw new SQLException("Insert of Bill failed, no rows affected");
@@ -84,8 +84,10 @@ public class BillRepository implements Persistent<Bill>{
                 Long id = result.getLong("BILL_NR");
                 Service service = serviceRepository.findById(result.getLong("WORKING_NR"));
                 Desk desk = deskRepository.findById(result.getLong("DESK_NR"));
+                Bill bill = new Bill(desk, service);
+                bill.setId(id);
 
-                billList.add(new Bill(id, desk, service));
+                billList.add(bill);
             }
 
         } catch (SQLException e) {
@@ -107,10 +109,11 @@ public class BillRepository implements Persistent<Bill>{
                 if(id == result.getInt("BILL_NR")) {
                     DeskRepository deskRepository = new DeskRepository();
                     ServiceRepository serviceRepository = new ServiceRepository();
-
-                    return new Bill(id,
-                            deskRepository.findById(result.getLong("DESK_NR")),
+                    Bill bill = new Bill(deskRepository.findById(result.getLong("DESK_NR")),
                             serviceRepository.findById(result.getLong("WORKING_NR")));
+                    bill.setId(id);
+
+                    return bill;
                 }
 
             }
@@ -125,12 +128,12 @@ public class BillRepository implements Persistent<Bill>{
     @Override
     public void update(Bill bill) {
         try (Connection connection = dataSource.getConnection()) {
-            String sql = "UPDATE SERVICE SET WORKING_NR=?,DESK_NR=? WHERE BILL_NR=?";
+            String sql = "UPDATE BILL SET WORKING_NR=?,DESK_NR=? WHERE BILL_NR=?";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setLong(1, bill.getWorkingNr());
-            statement.setLong(2, bill.getDeskNr());
+            statement.setLong(1, bill.getService().getId());
+            statement.setLong(2, bill.getDesk().getId());
             statement.setLong(3, bill.getId());
 
 

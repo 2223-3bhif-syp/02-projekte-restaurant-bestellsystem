@@ -5,10 +5,8 @@ package at.htl.bestellsystem.entity;
 
 public class Invoice {
     private Long id;
-
     private double price;
-    private Long itemNr;
-    private Long amoutOfItem;
+    private int amoutOfItem;
     private Bill bill;
     private Product product;
 
@@ -17,17 +15,7 @@ public class Invoice {
     public Invoice() {
     }
 
-
-    public Invoice(Long id) {
-        this.id = id;
-    }
-
-    public Invoice(double price) {
-        this.price = price;
-    }
-
-    public Invoice(Long id, double price, Long amoutOfItem, Bill bill, Product product) {
-        this.id = id;
+    public Invoice(double price, int amoutOfItem, Bill bill, Product product) {
         this.price = price;
         this.amoutOfItem = amoutOfItem;
         this.bill = bill;
@@ -62,15 +50,12 @@ public class Invoice {
         this.product = product;
     }
 
-
-    public void setItemNr(Long itemNr) {
-        this.itemNr = itemNr;
-    }
-
-    public Long getAmoutOfItem() {
+    public int getAmoutOfItem() {
         return amoutOfItem;
     }
-
+    public void setAmoutOfItem(int amoutOfItem) {
+        this.amoutOfItem = amoutOfItem;
+    }
 
     public double getPrice() {
         return price;
@@ -85,12 +70,11 @@ public class Invoice {
     @Override
     public String toString() {
         return "Invoice{" +
-                "id=" + id +
+                "invoice_nr=" + id +
+                ", bill_nr=" + bill.getId() +
+                ", item_nr=" + getProduct().getId() +
+                ", amout_of_item=" + amoutOfItem +
                 ", price=" + price +
-                ", itemNr=" + itemNr +
-                ", amoutOfItem=" + amoutOfItem +
-                ", bill=" + bill +
-                ", product=" + product +
                 '}';
     }
 }

@@ -11,16 +11,6 @@ public class Service {
     public Service() {
     }
 
-    public Service(Long id) {
-        this.id = id;
-    }
-
-    public Service(Long id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
     public Service(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -61,7 +51,7 @@ public class Service {
     @Override
     public String toString() {
         return "Service{" +
-                "id=" + id +
+                "working_nr=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
