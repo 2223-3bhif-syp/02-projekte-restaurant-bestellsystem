@@ -87,7 +87,7 @@ class ProductRepositoryTest {
         Assertions.assertThat(table).column("PRICE")
                 .value().isEqualTo(product.getPrice());
     }
-
+ 
     @Test
     void insert() {
         // arrange

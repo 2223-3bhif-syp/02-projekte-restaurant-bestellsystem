@@ -199,7 +199,7 @@ class BillRepositoryTest {
         billRepository.save(bill1);
         billRepository.save(bill2);
         billRepository.save(bill3);
-
+ 
         // test
         assertEquals(bill1.toString(), billRepository.findById(bill1.getId()).toString());
         assertEquals(bill2.toString(), billRepository.findById(bill2.getId()).toString());
