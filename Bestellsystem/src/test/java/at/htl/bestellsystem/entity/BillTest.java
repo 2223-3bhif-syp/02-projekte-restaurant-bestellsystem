@@ -21,5 +21,4 @@ class BillTest {
         assertThat(bill.getDesk()).isEqualTo(desk);
         assertThat(bill.getDesk().getService()).isEqualTo(service);
     }
-
 }

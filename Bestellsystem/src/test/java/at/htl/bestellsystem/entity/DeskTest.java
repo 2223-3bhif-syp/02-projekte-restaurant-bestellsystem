@@ -14,5 +14,4 @@ class DeskTest {
         assertThat(desk.getId()).isEqualTo(null);
         assertThat(desk.getService()).isEqualTo(service);
     }
-
 }

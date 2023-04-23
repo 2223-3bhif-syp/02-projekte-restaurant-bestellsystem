@@ -13,5 +13,4 @@ class DishTest {
         assertThat(dish.getId()).isEqualTo(null);
         assertThat(dish.getName()).isEqualTo("Vorspeise");
     }
-
 }

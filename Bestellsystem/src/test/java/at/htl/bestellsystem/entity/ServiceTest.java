@@ -14,5 +14,4 @@ class ServiceTest {
         assertThat(service.getFirstName()).isEqualTo("John");
         assertThat(service.getLastName()).isEqualTo("King");
     }
-
 }
