@@ -36,17 +36,21 @@ class ProductRepositoryTest {
     @Test
     void save() {
         // arrange
+        output(table).toConsole();
+
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
 
         Dish dish = new Dish("name");
         Product product = new Product("productName", 2.2, dish);
 
-        // modify
+        // act
         dishRepository.save(dish);
         productRepository.save(product);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(product.getId(), 1);
 
         Assertions.assertThat(table).column("ITEM_NR")
@@ -57,25 +61,30 @@ class ProductRepositoryTest {
                 .value().isEqualTo(product.getName());
         Assertions.assertThat(table).column("PRICE")
                 .value().isEqualTo(product.getPrice());
+
     }
 
     @Test
     void update() {
         // arrange
+        output(table).toConsole();
+
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
 
         Dish dish = new Dish("name");
         Product product = new Product("productName", 2.2, dish);
 
-        // modify
+        // act
         dishRepository.save(dish);
         productRepository.insert(product);
 
         product.setPrice(2.5);
         productRepository.update(product);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(product.getId(), 1);
 
         Assertions.assertThat(table).column("ITEM_NR")
@@ -91,18 +100,22 @@ class ProductRepositoryTest {
     @Test
     void insert() {
         // arrange
+        output(table).toConsole();
+
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
 
         Dish dish = new Dish("name");
         Product product = new Product("productName", 2.2, dish);
 
-        // modify
+        // act
         dishRepository.save(dish);
 
         productRepository.insert(product);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(product.getId(), 1);
 
         Assertions.assertThat(table).column("ITEM_NR")
@@ -118,25 +131,31 @@ class ProductRepositoryTest {
     @Test
     void delete() {
         // arrange
+        output(table).toConsole();
+
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
 
         Dish dish = new Dish("name");
         Product product = new Product("productName", 2.2, dish);
 
-        // modify
+        // act
         dishRepository.save(dish);
         productRepository.insert(product);
 
         productRepository.delete(product);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         Assertions.assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
     void findAll() {
         // arrange
+        output(table).toConsole();
+
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
 
@@ -146,7 +165,7 @@ class ProductRepositoryTest {
         Product product2 = new Product("productName", 2.2, dish);
         Product product3 = new Product("productName", 2.2, dish);
 
-        // modify
+        // act
         dishRepository.save(dish);
 
         productRepository.save(product1);
@@ -154,8 +173,9 @@ class ProductRepositoryTest {
         productRepository.save(product3);
 
         List<Product> productList = productRepository.findAll();
+        output(table).toConsole();
 
-        // test
+        // assert
         assertEquals(3, productList.size());
 
         assertTrue(productList.stream().anyMatch(product -> product1.toString().equals(product.toString())));
@@ -166,6 +186,8 @@ class ProductRepositoryTest {
     @Test
     void findById() {
         // arrange
+        output(table).toConsole();
+
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
 
@@ -175,14 +197,16 @@ class ProductRepositoryTest {
         Product product2 = new Product("productName", 2.2, dish);
         Product product3 = new Product("productName", 2.2, dish);
 
-        // modify
+        // act
         dishRepository.save(dish);
 
         productRepository.save(product1);
         productRepository.save(product2);
         productRepository.save(product3);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(product1.toString(), productRepository.findById(product1.getId()).toString());
         assertEquals(product2.toString(), productRepository.findById(product2.getId()).toString());
         assertEquals(product3.toString(), productRepository.findById(product3.getId()).toString());

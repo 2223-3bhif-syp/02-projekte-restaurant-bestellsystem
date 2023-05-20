@@ -60,16 +60,19 @@ class DishRepositoryTest {
     @Test
     void update() {
         // arrange
+        output(table).toConsole();
         DishRepository dishRepository = new DishRepository();
         Dish dish = new Dish("name");
 
-        // modify
+        // act
         dishRepository.save(dish);
 
         dish.setName("name2");
         dishRepository.update(dish);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(dish.getId(), 1);
 
         org.assertj.db.api.Assertions.assertThat(table).column("DISH_NR")
@@ -81,13 +84,17 @@ class DishRepositoryTest {
     @Test
     void insert() {
         // arrange
+        output(table).toConsole();
+
         DishRepository dishRepository = new DishRepository();
         Dish dish = new Dish("name");
 
-        // modify
+        // act
         dishRepository.insert(dish);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(dish.getId(), 1);
 
         org.assertj.db.api.Assertions.assertThat(table).column("DISH_NR")
@@ -99,34 +106,42 @@ class DishRepositoryTest {
     @Test
     void delete() {
         // arrange
+        output(table).toConsole();
+
         DishRepository dishRepository = new DishRepository();
         Dish dish = new Dish("name");
 
-        // modify
+        // act
         dishRepository.insert(dish);
 
         dishRepository.delete(dish);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         org.assertj.db.api.Assertions.assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
     void findAll() {
         // arrange
+        output(table).toConsole();
+
         DishRepository dishRepository = new DishRepository();
         Dish dish1 = new Dish("name");
         Dish dish2 = new Dish("name");
         Dish dish3 = new Dish("name");
 
-        // modify
+        // act
         dishRepository.save(dish1);
         dishRepository.save(dish2);
         dishRepository.save(dish3);
 
         List<Dish> dishList = dishRepository.findAll();
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(3, dishList.size());
 
         assertTrue(dishList.stream().anyMatch(dish -> dish1.toString().equals(dish.toString())));
@@ -137,17 +152,21 @@ class DishRepositoryTest {
     @Test
     void findById() {
         // arrange
+        output(table).toConsole();
+
         DishRepository dishRepository = new DishRepository();
         Dish dish1 = new Dish("name");
         Dish dish2 = new Dish("name");
         Dish dish3 = new Dish("name");
 
-        // modify
+        // act
         dishRepository.save(dish1);
         dishRepository.save(dish2);
         dishRepository.save(dish3);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(dish1.toString(), dishRepository.findById(dish1.getId()).toString());
         assertEquals(dish2.toString(), dishRepository.findById(dish2.getId()).toString());
         assertEquals(dish3.toString(), dishRepository.findById(dish3.getId()).toString());

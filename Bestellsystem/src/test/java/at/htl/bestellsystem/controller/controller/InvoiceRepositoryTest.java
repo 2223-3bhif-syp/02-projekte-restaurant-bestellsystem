@@ -35,6 +35,8 @@ class InvoiceRepositoryTest {
     @Test
     void save() {
         // arrange
+        output(table).toConsole();
+
         InvoiceRepository invoiceRepository = new InvoiceRepository();
         DeskRepository deskRepository = new DeskRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
@@ -49,7 +51,7 @@ class InvoiceRepositoryTest {
         Product product = new Product("productName", 2.3, dish);
         Invoice invoice = new Invoice(4.6, 2, bill, product);
 
-        // modify
+        // act
         dishRepository.save(dish);
         serviceRepository.save(service);
         deskRepository.save(desk);
@@ -57,7 +59,9 @@ class InvoiceRepositoryTest {
         productRepository.save(product);
         invoiceRepository.save(invoice);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(invoice.getId(), 1);
 
         assertThat(table).column("INVOICE_NR")
@@ -75,6 +79,8 @@ class InvoiceRepositoryTest {
     @Test
     void update() {
         // arrange
+        output(table).toConsole();
+
         InvoiceRepository invoiceRepository = new InvoiceRepository();
         DeskRepository deskRepository = new DeskRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
@@ -89,7 +95,7 @@ class InvoiceRepositoryTest {
         Product product = new Product("productName", 2.3, dish);
         Invoice invoice = new Invoice(4.6, 2, bill, product);
 
-        // modify
+        // act
         dishRepository.save(dish);
         serviceRepository.save(service);
         deskRepository.save(desk);
@@ -103,7 +109,9 @@ class InvoiceRepositoryTest {
 
         invoiceRepository.update(invoice);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(invoice.getId(), 1);
 
         assertThat(table).column("INVOICE_NR")
@@ -121,6 +129,8 @@ class InvoiceRepositoryTest {
     @Test
     void insert() {
         // arrange
+        output(table).toConsole();
+
         InvoiceRepository invoiceRepository = new InvoiceRepository();
         DeskRepository deskRepository = new DeskRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
@@ -135,7 +145,7 @@ class InvoiceRepositoryTest {
         Product product = new Product("productName", 2.3, dish);
         Invoice invoice = new Invoice(4.6, 2, bill, product);
 
-        // modify
+        // act
         dishRepository.save(dish);
         serviceRepository.save(service);
         deskRepository.save(desk);
@@ -144,7 +154,9 @@ class InvoiceRepositoryTest {
 
         invoiceRepository.insert(invoice);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(invoice.getId(), 1);
 
         assertThat(table).column("INVOICE_NR")
@@ -162,6 +174,8 @@ class InvoiceRepositoryTest {
     @Test
     void delete() {
         // arrange
+        output(table).toConsole();
+
         InvoiceRepository invoiceRepository = new InvoiceRepository();
         DeskRepository deskRepository = new DeskRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
@@ -176,7 +190,7 @@ class InvoiceRepositoryTest {
         Product product = new Product("productName", 2.3, dish);
         Invoice invoice = new Invoice(4.6, 2, bill, product);
 
-        // modify
+        // act
         dishRepository.save(dish);
         serviceRepository.save(service);
         deskRepository.save(desk);
@@ -186,13 +200,17 @@ class InvoiceRepositoryTest {
 
         invoiceRepository.delete(invoice);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
     void findAll() {
         // arrange
+        output(table).toConsole();
+
         InvoiceRepository invoiceRepository = new InvoiceRepository();
         DeskRepository deskRepository = new DeskRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
@@ -210,7 +228,7 @@ class InvoiceRepositoryTest {
         Invoice invoice2 = new Invoice(4.6, 2, bill, product);
         Invoice invoice3 = new Invoice(4.6, 2, bill, product);
 
-        // modify
+        // act
         dishRepository.save(dish);
         serviceRepository.save(service);
         deskRepository.save(desk);
@@ -223,7 +241,9 @@ class InvoiceRepositoryTest {
 
         List<Invoice> invoiceList = invoiceRepository.findAll();
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(3, invoiceList.size());
 
         assertTrue(invoiceList.stream().anyMatch(invoice -> invoice1.toString().equals(invoice.toString())));
@@ -234,6 +254,8 @@ class InvoiceRepositoryTest {
     @Test
     void findById() {
         // arrange
+        output(table).toConsole();
+
         InvoiceRepository invoiceRepository = new InvoiceRepository();
         DeskRepository deskRepository = new DeskRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
@@ -251,7 +273,7 @@ class InvoiceRepositoryTest {
         Invoice invoice2 = new Invoice(4.6, 2, bill, product);
         Invoice invoice3 = new Invoice(4.6, 2, bill, product);
 
-        // modify
+        // act
         dishRepository.save(dish);
         serviceRepository.save(service);
         deskRepository.save(desk);
@@ -262,7 +284,9 @@ class InvoiceRepositoryTest {
         invoiceRepository.save(invoice2);
         invoiceRepository.save(invoice3);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(invoice1.toString(), invoiceRepository.findById(invoice1.getId()).toString());
         assertEquals(invoice2.toString(), invoiceRepository.findById(invoice2.getId()).toString());
         assertEquals(invoice3.toString(), invoiceRepository.findById(invoice3.getId()).toString());

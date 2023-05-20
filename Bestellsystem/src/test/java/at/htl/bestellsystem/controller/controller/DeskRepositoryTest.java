@@ -41,17 +41,21 @@ class DeskRepositoryTest {
     @Test
     void save() {
         // arrange
+        output(table).toConsole();
+
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
 
         Service service = new Service("firstName", "lastName");
         Desk desk = new Desk(service);
 
-        // modify
+        // act
         serviceRepository.save(service);
         deskRepository.save(desk);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(desk.getId(), 1);
 
         assertThat(table).column("DESK_NR")
@@ -63,6 +67,8 @@ class DeskRepositoryTest {
     @Test
     void update() {
         // arrange
+        output(table).toConsole();
+
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
 
@@ -70,7 +76,7 @@ class DeskRepositoryTest {
         Desk desk = new Desk(service);
         Service newService = new Service("firstName", "lastName");
 
-        // modify
+        // act
         serviceRepository.save(service);
         serviceRepository.save(newService);
 
@@ -79,7 +85,9 @@ class DeskRepositoryTest {
         desk.setService(newService);
         deskRepository.update(desk);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(desk.getId(), 1);
 
         assertThat(table).column("DESK_NR")
@@ -91,18 +99,21 @@ class DeskRepositoryTest {
     @Test
     void insert() {
         // arrange
+        output(table).toConsole();
+
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
 
         Service service = new Service("firstName", "lastName");
         Desk desk = new Desk(service);
 
-        // modify
+        // act
         serviceRepository.save(service);
 
         deskRepository.insert(desk);
+        output(table).toConsole();
 
-        // test
+        // assert
         assertEquals(desk.getId(), 1);
 
         assertThat(table).column("DESK_NR")
@@ -114,25 +125,30 @@ class DeskRepositoryTest {
     @Test
     void delete() {
         // arrange
+        output(table).toConsole();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
 
         Service service = new Service("firstName", "lastName");
         Desk desk = new Desk(service);
 
-        // modify
+        // act
         serviceRepository.save(service);
         deskRepository.insert(desk);
 
         deskRepository.delete(desk);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
     void findAll() {
         // arrange
+        output(table).toConsole();
+
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
 
@@ -143,7 +159,7 @@ class DeskRepositoryTest {
         Desk desk3 = new Desk(service);
 
 
-        // modify
+        // act
         serviceRepository.save(service);
         deskRepository.save(desk1);
         deskRepository.save(desk2);
@@ -151,7 +167,9 @@ class DeskRepositoryTest {
 
         List<Desk> deskList = deskRepository.findAll();
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(3, deskList.size());
 
         assertTrue(deskList.stream().anyMatch(desk -> desk1.toString().equals(desk.toString())));
@@ -162,6 +180,7 @@ class DeskRepositoryTest {
     @Test
     void findById() {
         // arrange
+        output(table).toConsole();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
 
@@ -172,13 +191,15 @@ class DeskRepositoryTest {
         Desk desk3 = new Desk(service);
 
 
-        // modify
+        // act
         serviceRepository.save(service);
         deskRepository.save(desk1);
         deskRepository.save(desk2);
         deskRepository.save(desk3);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(desk1.toString(), deskRepository.findById(desk1.getId()).toString());
         assertEquals(desk2.toString(), deskRepository.findById(desk2.getId()).toString());
         assertEquals(desk3.toString(), deskRepository.findById(desk3.getId()).toString());

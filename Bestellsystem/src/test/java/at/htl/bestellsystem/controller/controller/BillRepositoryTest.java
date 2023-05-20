@@ -41,6 +41,7 @@ class BillRepositoryTest {
     @Test
     void save() {
         // arrange
+        output(table).toConsole();
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
@@ -49,12 +50,13 @@ class BillRepositoryTest {
         Desk desk = new Desk(service);
         Bill bill = new Bill(desk, service);
 
-        // modify
+        // act
         serviceRepository.save(service);
         deskRepository.save(desk);
         billRepository.save(bill);
+        output(table).toConsole();  //reload the table
 
-        // test
+        // assert
         assertEquals(bill.getId(), 1);
 
         assertThat(table).column("BILL_NR")
@@ -68,6 +70,7 @@ class BillRepositoryTest {
     @Test
     void update() {
         // arrange
+        output(table).toConsole();
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
@@ -77,7 +80,7 @@ class BillRepositoryTest {
         Desk newDesk = new Desk(service);
         Bill bill = new Bill(desk, service);
 
-        // modify
+        // act
         serviceRepository.save(service);
         deskRepository.save(desk);
         deskRepository.save(newDesk);
@@ -87,7 +90,9 @@ class BillRepositoryTest {
         bill.setDesk(newDesk);
         billRepository.update(bill);
 
-        // test
+        output(table).toConsole();  //reload the table
+
+        // assert
         assertEquals(bill.getId(), 1);
 
         assertThat(table).column("BILL_NR")
@@ -101,6 +106,7 @@ class BillRepositoryTest {
     @Test
     void insert() {
         // arrange
+        output(table).toConsole();
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
@@ -109,13 +115,15 @@ class BillRepositoryTest {
         Desk desk = new Desk(service);
         Bill bill = new Bill(desk, service);
 
-        // modify
+        // act
         serviceRepository.save(service);
         deskRepository.save(desk);
 
         billRepository.insert(bill);
 
-        // test
+        output(table).toConsole();  //reload the table
+
+        // assert
         assertEquals(bill.getId(), 1);
 
         assertThat(table).column("BILL_NR")
@@ -129,6 +137,8 @@ class BillRepositoryTest {
     @Test
     void delete() {
         // arrange
+        output(table).toConsole();
+
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
@@ -137,20 +147,24 @@ class BillRepositoryTest {
         Desk desk = new Desk(service);
         Bill bill = new Bill(desk, service);
 
-        // modify
+        // act
         serviceRepository.save(service);
         deskRepository.save(desk);
         billRepository.insert(bill);
 
         billRepository.delete(bill);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
     void findAll() {
         // arrange
+        output(table).toConsole();
+
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
@@ -162,7 +176,7 @@ class BillRepositoryTest {
         Bill bill2 = new Bill(desk, service);
         Bill bill3 = new Bill(desk, service);
 
-        // modify
+        // act
         serviceRepository.save(service);
         deskRepository.save(desk);
         billRepository.save(bill1);
@@ -171,7 +185,9 @@ class BillRepositoryTest {
 
         List<Bill> billList = billRepository.findAll();
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(3, billList.size());
 
         assertTrue(billList.stream().anyMatch(bill -> bill1.toString().equals(bill.toString())));
@@ -182,6 +198,8 @@ class BillRepositoryTest {
     @Test
     void findById() {
         // arrange
+        output(table).toConsole();
+
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
@@ -193,14 +211,16 @@ class BillRepositoryTest {
         Bill bill2 = new Bill(desk, service);
         Bill bill3 = new Bill(desk, service);
 
-        // modify
+        // act
         serviceRepository.save(service);
         deskRepository.save(desk);
         billRepository.save(bill1);
         billRepository.save(bill2);
         billRepository.save(bill3);
- 
-        // test
+
+        output(table).toConsole();
+
+        // assert
         assertEquals(bill1.toString(), billRepository.findById(bill1.getId()).toString());
         assertEquals(bill2.toString(), billRepository.findById(bill2.getId()).toString());
         assertEquals(bill3.toString(), billRepository.findById(bill3.getId()).toString());

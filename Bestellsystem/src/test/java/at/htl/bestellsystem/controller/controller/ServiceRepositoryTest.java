@@ -40,13 +40,17 @@ class ServiceRepositoryTest {
     @Test
     void save() {
         // arrange
+        output(table).toConsole();
+
         ServiceRepository serviceRepository = new ServiceRepository();
         Service service = new Service("firstName", "lastName");
 
-        // modify
+        // act
         serviceRepository.save(service);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(service.getId(), 1);
 
         Assertions.assertThat(table).column("WORKING_NR")
@@ -60,16 +64,19 @@ class ServiceRepositoryTest {
     @Test
     void update() {
         // arrange
+        output(table).toConsole();
+
         ServiceRepository serviceRepository = new ServiceRepository();
         Service service = new Service("firstName", "lastName");
 
-        // modify
+        // act
         serviceRepository.save(service);
 
         service.setLastName("lastName2");
         serviceRepository.update(service);
+        output(table).toConsole();
 
-        // test
+        // assert
         assertEquals(service.getId(), 1);
 
         Assertions.assertThat(table).column("WORKING_NR")
@@ -83,13 +90,17 @@ class ServiceRepositoryTest {
     @Test
     void insert() {
         // arrange
+        output(table).toConsole();
+
         ServiceRepository serviceRepository = new ServiceRepository();
         Service service = new Service("firstName", "lastName");
 
-        // modify
+        // act
         serviceRepository.insert(service);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(service.getId(), 1);
 
         Assertions.assertThat(table).column("WORKING_NR")
@@ -103,34 +114,40 @@ class ServiceRepositoryTest {
     @Test
     void delete() {
         // arrange
+        output(table).toConsole();
         ServiceRepository serviceRepository = new ServiceRepository();
         Service service = new Service("firstName", "lastName");
 
-        // modify
+        // act
         serviceRepository.insert(service);
 
         serviceRepository.delete(service);
+        output(table).toConsole();
 
-        // test
+        // assert
         Assertions.assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
     void findAll() {
         // arrange
+        output(table).toConsole();
+
         ServiceRepository serviceRepository = new ServiceRepository();
         Service service1 = new Service("firstName", "lastName");
         Service service2 = new Service("firstName", "lastName");
         Service service3 = new Service("firstName", "lastName");
 
-        // modify
+        // act
         serviceRepository.save(service1);
         serviceRepository.save(service2);
         serviceRepository.save(service3);
 
         List<Service> serviceList = serviceRepository.findAll();
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(3, serviceList.size());
 
         assertTrue(serviceList.stream().anyMatch(service -> service1.toString().equals(service.toString())));
@@ -141,17 +158,21 @@ class ServiceRepositoryTest {
     @Test
     void findById() {
         // arrange
+        output(table).toConsole();
+
         ServiceRepository serviceRepository = new ServiceRepository();
         Service service1 = new Service("firstName", "lastName");
         Service service2 = new Service("firstName", "lastName");
         Service service3 = new Service("firstName", "lastName");
 
-        // modify
+        // act
         serviceRepository.save(service1);
         serviceRepository.save(service2);
         serviceRepository.save(service3);
 
-        // test
+        output(table).toConsole();
+
+        // assert
         assertEquals(service1.toString(), serviceRepository.findById(service1.getId()).toString());
         assertEquals(service2.toString(), serviceRepository.findById(service2.getId()).toString());
         assertEquals(service3.toString(), serviceRepository.findById(service3.getId()).toString());
