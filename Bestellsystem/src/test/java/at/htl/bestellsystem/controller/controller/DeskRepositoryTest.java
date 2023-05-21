@@ -43,6 +43,8 @@ class DeskRepositoryTest {
         // arrange
         output(table).toConsole();
 
+        Table table = new Table(Database.getDataSource(), tableName);
+
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
 
@@ -68,6 +70,8 @@ class DeskRepositoryTest {
     void update() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
 
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
@@ -100,6 +104,8 @@ class DeskRepositoryTest {
     void insert() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
 
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
