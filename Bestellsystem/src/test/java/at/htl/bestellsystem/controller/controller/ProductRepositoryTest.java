@@ -38,6 +38,8 @@ class ProductRepositoryTest {
         // arrange
         output(table).toConsole();
 
+        Table table = new Table(Database.getDataSource(), tableName);
+
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
 
@@ -68,6 +70,8 @@ class ProductRepositoryTest {
     void update() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
 
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
@@ -101,6 +105,8 @@ class ProductRepositoryTest {
     void insert() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
 
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
