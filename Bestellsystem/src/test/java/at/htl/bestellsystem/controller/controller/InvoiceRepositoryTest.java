@@ -37,6 +37,8 @@ class InvoiceRepositoryTest {
         // arrange
         output(table).toConsole();
 
+        Table table = new Table(Database.getDataSource(), tableName);
+
         InvoiceRepository invoiceRepository = new InvoiceRepository();
         DeskRepository deskRepository = new DeskRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
@@ -80,6 +82,8 @@ class InvoiceRepositoryTest {
     void update() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
 
         InvoiceRepository invoiceRepository = new InvoiceRepository();
         DeskRepository deskRepository = new DeskRepository();
@@ -130,6 +134,8 @@ class InvoiceRepositoryTest {
     void insert() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
 
         InvoiceRepository invoiceRepository = new InvoiceRepository();
         DeskRepository deskRepository = new DeskRepository();
