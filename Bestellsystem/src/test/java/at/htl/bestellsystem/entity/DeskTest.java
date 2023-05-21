@@ -51,4 +51,36 @@ class DeskTest {
         assertThat(desk.getService()).isEqualTo(newService);
         assertThat(desk.getService().getFirstName()).isNotEqualTo("Johny");
     }
+
+    @Test
+    void defaultConstructorGetters(){
+        //arrange
+        Service service = new Service();
+        Desk desk = new Desk(service);
+
+        //act
+
+        //assert
+        assertThat(desk.getId()).isNull();
+        assertThat(desk.getService().getFirstName()).isNull();
+        assertThat(desk.getService().getLastName()).isNull();
+    }
+
+    @Test
+    void defaultConstructorSetters(){
+        //arrange
+        Service service = new Service();
+        Desk desk = new Desk(service);
+
+        //act
+        desk.setId(55L);
+        Service newService = new Service("Omar", "Kabashi");
+        desk.setService(newService);
+
+        //assert
+        assertThat(desk.getId()).isEqualTo(55L);
+        assertThat(desk.getService()).isEqualTo(newService);
+        assertThat(desk.getService().getLastName()).isEqualTo("Kabashi");
+
+    }
 }
