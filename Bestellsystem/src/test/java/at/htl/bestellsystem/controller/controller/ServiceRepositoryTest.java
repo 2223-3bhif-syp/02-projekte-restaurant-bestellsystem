@@ -42,6 +42,8 @@ class ServiceRepositoryTest {
         // arrange
         output(table).toConsole();
 
+        Table table = new Table(Database.getDataSource(), tableName);
+
         ServiceRepository serviceRepository = new ServiceRepository();
         Service service = new Service("firstName", "lastName");
 
@@ -65,6 +67,8 @@ class ServiceRepositoryTest {
     void update() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
 
         ServiceRepository serviceRepository = new ServiceRepository();
         Service service = new Service("firstName", "lastName");
@@ -91,6 +95,8 @@ class ServiceRepositoryTest {
     void insert() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
 
         ServiceRepository serviceRepository = new ServiceRepository();
         Service service = new Service("firstName", "lastName");
