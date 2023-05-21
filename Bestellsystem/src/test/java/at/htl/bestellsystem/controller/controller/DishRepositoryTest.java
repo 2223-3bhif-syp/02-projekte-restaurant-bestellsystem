@@ -61,6 +61,9 @@ class DishRepositoryTest {
     void update() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
+
         DishRepository dishRepository = new DishRepository();
         Dish dish = new Dish("name");
 
@@ -85,6 +88,8 @@ class DishRepositoryTest {
     void insert() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
 
         DishRepository dishRepository = new DishRepository();
         Dish dish = new Dish("name");
