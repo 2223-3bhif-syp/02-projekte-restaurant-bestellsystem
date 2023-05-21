@@ -69,4 +69,39 @@ class BillTest {
 
     }
 
+    @Test
+    void defaultConstructorGetters(){
+        //arrange
+        Service service = new Service();
+        Desk desk = new Desk(service);
+        Bill bill = new Bill(desk, service);
+
+        //act
+
+        //assert
+        assertThat(bill.getId()).isNull();
+        assertThat(bill.getService().getFirstName()).isNull();
+        assertThat(bill.getService().getLastName()).isNull();
+
+    }
+
+    @Test
+    void defaultConstructorSetters(){
+        //arrange
+        Service service = new Service();
+        Desk desk = new Desk(service);
+        Bill bill = new Bill(desk, service);
+
+        //act
+        bill.setId(0L);
+        bill.getService().setFirstName("Abdiii");
+        bill.getService().setLastName("Mediii");
+
+        //assert
+        assertThat(bill.getId()).isEqualTo(0L);
+        assertThat(bill.getService().getFirstName()).isEqualTo("Abdiii");
+        assertThat(bill.getService().getLastName()).isEqualTo("Mediii");
+
+    }
+
 }
