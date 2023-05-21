@@ -21,7 +21,6 @@ public class ProductRepository implements Persistent<Product> {
         } else {
             update(product);
         }
-
     }
 
     @Override

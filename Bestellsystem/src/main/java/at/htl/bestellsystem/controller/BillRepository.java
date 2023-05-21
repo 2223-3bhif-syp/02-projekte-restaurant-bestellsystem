@@ -24,6 +24,7 @@ public class BillRepository implements Persistent<Bill>{
 
     @Override
     public void insert(Bill bill) {
+
         try (Connection connection = dataSource.getConnection()) {
             String sql = "INSERT INTO BILL(WORKING_NR,DESK_NR) VALUES (?,?)";
 

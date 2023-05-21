@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BillRepositoryTest {
-    private static String tableName = "BILL";
+    private static final String tableName = "BILL";
     Table table;
 
     @BeforeEach
@@ -42,6 +42,9 @@ class BillRepositoryTest {
     void save() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
+
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
@@ -71,6 +74,9 @@ class BillRepositoryTest {
     void update() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
+
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
@@ -107,6 +113,9 @@ class BillRepositoryTest {
     void insert() {
         // arrange
         output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
+
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
         DeskRepository deskRepository = new DeskRepository();
