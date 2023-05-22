@@ -40,5 +40,32 @@ class DishTest {
         assertThat(dish.getName()).isEqualTo("Hauptspeise");
     }
 
+    @Test
+    void defaultConstructorGetters(){
+        //arrange
+        Dish dish = new Dish();
+
+        //act
+
+        //assert
+        assertThat(dish.getId()).isNull();
+        assertThat(dish.getName()).isNull();
+    }
+
+    @Test
+    void defaultConstructorSetters(){
+        //arrange
+        Dish dish = new Dish();
+
+        //act
+        dish.setId(34L);
+        dish.setName("Dessert");
+
+        //assert
+        assertThat(dish.getId()).isEqualTo(34L);
+        assertThat(dish.getName()).isEqualTo("Dessert");
+
+    }
+
 }
 
