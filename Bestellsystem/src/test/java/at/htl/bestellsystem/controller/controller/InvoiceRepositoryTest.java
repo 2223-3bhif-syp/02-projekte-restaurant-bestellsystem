@@ -66,16 +66,13 @@ class InvoiceRepositoryTest {
         // assert
         assertEquals(invoice.getId(), 1);
 
-        assertThat(table).column("INVOICE_NR")
-                .value().isEqualTo(invoice.getId());
-        assertThat(table).column("BILL_NR")
-                .value().isEqualTo(invoice.getBill().getId());
-        assertThat(table).column("ITEM_NR")
-                .value().isEqualTo(invoice.getProduct().getId());
-        assertThat(table).column("AMOUNT_OF_ITEM")
-                .value().isEqualTo(invoice.getAmoutOfItem());
-        assertThat(table).column("PRICE")
-                .value().isEqualTo(invoice.getPrice());
+        assertThat(table).exists()
+                .row(0)
+                .column("INVOICE_NR").value().isEqualTo(invoice.getId())
+                .column("BILL_NR").value().isEqualTo(invoice.getBill().getId())
+                .column("ITEM_NR").value().isEqualTo(invoice.getProduct().getId())
+                .column("AMOUNT_OF_ITEM").value().isEqualTo(invoice.getAmoutOfItem())
+                .column("PRICE").value().isEqualTo(invoice.getPrice());
     }
 
     @Test
@@ -118,16 +115,13 @@ class InvoiceRepositoryTest {
         // assert
         assertEquals(invoice.getId(), 1);
 
-        assertThat(table).column("INVOICE_NR")
-                .value().isEqualTo(invoice.getId());
-        assertThat(table).column("BILL_NR")
-                .value().isEqualTo(invoice.getBill().getId());
-        assertThat(table).column("ITEM_NR")
-                .value().isEqualTo(invoice.getProduct().getId());
-        assertThat(table).column("AMOUNT_OF_ITEM")
-                .value().isEqualTo(invoice.getAmoutOfItem());
-        assertThat(table).column("PRICE")
-                .value().isEqualTo(invoice.getPrice());
+        assertThat(table).exists()
+                .row(0)
+                .column("INVOICE_NR").value().isEqualTo(invoice.getId())
+                .column("BILL_NR").value().isEqualTo(invoice.getBill().getId())
+                .column("ITEM_NR").value().isEqualTo(invoice.getProduct().getId())
+                .column("AMOUNT_OF_ITEM").value().isEqualTo(invoice.getAmoutOfItem())
+                .column("PRICE").value().isEqualTo(invoice.getPrice());
     }
 
     @Test
@@ -165,16 +159,13 @@ class InvoiceRepositoryTest {
         // assert
         assertEquals(invoice.getId(), 1);
 
-        assertThat(table).column("INVOICE_NR")
-                .value().isEqualTo(invoice.getId());
-        assertThat(table).column("BILL_NR")
-                .value().isEqualTo(invoice.getBill().getId());
-        assertThat(table).column("ITEM_NR")
-                .value().isEqualTo(invoice.getProduct().getId());
-        assertThat(table).column("AMOUNT_OF_ITEM")
-                .value().isEqualTo(invoice.getAmoutOfItem());
-        assertThat(table).column("PRICE")
-                .value().isEqualTo(invoice.getPrice());
+        assertThat(table).exists()
+                .row(0)
+                .column("INVOICE_NR").value().isEqualTo(invoice.getId())
+                .column("BILL_NR").value().isEqualTo(invoice.getBill().getId())
+                .column("ITEM_NR").value().isEqualTo(invoice.getProduct().getId())
+                .column("AMOUNT_OF_ITEM").value().isEqualTo(invoice.getAmoutOfItem())
+                .column("PRICE").value().isEqualTo(invoice.getPrice());
     }
 
     @Test
