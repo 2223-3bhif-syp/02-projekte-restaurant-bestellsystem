@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -55,15 +56,12 @@ class ProductRepositoryTest {
         // assert
         assertEquals(product.getId(), 1);
 
-        Assertions.assertThat(table).column("ITEM_NR")
-                .value().isEqualTo(product.getId());
-        Assertions.assertThat(table).column("DISH_NR")
-                .value().isEqualTo(product.getDish().getId());
-        Assertions.assertThat(table).column("NAME")
-                .value().isEqualTo(product.getName());
-        Assertions.assertThat(table).column("PRICE")
-                .value().isEqualTo(product.getPrice());
-
+        Assertions.assertThat(table).exists()
+                .row(0)
+                        .column("ITEM_NR").value().isEqualTo(product.getId())
+                        .column("DISH_NR").value().isEqualTo(product.getDish().getId())
+                        .column("NAME").value().isEqualTo(product.getName())
+                        .column("PRICE").value().isEqualTo(product.getPrice());
     }
 
     @Test
@@ -91,14 +89,12 @@ class ProductRepositoryTest {
         // assert
         assertEquals(product.getId(), 1);
 
-        Assertions.assertThat(table).column("ITEM_NR")
-                .value().isEqualTo(product.getId());
-        Assertions.assertThat(table).column("DISH_NR")
-                .value().isEqualTo(product.getDish().getId());
-        Assertions.assertThat(table).column("NAME")
-                .value().isEqualTo(product.getName());
-        Assertions.assertThat(table).column("PRICE")
-                .value().isEqualTo(product.getPrice());
+        Assertions.assertThat(table).exists()
+                        .row(0)
+                                .column("ITEM_NR").value().isEqualTo(product.getId())
+                                .column("DISH_NR").value().isEqualTo(product.getDish().getId())
+                                .column("NAME").value().isEqualTo(product.getName())
+                                .column("PRICE").value().isEqualTo(product.getPrice());
     }
  
     @Test
@@ -124,14 +120,12 @@ class ProductRepositoryTest {
         // assert
         assertEquals(product.getId(), 1);
 
-        Assertions.assertThat(table).column("ITEM_NR")
-                .value().isEqualTo(product.getId());
-        Assertions.assertThat(table).column("DISH_NR")
-                .value().isEqualTo(product.getDish().getId());
-        Assertions.assertThat(table).column("NAME")
-                .value().isEqualTo(product.getName());
-        Assertions.assertThat(table).column("PRICE")
-                .value().isEqualTo(product.getPrice());
+        Assertions.assertThat(table).exists()
+                .row(0)
+                        .column("ITEM_NR").value().isEqualTo(product.getId())
+                        .column("DISH_NR").value().isEqualTo(product.getDish().getId())
+                        .column("NAME").value().isEqualTo(product.getName())
+                        .column("PRICE").value().isEqualTo(product.getPrice());
     }
 
     @Test
