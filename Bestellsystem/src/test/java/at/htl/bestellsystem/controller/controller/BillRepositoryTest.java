@@ -62,12 +62,11 @@ class BillRepositoryTest {
         // assert
         assertEquals(bill.getId(), 1);
 
-        assertThat(table).column("BILL_NR")
-                .value().isEqualTo(bill.getId());
-        assertThat(table).column("WORKING_NR")
-                .value().isEqualTo(bill.getService().getId());
-        assertThat(table).column("DESK_NR")
-                .value().isEqualTo(bill.getDesk().getId());
+        assertThat(table).exists()
+                        .row(0)
+                        .column("BILL_NR").value().isEqualTo(bill.getId())
+                        .column("WORKING_NR").value().isEqualTo(bill.getService().getId())
+                        .column("DESK_NR").value().isEqualTo(bill.getDesk().getId());
     }
 
     @Test
@@ -101,12 +100,11 @@ class BillRepositoryTest {
         // assert
         assertEquals(bill.getId(), 1);
 
-        assertThat(table).column("BILL_NR")
-                .value().isEqualTo(bill.getId());
-        assertThat(table).column("WORKING_NR")
-                .value().isEqualTo(bill.getService().getId());
-        assertThat(table).column("DESK_NR")
-                .value().isEqualTo(bill.getDesk().getId());
+        assertThat(table).exists()
+                .row(0)
+                    .column("BILL_NR").value().isEqualTo(bill.getId())
+                    .column("WORKING_NR").value().isEqualTo(bill.getService().getId())
+                    .column("DESK_NR").value().isEqualTo(bill.getDesk().getId());
     }
 
     @Test
@@ -135,12 +133,11 @@ class BillRepositoryTest {
         // assert
         assertEquals(bill.getId(), 1);
 
-        assertThat(table).column("BILL_NR")
-                .value().isEqualTo(bill.getId());
-        assertThat(table).column("WORKING_NR")
-                .value().isEqualTo(bill.getService().getId());
-        assertThat(table).column("DESK_NR")
-                .value().isEqualTo(bill.getDesk().getId());
+        assertThat(table).exists()
+                .row(0)
+                    .column("BILL_NR").value().isEqualTo(bill.getId())
+                    .column("WORKING_NR").value().isEqualTo(bill.getService().getId())
+                    .column("DESK_NR").value().isEqualTo(bill.getDesk().getId());
     }
 
     @Test
