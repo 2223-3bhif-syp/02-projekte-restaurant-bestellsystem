@@ -60,10 +60,10 @@ class DeskRepositoryTest {
         // assert
         assertEquals(desk.getId(), 1);
 
-        assertThat(table).column("DESK_NR")
-                .value().isEqualTo(desk.getId());
-        assertThat(table).column("WORKING_NR")
-                .value().isEqualTo(desk.getService().getId());
+        assertThat(table).exists()
+                .row(0)
+                .column("DESK_NR").value().isEqualTo(desk.getId())
+                .column("WORKING_NR").value().isEqualTo(desk.getService().getId());
     }
 
     @Test
@@ -94,10 +94,10 @@ class DeskRepositoryTest {
         // assert
         assertEquals(desk.getId(), 1);
 
-        assertThat(table).column("DESK_NR")
-                .value().isEqualTo(desk.getId());
-        assertThat(table).column("WORKING_NR")
-                .value().isEqualTo(desk.getService().getId());
+        assertThat(table).exists()
+                .row(0)
+                .column("DESK_NR").value().isEqualTo(desk.getId())
+                .column("WORKING_NR").value().isEqualTo(desk.getService().getId());
     }
 
     @Test
@@ -122,10 +122,10 @@ class DeskRepositoryTest {
         // assert
         assertEquals(desk.getId(), 1);
 
-        assertThat(table).column("DESK_NR")
-                .value().isEqualTo(desk.getId());
-        assertThat(table).column("WORKING_NR")
-                .value().isEqualTo(desk.getService().getId());
+        assertThat(table).exists()
+                .row(0)
+                .column("DESK_NR").value().isEqualTo(desk.getId())
+                .column("WORKING_NR").value().isEqualTo(desk.getService().getId());
     }
 
     @Test
