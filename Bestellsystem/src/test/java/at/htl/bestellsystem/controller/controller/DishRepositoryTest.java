@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.db.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.db.output.Outputs.output;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,20 +42,24 @@ class DishRepositoryTest {
     @Test
     void save() {
         // arrange
+        output(table).toConsole();
+
+        Table table = new Table(Database.getDataSource(), tableName);
+
         DishRepository dishRepository = new DishRepository();
         Dish dish = new Dish("name");
 
-        // modify
+        // act
         dishRepository.save(dish);
+        output(table).toConsole();
 
-        // test
+        // assert
         assertEquals(dish.getId(), 1);
 
-        org.assertj.db.api.Assertions.assertThat(table).column("DISH_NR")
-                .value().isEqualTo(dish.getId());
-        org.assertj.db.api.Assertions.assertThat(table).column("NAME")
-                .value().isEqualTo(dish.getName());
-
+        assertThat(table).exists()
+                .row(0)
+                        .column("DISH_NR").value().isEqualTo(dish.getId())
+                        .column("NAME").value().isEqualTo(dish.getName());
     }
 
     @Test
@@ -78,10 +83,10 @@ class DishRepositoryTest {
         // assert
         assertEquals(dish.getId(), 1);
 
-        org.assertj.db.api.Assertions.assertThat(table).column("DISH_NR")
-                .value().isEqualTo(dish.getId());
-        org.assertj.db.api.Assertions.assertThat(table).column("NAME")
-                .value().isEqualTo(dish.getName());
+        assertThat(table).exists()
+                .row(0)
+                        .column("DISH_NR").value().isEqualTo(dish.getId())
+                        .column("NAME").value().isEqualTo(dish.getName());
     }
 
     @Test
@@ -102,10 +107,10 @@ class DishRepositoryTest {
         // assert
         assertEquals(dish.getId(), 1);
 
-        org.assertj.db.api.Assertions.assertThat(table).column("DISH_NR")
-                .value().isEqualTo(dish.getId());
-        org.assertj.db.api.Assertions.assertThat(table).column("NAME")
-                .value().isEqualTo(dish.getName());
+        assertThat(table).exists()
+                .row(0)
+                        .column("DISH_NR").value().isEqualTo(dish.getId())
+                        .column("NAME").value().isEqualTo(dish.getName());
     }
 
     @Test
@@ -124,7 +129,7 @@ class DishRepositoryTest {
         output(table).toConsole();
 
         // assert
-        org.assertj.db.api.Assertions.assertThat(table).hasNumberOfRows(0);
+        assertThat(table).hasNumberOfRows(0);
     }
 
     @Test
