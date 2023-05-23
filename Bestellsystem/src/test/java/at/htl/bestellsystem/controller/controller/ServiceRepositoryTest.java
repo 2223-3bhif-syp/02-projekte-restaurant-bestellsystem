@@ -55,12 +55,11 @@ class ServiceRepositoryTest {
         // assert
         assertEquals(service.getId(), 1);
 
-        Assertions.assertThat(table).column("WORKING_NR")
-                .value().isEqualTo(service.getId());
-        Assertions.assertThat(table).column("FIRST_NAME")
-                .value().isEqualTo(service.getFirstName());
-        Assertions.assertThat(table).column("LAST_NAME")
-                .value().isEqualTo(service.getLastName());
+        Assertions.assertThat(table).exists()
+                        .row(0)
+                .column("WORKING_NR").value().isEqualTo(service.getId())
+                .column("FIRST_NAME").value().isEqualTo(service.getFirstName())
+                .column("LAST_NAME").value().isEqualTo(service.getLastName());
     }
 
     @Test
@@ -83,12 +82,11 @@ class ServiceRepositoryTest {
         // assert
         assertEquals(service.getId(), 1);
 
-        Assertions.assertThat(table).column("WORKING_NR")
-                .value().isEqualTo(service.getId());
-        Assertions.assertThat(table).column("FIRST_NAME")
-                .value().isEqualTo(service.getFirstName());
-        Assertions.assertThat(table).column("LAST_NAME")
-                .value().isEqualTo(service.getLastName());
+        Assertions.assertThat(table).exists()
+                .row(0)
+                .column("WORKING_NR").value().isEqualTo(service.getId())
+                .column("FIRST_NAME").value().isEqualTo(service.getFirstName())
+                .column("LAST_NAME").value().isEqualTo(service.getLastName());
     }
 
     @Test
@@ -109,12 +107,11 @@ class ServiceRepositoryTest {
         // assert
         assertEquals(service.getId(), 1);
 
-        Assertions.assertThat(table).column("WORKING_NR")
-                .value().isEqualTo(service.getId());
-        Assertions.assertThat(table).column("FIRST_NAME")
-                .value().isEqualTo(service.getFirstName());
-        Assertions.assertThat(table).column("LAST_NAME")
-                .value().isEqualTo(service.getLastName());
+        Assertions.assertThat(table).exists()
+                .row(0)
+                .column("WORKING_NR").value().isEqualTo(service.getId())
+                .column("FIRST_NAME").value().isEqualTo(service.getFirstName())
+                .column("LAST_NAME").value().isEqualTo(service.getLastName());
     }
 
     @Test
