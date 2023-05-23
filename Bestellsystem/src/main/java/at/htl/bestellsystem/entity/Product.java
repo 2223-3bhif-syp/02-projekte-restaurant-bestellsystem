@@ -11,6 +11,7 @@ public class Product {
     private double price;
 
     //region Constructors
+    public Product(){}
 
     public Product(String name, double price,Dish dish) {
         this.dish = dish;

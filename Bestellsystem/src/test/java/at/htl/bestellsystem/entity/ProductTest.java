@@ -50,4 +50,37 @@ class ProductTest {
         assertThat(product.getName()).isEqualTo("Kuchen");
         assertThat(product.getDish()).isEqualTo(dish2);
     }
+
+    @Test
+    void defaultConstructorGetters(){
+        //arrange
+        Product product = new Product();
+
+        //act
+
+        //assert
+        assertThat(product.getId()).isNull();
+        assertThat(product.getName()).isNull();
+        assertThat(product.getPrice()).isEqualTo(0.0);
+        assertThat(product.getDish()).isNull();
+    }
+
+    @Test
+    void defaultConstructorSetters(){
+        //arrange
+        Product product = new Product();
+        Dish dish = new Dish("Vorspeise");
+
+        //act
+        product.setId(2L);
+        product.setName("Kuchen");
+        product.setPrice(5.5);
+        product.setDish(dish);
+
+        //assert
+        assertThat(product.getId()).isEqualTo(2L);
+        assertThat(product.getPrice()).isEqualTo(5.5);
+        assertThat(product.getName()).isEqualTo("Kuchen");
+        assertThat(product.getDish()).isEqualTo(dish);
+    }
 }
