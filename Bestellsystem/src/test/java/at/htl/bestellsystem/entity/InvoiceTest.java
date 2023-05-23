@@ -65,4 +65,41 @@ class InvoiceTest {
         assertThat(invoice.getBill().getDesk().getService().getFirstName()).isEqualTo("Bolint");
         assertThat(invoice.getBill().getDesk().getService().getLastName()).isEqualTo("Bolasch");
     }
+
+    @Test
+    void defaultConstructorGetters(){
+        //arrange
+        Invoice invoice = new Invoice();
+
+        //act
+
+        //assert
+        assertThat(invoice.getId()).isNull();
+        assertThat(invoice.getPrice()).isEqualTo(0.0);
+        assertThat(invoice.getProduct()).isNull();
+        assertThat(invoice.getBill()).isNull();
+        assertThat(invoice.getAmoutOfItem()).isEqualTo(0);
+    }
+
+    @Test
+    void defaultConstructorSetters(){
+        //arrange
+        Invoice invoice = new Invoice();
+
+        //act
+        invoice.setId(94L);
+        invoice.setPrice(5.5);
+        invoice.setBill(new Bill(new Desk(new Service("Al", "De")), new Service("Al", "De")));
+        invoice.setProduct(new Product("Cola", 5.5, new Dish("Getränke")));
+        invoice.setAmoutOfItem(3);
+
+        //assert
+        assertThat(invoice.getId()).isEqualTo(94L);
+        assertThat(invoice.getPrice()).isEqualTo(5.5);
+        assertThat(invoice.getProduct().getDish().getName()).isEqualTo("Getränke");
+        assertThat(invoice.getProduct().getName()).isEqualTo("Cola");
+        assertThat(invoice.getBill().getDesk().getService().getFirstName()).isEqualTo("Al");
+        assertThat(invoice.getBill().getDesk().getService().getLastName()).isEqualTo("De");
+
+    }
 }
