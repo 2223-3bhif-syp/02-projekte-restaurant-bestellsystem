@@ -1,22 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.bestellsystem.view.MenuController">
+    <left>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label prefHeight="54.0" prefWidth="51.0" text="Drink" />
+                <Label prefHeight="51.0" prefWidth="53.0" text="Main Dish" />
+                <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="40.0" text="Dessert" />
+            </children>
+        </VBox>
+    </left>
+    <bottom>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+            <HBox prefHeight="9.0" prefWidth="600.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Add" />
+                  <Button mnemonicParsing="false" text="Details" />
+                  <Button mnemonicParsing="false" text="Remove" />
+               </children>
+            </HBox>
+                <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" text="My Order" />
+                <ListView prefHeight="183.0" prefWidth="353.0" />
+            </children>
+        </VBox>
+    </bottom>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <ListView prefHeight="200.0" prefWidth="200.0" />
+                <ListView prefHeight="200.0" prefWidth="200.0" />
+                <ListView prefHeight="200.0" prefWidth="200.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+            </children>
+        </VBox>
+    </center>
+    <top>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label prefHeight="119.0" prefWidth="141.0" text="Menu" />
+                <ImageView fitHeight="107.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../../../images/logo.jpg" />
+                    </image>
+                </ImageView>
+            </children>
+        </HBox>
+    </top>
 
-<?import javafx.scene.text.Font?>
-<?import javafx.geometry.Insets?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="at.htl.bestellsystem.view.MenuController"
-            prefHeight="400.0" prefWidth="600.0">
-    <HBox>
-       <Label text="MENU"></Label>
-
-    </HBox>
-
-
-</AnchorPane>
+</BorderPane>
