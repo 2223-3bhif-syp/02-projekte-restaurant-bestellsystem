@@ -31,27 +31,27 @@
             <Label layoutX="61.0" layoutY="14.0" prefHeight="81.0" prefWidth="146.0" />
             <ImageView fitHeight="123.0" fitWidth="188.0" layoutX="41.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../images/logo.jpg" />
+                  <Image url="@../../../images/logo.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="33.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../images/drinks-logo.png" />
+                  <Image url="@../../../images/drinks-logo.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="33.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../images/desserts-logo.png" />
+                  <Image url="@../../../images/desserts-logo.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="33.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../images/cart-logo.png" />
+                  <Image url="@../../../images/cart-logo.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="33.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../images/food-logo.png" />
+                  <Image url="@../../../images/food-logo.png" />
                </image>
             </ImageView>
          </children>
