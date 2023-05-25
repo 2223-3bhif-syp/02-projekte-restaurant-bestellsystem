@@ -71,5 +71,10 @@
          </children>
       </AnchorPane>
       <AnchorPane layoutX="270.0" prefHeight="54.0" prefWidth="527.0" style="-fx-background-color: #2b2b2b;" />
+      <Text fill="#a88e0f" layoutX="523.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desserts" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

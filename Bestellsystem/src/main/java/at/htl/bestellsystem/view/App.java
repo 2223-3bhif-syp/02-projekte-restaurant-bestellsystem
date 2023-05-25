@@ -7,20 +7,27 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class App extends Application {
+
+    private static Stage currentStage = null;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/menu.fxml"));
+        currentStage = stage;
+
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/food.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 795, 538);
-        stage.setTitle("Menu");
+        currentStage.setTitle("Menu");
 
         Image icon = new Image("file:../../../images/logo.jpg");
-        stage.getIcons().add(icon);
+        currentStage.getIcons().add(icon);
 
-        stage.setScene(scene);
-        stage.show();
+        currentStage.setScene(scene);
+        currentStage.show();
+    }
+
+    public static Stage getCurrentStage(){
+        return currentStage;
     }
 
     public static void main(String[] args) {
