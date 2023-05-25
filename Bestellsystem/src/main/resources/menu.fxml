@@ -45,7 +45,7 @@
                 <Label prefHeight="119.0" prefWidth="141.0" text="Menu" />
                 <ImageView fitHeight="107.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../../../../images/logo.jpg" />
+                        <Image url="@../../../../images/logo.jpg" />
                     </image>
                 </ImageView>
             </children>
