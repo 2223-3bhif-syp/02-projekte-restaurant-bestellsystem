@@ -3,53 +3,59 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.bestellsystem.view.MenuController">
-    <left>
-        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <children>
-                <Label prefHeight="54.0" prefWidth="51.0" text="Drink" />
-                <Label prefHeight="51.0" prefWidth="53.0" text="Main Dish" />
-                <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="40.0" text="Dessert" />
-            </children>
-        </VBox>
-    </left>
-    <bottom>
-        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <children>
-            <HBox prefHeight="9.0" prefWidth="600.0">
-               <children>
-                  <Button mnemonicParsing="false" text="Add" />
-                  <Button mnemonicParsing="false" text="Details" />
-                  <Button mnemonicParsing="false" text="Remove" />
-               </children>
-            </HBox>
-                <Label contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" text="My Order" />
-                <ListView prefHeight="183.0" prefWidth="353.0" />
-            </children>
-        </VBox>
-    </bottom>
-    <center>
-        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <children>
-                <ListView prefHeight="200.0" prefWidth="200.0" />
-                <ListView prefHeight="200.0" prefWidth="200.0" />
-                <ListView prefHeight="200.0" prefWidth="200.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0" />
-            </children>
-        </VBox>
-    </center>
-    <top>
-        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <children>
-                <Label prefHeight="119.0" prefWidth="141.0" text="Menu" />
-                <ImageView fitHeight="107.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../../images/logo.jpg" />
-                    </image>
-                </ImageView>
-            </children>
-        </HBox>
-    </top>
-
-</BorderPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="538.0" prefWidth="269.0" style="-fx-background-color: #ffca28;">
+         <children>
+            <Button layoutY="170.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #ffca28;" text="Food">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+            <Button layoutX="-1.0" layoutY="327.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #ffca28;" text="Desserts">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="-1.0" layoutY="408.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #ffca28;" text="My Cart">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="-1.0" layoutY="248.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #ffca28;" text="Drinks">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="61.0" layoutY="14.0" prefHeight="81.0" prefWidth="146.0" />
+            <ImageView fitHeight="123.0" fitWidth="188.0" layoutX="41.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/logo.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="33.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/drinks-logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="33.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/desserts-logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="33.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/cart-logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="33.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/food-logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="270.0" prefHeight="54.0" prefWidth="527.0" style="-fx-background-color: #ffe082;" />
+   </children>
+</AnchorPane>
