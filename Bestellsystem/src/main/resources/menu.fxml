@@ -7,23 +7,23 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="538.0" prefWidth="269.0" style="-fx-background-color: #ffca28;">
+      <AnchorPane prefHeight="538.0" prefWidth="269.0" style="-fx-background-color: #2b2b2b;">
          <children>
-            <Button layoutY="170.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #ffca28;" text="Food">
+            <Button layoutY="170.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #2b2b2b;" text="Food" textFill="GOLD">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
-            <Button layoutX="-1.0" layoutY="327.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #ffca28;" text="Desserts">
+            <Button layoutX="-1.0" layoutY="327.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #2b2b2b;" text="Desserts" textFill="GOLD">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="-1.0" layoutY="408.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #ffca28;" text="My Cart">
+            <Button layoutX="-1.0" layoutY="408.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #2b2b2b;" text="My Cart" textFill="GOLD">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="-1.0" layoutY="248.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #ffca28;" text="Drinks">
+            <Button layoutX="-1.0" layoutY="248.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #2b2b2b;" text="Drinks" textFill="GOLD">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -56,6 +56,6 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="270.0" prefHeight="54.0" prefWidth="527.0" style="-fx-background-color: #ffe082;" />
+      <AnchorPane layoutX="270.0" prefHeight="54.0" prefWidth="527.0" style="-fx-background-color: #2b2b2b;" />
    </children>
 </AnchorPane>
