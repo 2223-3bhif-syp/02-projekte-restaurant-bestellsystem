@@ -31,14 +31,14 @@ public class MenuController {
 
     private void getNewStage(String name) throws IOException {
         Stage stage = App.getCurrentStage();
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/" + name + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/view/" + name + ".fxml"));
 
         Image icon = new Image("file:../../../images/logo.jpg");
         stage.getIcons().add(icon);
 
         Scene scene = new Scene(fxmlLoader.load(), 795, 538);
 
-        stage.setTitle("Menu");
+        stage.setTitle("Pick Your Order");
         stage.setScene(scene);
         stage.show();
     }

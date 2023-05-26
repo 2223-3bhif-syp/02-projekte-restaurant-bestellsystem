@@ -15,9 +15,9 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         currentStage = stage;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/food.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/view/food.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 795, 538);
-        currentStage.setTitle("Menu");
+        currentStage.setTitle("Pick Your Order");
 
         Image icon = new Image("file:../../../images/logo.jpg");
         currentStage.getIcons().add(icon);
