@@ -61,11 +61,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "item_nr=" + pId +
-                ", dish_nr=" + dish.getId() +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
+        return name;
     }
 }

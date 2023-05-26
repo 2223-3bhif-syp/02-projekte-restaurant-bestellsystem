@@ -86,7 +86,7 @@
                 </HBox>
                 <HBox spacing="10">
                     <VBox spacing="5">
-                        <ListView fx:id="lvItems" />
+                        <ListView fx:id="foodLv"></ListView>
                     </VBox>
                     <VBox spacing="10">
                         <HBox spacing="10">
