@@ -4,7 +4,6 @@ package at.htl.bestellsystem.controller;
 import at.htl.bestellsystem.entity.Bill;
 import at.htl.bestellsystem.entity.Invoice;
 import at.htl.bestellsystem.entity.Product;
-import at.htl.bestellsystem.entity.Service;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -31,7 +30,7 @@ public class InvoiceRepository implements Persistent<Invoice>{
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setLong(1, invoice.getBill().getId());
-            statement.setLong(2, invoice.getProduct().getId());
+            statement.setLong(2, invoice.getProduct().getPId());
             statement.setLong(3, invoice.getAmoutOfItem());
             statement.setDouble(4, invoice.getPrice());
 
@@ -141,7 +140,7 @@ public class InvoiceRepository implements Persistent<Invoice>{
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setLong(1, invoice.getBill().getId());
-            statement.setLong(2, invoice.getProduct().getId());
+            statement.setLong(2, invoice.getProduct().getPId());
             statement.setLong(3, invoice.getAmoutOfItem());
             statement.setDouble(4, invoice.getPrice());
             statement.setLong(5, invoice.getId());

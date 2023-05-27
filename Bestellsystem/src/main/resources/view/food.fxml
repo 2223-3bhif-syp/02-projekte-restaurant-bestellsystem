@@ -86,7 +86,10 @@
                 </HBox>
                 <HBox spacing="10">
                     <VBox spacing="5">
-                        <ListView fx:id="foodLv"></ListView>
+                        <ListView fx:id="foodListView"></ListView>
+                        <ListView fx:id="drinksListView"></ListView>
+                        <ListView fx:id="dessertListView"></ListView>
+                        <ListView fx:id="myCartListView"></ListView>
                     </VBox>
                     <VBox spacing="10">
                         <HBox spacing="10">
@@ -104,7 +107,7 @@
                         </HBox>
 
                         <HBox alignment="CENTER" spacing="10">
-                            <Button fx:id="addBtn" text="Add" />
+                            <Button onAction="#onClickAddButton" fx:id="addBtn" text="Add" />
                         </HBox>
                     </VBox>
                 </HBox>

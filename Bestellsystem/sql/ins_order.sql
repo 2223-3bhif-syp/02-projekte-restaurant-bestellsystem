@@ -15,6 +15,9 @@ VALUES ('Getränke');
 INSERT INTO DISH(NAME)
 VALUES ('Hauptspeise');
 
+INSERT INTO DISH(NAME)
+VALUES ('Nachspeise');
+
 --Produkte
 INSERT INTO PRODUCT(DISH_NR, NAME, PRICE)
 VALUES (1, 'Coca-Cola', 1.50);
@@ -30,6 +33,9 @@ VALUES (2, 'Kebab Pizza', 12.20);
 
 INSERT INTO PRODUCT(DISH_NR, NAME, PRICE)
 VALUES (2, 'Cheese Burger', 4.90);
+
+INSERT INTO PRODUCT(DISH_NR, NAME, PRICE)
+VALUES (3, 'Schoko Kuchen', 3.86);
 
 --Tische
 INSERT INTO DESK(WORKING_NR)

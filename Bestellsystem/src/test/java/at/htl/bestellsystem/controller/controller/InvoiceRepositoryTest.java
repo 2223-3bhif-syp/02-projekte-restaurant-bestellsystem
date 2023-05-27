@@ -70,7 +70,7 @@ class InvoiceRepositoryTest {
                 .row(0)
                 .column("INVOICE_NR").value().isEqualTo(invoice.getId())
                 .column("BILL_NR").value().isEqualTo(invoice.getBill().getId())
-                .column("ITEM_NR").value().isEqualTo(invoice.getProduct().getId())
+                .column("ITEM_NR").value().isEqualTo(invoice.getProduct().getPId())
                 .column("AMOUNT_OF_ITEM").value().isEqualTo(invoice.getAmoutOfItem())
                 .column("PRICE").value().isEqualTo(invoice.getPrice());
     }
@@ -119,7 +119,7 @@ class InvoiceRepositoryTest {
                 .row(0)
                 .column("INVOICE_NR").value().isEqualTo(invoice.getId())
                 .column("BILL_NR").value().isEqualTo(invoice.getBill().getId())
-                .column("ITEM_NR").value().isEqualTo(invoice.getProduct().getId())
+                .column("ITEM_NR").value().isEqualTo(invoice.getProduct().getPId())
                 .column("AMOUNT_OF_ITEM").value().isEqualTo(invoice.getAmoutOfItem())
                 .column("PRICE").value().isEqualTo(invoice.getPrice());
     }
@@ -163,7 +163,7 @@ class InvoiceRepositoryTest {
                 .row(0)
                 .column("INVOICE_NR").value().isEqualTo(invoice.getId())
                 .column("BILL_NR").value().isEqualTo(invoice.getBill().getId())
-                .column("ITEM_NR").value().isEqualTo(invoice.getProduct().getId())
+                .column("ITEM_NR").value().isEqualTo(invoice.getProduct().getPId())
                 .column("AMOUNT_OF_ITEM").value().isEqualTo(invoice.getAmoutOfItem())
                 .column("PRICE").value().isEqualTo(invoice.getPrice());
     }

@@ -86,7 +86,10 @@
                 </HBox>
                 <HBox spacing="10">
                     <VBox spacing="5">
-                        <ListView fx:id="lvItems" />
+                        <ListView fx:id="myCartListView"></ListView>
+                        <ListView fx:id="foodListView"></ListView>
+                        <ListView fx:id="drinksListView"></ListView>
+                        <ListView fx:id="dessertListView"></ListView>
                     </VBox>
                     <VBox spacing="10">
                         <HBox spacing="10">

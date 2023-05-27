@@ -72,7 +72,7 @@ public class Invoice {
         return "Invoice{" +
                 "invoice_nr=" + id +
                 ", bill_nr=" + bill.getId() +
-                ", item_nr=" + getProduct().getId() +
+                ", item_nr=" + getProduct().getPId() +
                 ", amout_of_item=" + amoutOfItem +
                 ", price=" + price +
                 '}';

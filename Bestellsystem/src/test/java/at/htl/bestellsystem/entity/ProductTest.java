@@ -3,14 +3,14 @@ package at.htl.bestellsystem.entity;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+
 class ProductTest {
     @Test
     void createProduct() {
         Dish dish = new Dish("Vorspeise");
         Product product = new Product("Zwiebelsuppe",5.60,dish);
 
-        assertThat(product.getId()).isEqualTo(null);
+        assertThat(product.getPId()).isEqualTo(null);
         assertThat(product.getPrice()).isEqualTo(5.60);
         assertThat(product.getName()).isEqualTo("Zwiebelsuppe");
         assertThat(product.getDish()).isEqualTo(dish);
@@ -25,7 +25,7 @@ class ProductTest {
         //act
 
         //assert
-        assertThat(product.getId()).isEqualTo(null);
+        assertThat(product.getPId()).isEqualTo(null);
         assertThat(product.getPrice()).isEqualTo(5.60);
         assertThat(product.getName()).isEqualTo("Zwiebelsuppe");
         assertThat(product.getDish()).isEqualTo(dish);
@@ -39,13 +39,13 @@ class ProductTest {
         Product product = new Product("Zwiebelsuppe",5.60,dish);
 
         //act
-        product.setId(2L);
+        product.setPId(2L);
         product.setName("Kuchen");
         product.setPrice(5.5);
         product.setDish(dish2);
 
         //assert
-        assertThat(product.getId()).isEqualTo(2L);
+        assertThat(product.getPId()).isEqualTo(2L);
         assertThat(product.getPrice()).isEqualTo(5.5);
         assertThat(product.getName()).isEqualTo("Kuchen");
         assertThat(product.getDish()).isEqualTo(dish2);
@@ -59,7 +59,7 @@ class ProductTest {
         //act
 
         //assert
-        assertThat(product.getId()).isNull();
+        assertThat(product.getPId()).isNull();
         assertThat(product.getName()).isNull();
         assertThat(product.getPrice()).isEqualTo(0.0);
         assertThat(product.getDish()).isNull();
@@ -72,13 +72,13 @@ class ProductTest {
         Dish dish = new Dish("Vorspeise");
 
         //act
-        product.setId(2L);
+        product.setPId(2L);
         product.setName("Kuchen");
         product.setPrice(5.5);
         product.setDish(dish);
 
         //assert
-        assertThat(product.getId()).isEqualTo(2L);
+        assertThat(product.getPId()).isEqualTo(2L);
         assertThat(product.getPrice()).isEqualTo(5.5);
         assertThat(product.getName()).isEqualTo("Kuchen");
         assertThat(product.getDish()).isEqualTo(dish);

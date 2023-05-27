@@ -22,11 +22,11 @@ public class Product {
 
 
     //region Getters and setters
-    public Long getId() {
+    public Long getPId() {
         return pId;
     }
 
-    public void setId(Long id) {
+    public void setPId(Long id) {
         this.pId = id;
     }
 

@@ -54,11 +54,11 @@ class ProductRepositoryTest {
         output(table).toConsole();
 
         // assert
-        assertEquals(product.getId(), 1);
+        assertEquals(product.getPId(), 1);
 
         Assertions.assertThat(table).exists()
                 .row(0)
-                        .column("ITEM_NR").value().isEqualTo(product.getId())
+                        .column("ITEM_NR").value().isEqualTo(product.getPId())
                         .column("DISH_NR").value().isEqualTo(product.getDish().getId())
                         .column("NAME").value().isEqualTo(product.getName())
                         .column("PRICE").value().isEqualTo(product.getPrice());
@@ -87,11 +87,11 @@ class ProductRepositoryTest {
         output(table).toConsole();
 
         // assert
-        assertEquals(product.getId(), 1);
+        assertEquals(product.getPId(), 1);
 
         Assertions.assertThat(table).exists()
                         .row(0)
-                                .column("ITEM_NR").value().isEqualTo(product.getId())
+                                .column("ITEM_NR").value().isEqualTo(product.getPId())
                                 .column("DISH_NR").value().isEqualTo(product.getDish().getId())
                                 .column("NAME").value().isEqualTo(product.getName())
                                 .column("PRICE").value().isEqualTo(product.getPrice());
@@ -118,11 +118,11 @@ class ProductRepositoryTest {
         output(table).toConsole();
 
         // assert
-        assertEquals(product.getId(), 1);
+        assertEquals(product.getPId(), 1);
 
         Assertions.assertThat(table).exists()
                 .row(0)
-                        .column("ITEM_NR").value().isEqualTo(product.getId())
+                        .column("ITEM_NR").value().isEqualTo(product.getPId())
                         .column("DISH_NR").value().isEqualTo(product.getDish().getId())
                         .column("NAME").value().isEqualTo(product.getName())
                         .column("PRICE").value().isEqualTo(product.getPrice());
@@ -207,8 +207,8 @@ class ProductRepositoryTest {
         output(table).toConsole();
 
         // assert
-        assertEquals(product1.toString(), productRepository.findById(product1.getId()).toString());
-        assertEquals(product2.toString(), productRepository.findById(product2.getId()).toString());
-        assertEquals(product3.toString(), productRepository.findById(product3.getId()).toString());
+        assertEquals(product1.toString(), productRepository.findById(product1.getPId()).toString());
+        assertEquals(product2.toString(), productRepository.findById(product2.getPId()).toString());
+        assertEquals(product3.toString(), productRepository.findById(product3.getPId()).toString());
     }
 }

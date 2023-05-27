@@ -3,8 +3,12 @@ package at.htl.bestellsystem.view.controller;
 import at.htl.bestellsystem.controller.ProductRepository;
 import at.htl.bestellsystem.entity.Product;
 import at.htl.bestellsystem.view.App;
-import javafx.beans.value.ChangeListener;
+import at.htl.bestellsystem.view.model.Dessert;
+import at.htl.bestellsystem.view.model.Drink;
+import at.htl.bestellsystem.view.model.Food;
+import at.htl.bestellsystem.view.model.MyCart;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
@@ -12,22 +16,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class MenuController {
 
     @FXML
     public Button foodButton;
-
-
 
     @FXML
     public Button dessertsButton;
@@ -43,12 +42,21 @@ public class MenuController {
     @FXML
     public TextField searchField;
 
+    public ListView<Product> foodListView;
+    public ListView<Product> drinksListView;
 
-    ProductRepository productRepository = new ProductRepository();
-    public ObservableList<Product> productObservableList = FXCollections.observableArrayList(productRepository.findAll());
-    FilteredList<Product> productFl = new FilteredList<>(productObservableList, c -> true);
+    public ListView<Product> dessertListView;
+    public ListView<Product> myCartListView;
+    private Food food;
 
-    public ListView foodLv;
+    private Drink drink;
+
+    private Dessert dessert;
+    private MyCart myCart;
+    FilteredList<Product> filteredDrinks;
+    FilteredList<Product> filteredFoods;
+
+    FilteredList<Product> filteredDesserts;
 
     private void getNewStage(String name) throws IOException {
         Stage stage = App.getCurrentStage();
@@ -64,33 +72,40 @@ public class MenuController {
         stage.show();
     }
 
-
-
     @FXML
     private void initialize(){
+        food = Food.getInstance();
+        filteredFoods = new FilteredList<>(food.getFood());
+        foodListView.setItems(filteredFoods);
 
-        foodLv.setItems(productFl);
-
-        this.foodLv.getSelectionModel().selectedItemProperty().addListener((ChangeListener<Product>) (observableValue, contact1, t1) -> {
-            Product product = observableValue.getValue();
-
-            nameField.setText(product.getName() + "");
-            priceField.setText(product.getPrice() + "");
+        foodListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                nameField.setText(newValue.getName());
+                priceField.setText(String.valueOf(newValue.getPrice()));
+            }
         });
 
-        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
-            productFl.setPredicate(contact -> {
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-                final String searchTerm = newValue.toLowerCase();
+        drink = Drink.getInstance();
+        filteredDrinks = new FilteredList<>(drink.getDrink());
+        drinksListView.setItems(filteredDrinks);
 
-                return contact.getName().toLowerCase().contains(searchTerm);
-
-            });
+        drinksListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                nameField.setText(newValue.getName());
+                priceField.setText(String.valueOf(newValue.getPrice()));
+            }
         });
 
+        dessert = Dessert.getInstance();
+        filteredDesserts = new FilteredList<>(dessert.getDessert());
+        dessertListView.setItems(filteredDesserts);
 
+        dessertListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                nameField.setText(newValue.getName());
+                priceField.setText(String.valueOf(newValue.getPrice()));
+            }
+        });
     }
 
     public void onClickFoodButton(ActionEvent actionEvent) throws IOException{
@@ -111,5 +126,13 @@ public class MenuController {
     public void onClickDrinksButton(ActionEvent actionEvent) throws IOException {
         System.out.println("Drinks Button Clicked!");
         getNewStage("drinks");
+    }
+
+    public void onClickAddButton(ActionEvent actionEvent) {
+        Product selectedProduct = foodListView.getSelectionModel().getSelectedItem();
+        if (selectedProduct != null) {
+            MyCart.getInstance().addToCart(selectedProduct);
+            System.out.println("Product added to cart: " + selectedProduct.getName());
+        }
     }
 }
