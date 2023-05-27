@@ -1,6 +1,7 @@
 package at.htl.bestellsystem.view.model;
 
 import at.htl.bestellsystem.controller.ProductRepository;
+import at.htl.bestellsystem.database.SqlRunner;
 import at.htl.bestellsystem.entity.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +12,7 @@ public class Food {
 
     public static synchronized Food getInstance(){
         if(instance == null){
+            SqlRunner.dropAndCreateTablesWithExampleData();
             instance = new Food();
         }
 
