@@ -82,7 +82,7 @@
             <VBox spacing="20.0">
                 <HBox spacing="10">
                     <TextField fx:id="searchField" />
-                    <Button fx:id="searchBtn" text="Search" />
+                    <Button fx:id="searchBtn" onAction="#searchBtnOnAction" text="Search" />
                 </HBox>
                 <HBox spacing="10">
                     <VBox spacing="5">

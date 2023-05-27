@@ -24,6 +24,7 @@ public class MyCart {
         cartItems.add(product);
     }
 
+
     public void removeFromCart(Product product) {
         cartItems.remove(product);
     }
@@ -35,4 +36,6 @@ public class MyCart {
     public void clearCart() {
         cartItems.clear();
     }
+
+
 }

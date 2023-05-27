@@ -82,7 +82,7 @@
             <VBox spacing="20.0">
                 <HBox spacing="10">
                     <TextField fx:id="searchField" />
-                    <Button fx:id="searchBtn" text="Search" />
+                    <Button fx:id="searchBtn" onAction="#searchBtnOnAction" text="Search" />
                 </HBox>
                 <HBox spacing="10">
                     <VBox spacing="5">
@@ -96,7 +96,7 @@
                             <VBox spacing="15">
                                 <Label text="Name:" />
                                 <Label text="Price:" />
-                                <Label text="Amount:" />
+                                <Label text="Amount:"  />
                             </VBox>
 
                             <VBox prefHeight="115.0" prefWidth="150.0" spacing="5">
@@ -107,8 +107,8 @@
                         </HBox>
 
                         <HBox alignment="CENTER" spacing="10">
-                            <Button fx:id="saveBtn" text="Save" />
-                            <Button fx:id="removeBtn" text="Remove" />
+                            <Button fx:id="saveBtn" onAction="#onSaveAction" text="Save" />
+                            <Button fx:id="removeBtn" onAction="#onRemoveBtnAction" text="Remove" />
                         </HBox>
                     </VBox>
                 </HBox>

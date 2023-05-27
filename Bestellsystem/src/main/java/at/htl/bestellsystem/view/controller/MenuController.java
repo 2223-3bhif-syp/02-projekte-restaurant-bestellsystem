@@ -1,29 +1,28 @@
 package at.htl.bestellsystem.view.controller;
 
-import at.htl.bestellsystem.controller.ProductRepository;
 import at.htl.bestellsystem.entity.Product;
 import at.htl.bestellsystem.view.App;
 import at.htl.bestellsystem.view.model.Dessert;
 import at.htl.bestellsystem.view.model.Drink;
 import at.htl.bestellsystem.view.model.Food;
 import at.htl.bestellsystem.view.model.MyCart;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
-public class MenuController {
+public class MenuController<T> {
 
     @FXML
     public Button foodButton;
@@ -47,6 +46,8 @@ public class MenuController {
 
     public ListView<Product> dessertListView;
     public ListView<Product> myCartListView;
+    public Button addBtn;
+    public Label amountLabel;
     private Food food;
 
     private Drink drink;
@@ -57,8 +58,9 @@ public class MenuController {
     FilteredList<Product> filteredFoods;
 
     FilteredList<Product> filteredDesserts;
+    FilteredList<Product> filteredMyList;
 
-    private void getNewStage(String name) throws IOException {
+    private void getNewStage(String name,String title) throws IOException {
         Stage stage = App.getCurrentStage();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/view/" + name + ".fxml"));
 
@@ -67,9 +69,17 @@ public class MenuController {
 
         Scene scene = new Scene(fxmlLoader.load(), 795, 538);
 
-        stage.setTitle("Pick Your Order");
+        stage.setTitle(title);
         stage.setScene(scene);
         stage.show();
+    }
+    public void searchMethod(TextField field, FilteredList<Product> filteredList){
+        String search = field.getText();
+
+        filteredList.setPredicate(c -> Boolean.parseBoolean(c.getName()));
+
+        filteredList.setPredicate(c ->   c.getName().toLowerCase().contains(search.toLowerCase()));
+
     }
 
     @FXML
@@ -106,33 +116,141 @@ public class MenuController {
                 priceField.setText(String.valueOf(newValue.getPrice()));
             }
         });
+
+        myCartListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                nameField.setText(newValue.getName());
+                priceField.setText(String.valueOf(newValue.getPrice()));
+                amountField.setText(String.valueOf(newValue.getAmount()));
+            }
+        });
+
+        myCart = MyCart.getInstance();
+        filteredMyList = new FilteredList<>(myCart.getCartItems());
+        myCartListView.setItems(filteredMyList);
+
+
     }
 
     public void onClickFoodButton(ActionEvent actionEvent) throws IOException{
         System.out.println("Food Button Clicked!");
-        getNewStage("food");
+        getNewStage("food","Food");
     }
 
     public void onClickDessertsButton(ActionEvent actionEvent) throws IOException{
         System.out.println("Desserts Button Clicked!");
-        getNewStage("desserts");
+        getNewStage("desserts","Desserts");
     }
 
     public void onClickMyCartButton(ActionEvent actionEvent) throws IOException{
         System.out.println("My Cart Button Clicked!");
-        getNewStage("myCart");
+
+        getNewStage("myCart","MyCart");
     }
 
     public void onClickDrinksButton(ActionEvent actionEvent) throws IOException {
         System.out.println("Drinks Button Clicked!");
-        getNewStage("drinks");
+        getNewStage("drinks","Drinks");
+    }
+
+    public void addBtnHelper(ListView<Product> t){
+        Product selectedProduct = t.getSelectionModel().getSelectedItem();
+        if (selectedProduct != null) {
+            System.out.println("Product added to cart: " + selectedProduct.getName());
+            MyCart.getInstance().addToCart(selectedProduct);
+            System.out.println(MyCart.getInstance().getCartItems().size());
+            System.out.println(MyCart.getInstance().getCartItems().get(0));
+            myCartListView.setItems(MyCart.getInstance().getCartItems());
+        }
+
     }
 
     public void onClickAddButton(ActionEvent actionEvent) {
-        Product selectedProduct = foodListView.getSelectionModel().getSelectedItem();
-        if (selectedProduct != null) {
-            MyCart.getInstance().addToCart(selectedProduct);
-            System.out.println("Product added to cart: " + selectedProduct.getName());
+        Stage currentStage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+
+        System.out.println(currentStage.getTitle());
+
+        switch (currentStage.getTitle()) {
+            case "Food":
+                addBtnHelper(foodListView);
+                System.out.println("From foodListView added");
+
+
+                break;
+            case "Drinks":
+                addBtnHelper(drinksListView);
+                System.out.println("From drinksListView added");
+
+                break;
+            case "Desserts":
+                addBtnHelper(dessertListView);
+                System.out.println("From dessertListView added");
+                break;
+
+            default:
+                System.out.println("");
+                break;
+        }
+    }
+
+    public void searchBtnOnAction(ActionEvent actionEvent) {
+        Stage currentStage = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+
+        switch (currentStage.getTitle()) {
+            case "Food":
+                searchMethod(searchField,filteredFoods);
+                System.out.println("Filtered foodListView");
+
+
+                break;
+            case "Drinks":
+                searchMethod(searchField,filteredDrinks);
+                System.out.println("Filtered drinksListView ");
+
+                break;
+            case "Desserts":
+                searchMethod(searchField,filteredDesserts);
+                System.out.println("Filtered dessertListView ");
+                break;
+            case "MyCart":
+                searchMethod(searchField,filteredMyList);
+                System.out.println("Filtered MycartListView ");
+                break;
+
+            default:
+                System.out.println("");
+                break;
+        }
+
+
+    }
+
+    public void onSaveAction(ActionEvent actionEvent) {
+
+        try{
+            Product product =  myCartListView.getSelectionModel().getSelectedItem();
+            int amount = Integer.parseInt( amountField.getText());
+            product.setAmount(amount);
+        }
+        catch (Exception e ){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setContentText("Incorrect data entered!");
+            alert.showAndWait();
+        }
+
+    }
+
+    public void onRemoveBtnAction(ActionEvent actionEvent) {
+        try {
+            myCart.removeFromCart(myCartListView.getSelectionModel().getSelectedItem());
+            myCartListView.refresh();
+        }
+        catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setContentText("Incorrect data entered!");
+            alert.showAndWait();
         }
     }
 }
