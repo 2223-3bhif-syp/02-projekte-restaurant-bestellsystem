@@ -8,6 +8,7 @@ import at.htl.bestellsystem.view.model.Food;
 import at.htl.bestellsystem.view.model.MyCart;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -129,7 +130,6 @@ public class MenuController<T> {
         filteredMyList = new FilteredList<>(myCart.getCartItems());
         myCartListView.setItems(filteredMyList);
 
-
     }
 
     public void onClickFoodButton(ActionEvent actionEvent) throws IOException{
@@ -156,11 +156,26 @@ public class MenuController<T> {
     public void addBtnHelper(ListView<Product> t){
         Product selectedProduct = t.getSelectionModel().getSelectedItem();
         if (selectedProduct != null) {
+            boolean isAlreadyInCart = false;
+
+            for (Product item : MyCart.getInstance().getCartItems()){
+                if(item.equals(selectedProduct)){
+                    item.setAmount(item.getAmount() + 1);
+                    isAlreadyInCart = true;
+                    break;
+                }
+            }
+
+            if(!isAlreadyInCart){
+                selectedProduct.setAmount(1);
+                MyCart.getInstance().addToCart(selectedProduct);
+            }
+
             System.out.println("Product added to cart: " + selectedProduct.getName());
-            MyCart.getInstance().addToCart(selectedProduct);
-            System.out.println(MyCart.getInstance().getCartItems().size());
-            System.out.println(MyCart.getInstance().getCartItems().get(0));
-            myCartListView.setItems(MyCart.getInstance().getCartItems());
+            System.out.println("Cart size: " + MyCart.getInstance().getCartItems().size());
+
+            myCartListView.setItems(FXCollections.observableArrayList(MyCart.getInstance().getCartItems()));
+
         }
 
     }
@@ -174,7 +189,6 @@ public class MenuController<T> {
             case "Food":
                 addBtnHelper(foodListView);
                 System.out.println("From foodListView added");
-
 
                 break;
             case "Drinks":
@@ -200,7 +214,6 @@ public class MenuController<T> {
             case "Food":
                 searchMethod(searchField,filteredFoods);
                 System.out.println("Filtered foodListView");
-
 
                 break;
             case "Drinks":
@@ -228,9 +241,17 @@ public class MenuController<T> {
     public void onSaveAction(ActionEvent actionEvent) {
 
         try{
-            Product product =  myCartListView.getSelectionModel().getSelectedItem();
+
             int amount = Integer.parseInt( amountField.getText());
-            product.setAmount(amount);
+
+            if(amount == 0){
+                myCart.removeFromCart(myCartListView.getSelectionModel().getSelectedItem());
+                myCartListView.refresh();
+            }else{
+                Product product =  myCartListView.getSelectionModel().getSelectedItem();
+                product.setAmount(amount);
+            }
+
         }
         catch (Exception e ){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -244,6 +265,9 @@ public class MenuController<T> {
     public void onRemoveBtnAction(ActionEvent actionEvent) {
         try {
             myCart.removeFromCart(myCartListView.getSelectionModel().getSelectedItem());
+            nameField.setText("");
+            priceField.setText("");
+            amountField.setText("");
             myCartListView.refresh();
         }
         catch (Exception e){

@@ -37,5 +37,4 @@ public class MyCart {
         cartItems.clear();
     }
 
-
 }

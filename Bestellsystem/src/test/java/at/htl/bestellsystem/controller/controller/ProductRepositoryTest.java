@@ -19,12 +19,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ProductRepositoryTest {
     private static String tableName = "PRODUCT";
-    Table table;
+    Table table = new Table(Database.getDataSource(), tableName);
 
     @BeforeEach
     public void setUp() {
         // to make sure every Table is empty and set up right
-        table = new Table(Database.getDataSource(), tableName);
         SqlRunner.dropTablesAndCreateEmptyTables();
     }
 
@@ -39,7 +38,7 @@ class ProductRepositoryTest {
         // arrange
         output(table).toConsole();
 
-        Table table = new Table(Database.getDataSource(), tableName);
+        table = new Table(Database.getDataSource(), tableName);
 
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
@@ -69,7 +68,7 @@ class ProductRepositoryTest {
         // arrange
         output(table).toConsole();
 
-        Table table = new Table(Database.getDataSource(), tableName);
+        table = new Table(Database.getDataSource(), tableName);
 
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();
@@ -102,7 +101,7 @@ class ProductRepositoryTest {
         // arrange
         output(table).toConsole();
 
-        Table table = new Table(Database.getDataSource(), tableName);
+        table = new Table(Database.getDataSource(), tableName);
 
         ProductRepository productRepository = new ProductRepository();
         DishRepository dishRepository = new DishRepository();

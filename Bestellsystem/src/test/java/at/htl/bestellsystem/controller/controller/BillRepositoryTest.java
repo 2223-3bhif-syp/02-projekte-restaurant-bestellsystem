@@ -23,12 +23,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BillRepositoryTest {
     private static final String tableName = "BILL";
-    Table table;
+    Table table = new Table(Database.getDataSource(), tableName);
 
     @BeforeEach
     public void setUp() {
         // to make sure every Table is empty and set up right
-        table = new Table(Database.getDataSource(), tableName);
         SqlRunner.dropTablesAndCreateEmptyTables();
     }
 
@@ -43,7 +42,7 @@ class BillRepositoryTest {
         // arrange
         output(table).toConsole();
 
-        Table table = new Table(Database.getDataSource(), tableName);
+        table = new Table(Database.getDataSource(), tableName);
 
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
@@ -74,7 +73,7 @@ class BillRepositoryTest {
         // arrange
         output(table).toConsole();
 
-        Table table = new Table(Database.getDataSource(), tableName);
+        table = new Table(Database.getDataSource(), tableName);
 
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
@@ -112,7 +111,7 @@ class BillRepositoryTest {
         // arrange
         output(table).toConsole();
 
-        Table table = new Table(Database.getDataSource(), tableName);
+        table = new Table(Database.getDataSource(), tableName);
 
         BillRepository billRepository = new BillRepository();
         ServiceRepository serviceRepository = new ServiceRepository();
