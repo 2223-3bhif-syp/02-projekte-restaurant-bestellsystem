@@ -93,6 +93,7 @@ public class MenuController<T> {
             if (newValue != null) {
                 nameField.setText(newValue.getName());
                 priceField.setText(String.valueOf(newValue.getPrice()));
+                amountField.setText("");
             }
         });
 
@@ -104,6 +105,7 @@ public class MenuController<T> {
             if (newValue != null) {
                 nameField.setText(newValue.getName());
                 priceField.setText(String.valueOf(newValue.getPrice()));
+                amountField.setText("");
             }
         });
 
@@ -115,6 +117,7 @@ public class MenuController<T> {
             if (newValue != null) {
                 nameField.setText(newValue.getName());
                 priceField.setText(String.valueOf(newValue.getPrice()));
+                amountField.setText("");
             }
         });
 
@@ -154,30 +157,37 @@ public class MenuController<T> {
     }
 
     public void addBtnHelper(ListView<Product> t){
-        Product selectedProduct = t.getSelectionModel().getSelectedItem();
-        if (selectedProduct != null) {
-            boolean isAlreadyInCart = false;
+        try{
+            Product selectedProduct = t.getSelectionModel().getSelectedItem();
+            int amount = Integer.parseInt(amountField.getText());
 
-            for (Product item : MyCart.getInstance().getCartItems()){
-                if(item.equals(selectedProduct)){
-                    item.setAmount(item.getAmount() + 1);
-                    isAlreadyInCart = true;
-                    break;
+            if(amount == 0)
+                throw new Exception();
+
+            selectedProduct.setAmount(amount);
+
+            if (selectedProduct != null) {
+                for (Product item : MyCart.getInstance().getCartItems()){
+                    if(item.equals(selectedProduct)){
+                        item.setAmount(selectedProduct.getAmount());
+                        return;
+                    }
                 }
-            }
 
-            if(!isAlreadyInCart){
-                selectedProduct.setAmount(1);
                 MyCart.getInstance().addToCart(selectedProduct);
+
+                System.out.println("Product added to cart: " + selectedProduct.getName());
+                System.out.println("Cart size: " + MyCart.getInstance().getCartItems().size());
+
+                myCartListView.setItems(FXCollections.observableArrayList(MyCart.getInstance().getCartItems()));
             }
-
-            System.out.println("Product added to cart: " + selectedProduct.getName());
-            System.out.println("Cart size: " + MyCart.getInstance().getCartItems().size());
-
-            myCartListView.setItems(FXCollections.observableArrayList(MyCart.getInstance().getCartItems()));
-
         }
-
+        catch(Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setContentText("Incorrect data entered!");
+            alert.showAndWait();
+        }
     }
 
     public void onClickAddButton(ActionEvent actionEvent) {
