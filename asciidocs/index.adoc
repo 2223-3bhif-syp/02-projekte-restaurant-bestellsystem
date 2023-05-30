@@ -1,0 +1,16 @@
+= Pick your Menu
+Abdullah Aldesoky, Armin Salkovic, Balint Balazs, Sukhbat Munkh
+:toc: left
+:sectnums:
+
+== Beschreibung
+Da es wie wir alle wissen manchmal einige Missverständnisse zwischen dem Kellner und den Kunden
+in Bezug auf das Nichtsprechen der selben Sprache oder normale Verständnis Probleme gibt, wollen wir eine Applikation entwickeln, welche den Kunden eine simple und einfache Bestellung ermöglicht.
+
+== Projektauftrag
+
+xref:Projektauftrag.adoc[Projektauftrag]
+
+== Pflichtenheft
+
+xref:Pflichtenheft.adoc[Pflichtenheft]

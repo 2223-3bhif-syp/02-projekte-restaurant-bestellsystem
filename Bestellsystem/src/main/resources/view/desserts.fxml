@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="795.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htl.bestellsystem.view.controller.MenuController">
+   <children>
+      <AnchorPane prefHeight="538.0" prefWidth="269.0" style="-fx-background-color: #2b2b2b;">
+         <children>
+            <Button fx:id="foodButton" layoutX="79.0" layoutY="170.0" mnemonicParsing="false" onAction="#onClickFoodButton" prefHeight="54.0" prefWidth="108.0" style="-fx-background-color: #2b2b2b;" styleClass="menuItem" text="Food" textFill="#a88e0f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="dessertsButton" layoutX="81.0" layoutY="327.0" mnemonicParsing="false" onAction="#onClickDessertsButton" prefHeight="54.0" prefWidth="108.0" style="-fx-background-color: #2b2b2b;" styleClass="menuItem" text="Desserts" textFill="#a88e0f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="myCartButton" layoutX="80.0" layoutY="408.0" mnemonicParsing="false" onAction="#onClickMyCartButton" prefHeight="54.0" prefWidth="108.0" style="-fx-background-color: #2b2b2b;" styleClass="menuItem" text="My Cart" textFill="#a88e0f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="drinksButton" layoutX="79.0" layoutY="248.0" mnemonicParsing="false" onAction="#onClickDrinksButton" prefHeight="54.0" prefWidth="108.0" style="-fx-background-color: #2b2b2b;" styleClass="menuItem" text="Drinks" textFill="#a88e0f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="61.0" layoutY="14.0" prefHeight="81.0" prefWidth="146.0" />
+            <ImageView fitHeight="123.0" fitWidth="188.0" layoutX="41.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/logo.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="33.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/drinks-logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="33.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/desserts-logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="33.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/cart-logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="33.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../images/food-logo.png" />
+               </image>
+            </ImageView>
+
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="270.0" prefHeight="54.0" prefWidth="527.0" style="-fx-background-color: #2b2b2b;">
+         <children>
+            <Text fill="#a88e0f" layoutX="219.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desserts" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children></AnchorPane>
+      <AnchorPane layoutX="283.0" layoutY="69.0" prefHeight="471.0" prefWidth="514.0">
+         <VBox spacing="20.0">
+            <HBox spacing="10">
+               <TextField fx:id="searchField" />
+               <Button fx:id="searchBtn" onAction="#searchBtnOnAction" text="Search" />
+            </HBox>
+            <HBox spacing="10">
+               <VBox spacing="5">
+                  <ListView fx:id="dessertListView"></ListView>
+                  <ListView fx:id="foodListView"></ListView>
+                  <ListView fx:id="drinksListView"></ListView>
+                  <ListView fx:id="myCartListView"></ListView>
+               </VBox>
+               <VBox spacing="10">
+                  <HBox spacing="10">
+                     <VBox spacing="15">
+                        <Label text="Name:" />
+                        <Label text="Price:" />
+                        <Label text="Amount:" />
+                     </VBox>
+
+                     <VBox prefHeight="115.0" prefWidth="150.0" spacing="5">
+                        <TextField fx:id="nameField" editable="false"/>
+                        <TextField fx:id="priceField" editable="false"/>
+                        <TextField fx:id="amountField" />
+                     </VBox>
+                  </HBox>
+
+                  <HBox alignment="CENTER" spacing="10">
+                     <Button fx:id="addBtn" onAction="#onClickAddButton"  text="Add" />
+                  </HBox>
+               </VBox>
+            </HBox>
+         </VBox>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,45 @@
+@startuml
+class Dish {
+dishNr: int
+name: String
+}
+
+class Product {
+dishNr: int
+itemNr: int
+name: String
+price: double
+}
+
+class Bill {
+billNr: int
+workingNr: int
+deskNr: int
+}
+
+class Service {
+workingNr: int
+name: String
+}
+
+class Desk {
+workingNr: int
+deskNr: int
+}
+
+class Invoice {
+invoiceNr: int
+billNr: int
+itemNr: int
+amountOfItem: int
+price: double
+}
+
+
+Service "1" -- "*" Bill : > collects
+Bill "*" -- "1" Desk : < consumes
+Service "1" -- "*" Desk : > serves
+Dish "1" -- "*" Product : > contains
+Bill "*" -- "*" Product : > contains
+(Bill, Product) . Invoice
+@enduml
