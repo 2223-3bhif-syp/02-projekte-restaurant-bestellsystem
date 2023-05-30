@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MenuController<T> {
 
@@ -157,37 +158,44 @@ public class MenuController<T> {
     }
 
     public void addBtnHelper(ListView<Product> t){
-        try{
-            Product selectedProduct = t.getSelectionModel().getSelectedItem();
-            int amount = Integer.parseInt(amountField.getText());
+        Product selectedProduct = t.getSelectionModel().getSelectedItem();
+        if (selectedProduct != null) {
+            boolean isAlreadyInCart = false;
 
-            if(amount == 0)
-                throw new Exception();
-
-            selectedProduct.setAmount(amount);
-
-            if (selectedProduct != null) {
-                for (Product item : MyCart.getInstance().getCartItems()){
-                    if(item.equals(selectedProduct)){
-                        item.setAmount(selectedProduct.getAmount());
-                        return;
-                    }
+            for (Product item : MyCart.getInstance().getCartItems()){
+                if(item.equals(selectedProduct)){
+                    item.setAmount(item.getAmount() + getEnteredAmount());
+                    isAlreadyInCart = true;
+                    break;
                 }
+            }
 
+            if(!isAlreadyInCart){
+                selectedProduct.setAmount(getEnteredAmount());
                 MyCart.getInstance().addToCart(selectedProduct);
+            }
 
-                System.out.println("Product added to cart: " + selectedProduct.getName());
-                System.out.println("Cart size: " + MyCart.getInstance().getCartItems().size());
+            System.out.println("Product added to cart: " + selectedProduct.getName());
+            System.out.println("Cart size: " + MyCart.getInstance().getCartItems().size());
 
-                myCartListView.setItems(FXCollections.observableArrayList(MyCart.getInstance().getCartItems()));
+            myCartListView.setItems(FXCollections.observableArrayList(MyCart.getInstance().getCartItems()));
+
+        }
+
+    }
+
+    public int getEnteredAmount() {
+        int enteredAmount = 1;
+
+        if (!Objects.equals(amountField.getText(), "")) {
+            try {
+                enteredAmount = Integer.parseInt(amountField.getText());
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
             }
         }
-        catch(Exception e){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setContentText("Incorrect data entered!");
-            alert.showAndWait();
-        }
+
+        return enteredAmount;
     }
 
     public void onClickAddButton(ActionEvent actionEvent) {
